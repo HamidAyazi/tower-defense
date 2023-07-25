@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 202d421b836146440ab2c64714bb7f55, type: 3}
   m_Name: SupporterTower1
   m_EditorClassIdentifier: 
-  TowerPrefab: {fileID: 0}
+  TowerPrefab: {fileID: 881279276339776582, guid: bc11955a20b9d7f44bcabcf79da082ce, type: 3}
   Level: 0
   BasePrice: 0
   BaseRange: 0

@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d437250ce55d0147920c3de4281cdd0, type: 3}
   m_Name: SupporterTowerTypesList
   m_EditorClassIdentifier: 
-  List: []
+  List:
+  - {fileID: 11400000, guid: 71288d1ce610e6b48bde5db7f08b78e1, type: 2}

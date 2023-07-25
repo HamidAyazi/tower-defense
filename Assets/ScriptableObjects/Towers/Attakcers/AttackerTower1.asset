@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dec6e4e0a717bb448d2cdcb4e4fecaa, type: 3}
   m_Name: AttackerTower1
   m_EditorClassIdentifier: 
-  Level: 0
-  BasePrice: 0
-  BaseRange: 0
-  TowerPrefab: {fileID: 0}
-  BaseDamage: 0
-  BaseAttackSpeed: 0
-  BaseRotationSpeed: 0
+  TowerPrefab: {fileID: 1754151569063332644, guid: 57228c580c5a31e458deb8e164aa8d40, type: 3}
+  Level: 1
+  BasePrice: 10
+  BaseRange: 5
+  BaseDamage: 1
+  BaseAttackSpeed: 1
+  BaseRotationSpeed: 1
