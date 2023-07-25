@@ -9,7 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8a0be7c0440d094ca71d96531ecd324, type: 3}
-  m_Name: Tower2
+  m_Script: {fileID: 11500000, guid: 209ae000119ad3c49803ab5885e9ce8d, type: 3}
+  m_Name: Enemy1
   m_EditorClassIdentifier: 
-  nameString: 
+  BaseHealthPoint: 10
+  BaseDamage: 1
+  MovementSpeed: 1
+  EnemyPrefab: {fileID: 4940051750334593009, guid: c25b6fa5e9de241478c28e51ab521205, type: 3}
