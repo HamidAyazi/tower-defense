@@ -9,13 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8a0be7c0440d094ca71d96531ecd324, type: 3}
-  m_Name: Tower1
+  m_Script: {fileID: 11500000, guid: 5d437250ce55d0147920c3de4281cdd0, type: 3}
+  m_Name: SupporterTowerTypesList
   m_EditorClassIdentifier: 
-  Level: 1
-  BasePrice: 10
-  BaseDamage: 1
-  BaseAttackSpeed: 1
-  BaseRange: 10
-  BaseRotationSpeed: 1
-  TowerPrefab: {fileID: 1754151569063332644, guid: 57228c580c5a31e458deb8e164aa8d40, type: 3}
+  List: []
