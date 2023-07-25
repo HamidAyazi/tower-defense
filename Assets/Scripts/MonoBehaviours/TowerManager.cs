@@ -5,8 +5,8 @@ using UnityEngine;
 public class TowerManager : MonoBehaviour
 {
     private TowerScriptableObject SelectedTowerType;
-    private TowerTypesList AttackerTowerTypesList;
-    private TowerTypesList SupporterTowerTypesList;
+    private TowerTypesList AvailableAttackerTowerTypesList;
+    private TowerTypesList AvailableSupporterTowerTypesList;
     private Camera MainCamera;
     // Start is called before the first frame update
     void Start()
@@ -22,6 +22,18 @@ public class TowerManager : MonoBehaviour
         {
             Instantiate(SelectedTowerType.TowerPrefab, GetMouseWorldPosition(), Quaternion.identity);
         }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            SelectedTowerType = AvailableAttackerTowerTypesList.List[0];
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            SelectedTowerType = AvailableAttackerTowerTypesList.List[1];
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            SelectedTowerType = AvailableSupporterTowerTypesList.List[0];
+        }
     }
     private Vector3 GetMouseWorldPosition()
     {
@@ -31,8 +43,8 @@ public class TowerManager : MonoBehaviour
     }
     private void GetValidTowers()
     {
-        AttackerTowerTypesList = Resources.Load<TowerTypesList>("AttackerTowerTypesList");
-        SupporterTowerTypesList = Resources.Load<TowerTypesList>("SupporterTowerTypesList");
-        SelectedTowerType = AttackerTowerTypesList.List[0];
+        AvailableAttackerTowerTypesList = Resources.Load<TowerTypesList>("AttackerTowerTypesList");
+        AvailableSupporterTowerTypesList = Resources.Load<TowerTypesList>("SupporterTowerTypesList");
+        SelectedTowerType = AvailableAttackerTowerTypesList.List[0];
     }
 }

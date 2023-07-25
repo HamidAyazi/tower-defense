@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackTower : MonoBehaviour
+public class AttackerTower : MonoBehaviour
 {
     private Transform TargetTransform;
     private float LookForTargetTimer;
@@ -12,7 +12,7 @@ public class AttackTower : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Range = GetComponent<AttackTower>().Range;
+        Range = GetComponent<AttackerTowerScriptableObject>().BaseRange;
         Debug.Log(Range);
     }
 
