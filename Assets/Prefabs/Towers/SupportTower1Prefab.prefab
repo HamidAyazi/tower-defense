@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 881279276339776582}
   - component: {fileID: 8924452922612130612}
   m_Layer: 0
-  m_Name: SupportTower1
+  m_Name: SupportTower1Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

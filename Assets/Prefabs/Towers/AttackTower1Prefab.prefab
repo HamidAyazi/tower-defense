@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4012987546220704851}
   - component: {fileID: 7181636062354182239}
   m_Layer: 0
-  m_Name: AttackTower1
+  m_Name: AttackTower1Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

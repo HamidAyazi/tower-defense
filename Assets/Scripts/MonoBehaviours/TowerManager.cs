@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class TowerManager : MonoBehaviour
 {
-    [SerializeField]
-    private TowerScriptableObject TowerType;
+    private TowerScriptableObject SelectedTowerType;
+    private TowerTypesList AttackerTowerTypesList;
+    private TowerTypesList SupporterTowerTypesList;
     private Camera MainCamera;
     // Start is called before the first frame update
     void Start()
     {
         MainCamera = Camera.main;
-        Debug.Log( Resources.Load<TowerTypesList>(typeof(TowerTypesList).Name));
+        GetValidTowers();
     }
 
     // Update is called once per frame
@@ -19,7 +20,7 @@ public class TowerManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Instantiate(TowerType.TowerPrefab, GetMouseWorldPosition(), Quaternion.identity);
+            Instantiate(SelectedTowerType.TowerPrefab, GetMouseWorldPosition(), Quaternion.identity);
         }
     }
     private Vector3 GetMouseWorldPosition()
@@ -27,5 +28,11 @@ public class TowerManager : MonoBehaviour
         Vector3 MouseWorldPosition = MainCamera.ScreenToWorldPoint(Input.mousePosition);
         MouseWorldPosition.z = 0f;
         return MouseWorldPosition;
+    }
+    private void GetValidTowers()
+    {
+        AttackerTowerTypesList = Resources.Load<TowerTypesList>("AttackerTowerTypesList");
+        SupporterTowerTypesList = Resources.Load<TowerTypesList>("SupporterTowerTypesList");
+        SelectedTowerType = AttackerTowerTypesList.List[0];
     }
 }
