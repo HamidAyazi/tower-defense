@@ -2,19 +2,18 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    private EnemyScriptableObject Enemy;
+    private float MovementSpeed;
     private Transform target;
     private int wavepointIndex = 0;
 
     void Start() {
         target = WaypointsScript.points[0];
-        Enemy = Resources.Load<EnemyScriptableObject>("ScriptableObjects/Enemies/Enemy1");
-
+        MovementSpeed = Resources.Load<EnemyScriptableObject>("ScriptableObjects/Enemies/Enemy1").MovementSpeed;
     }
 
     void Update() {
         Vector3 dir = target.position - transform.position;
-        transform.Translate(dir.normalized * Enemy.MovementSpeed * Time.deltaTime, Space.World);
+        transform.Translate(dir.normalized * MovementSpeed * Time.deltaTime, Space.World);
 
         if (Vector3.Distance(transform.position, target.position) <= 0.4f){
             GetNextWaypoint();
