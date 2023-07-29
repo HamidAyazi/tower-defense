@@ -43,8 +43,8 @@ public class TowerManager : MonoBehaviour
     }
     private void GetValidTowers()
     {
-        AvailableAttackerTowerTypesList = Resources.Load<TowerTypesList>("AttackerTowerTypesList");
-        AvailableSupporterTowerTypesList = Resources.Load<TowerTypesList>("SupporterTowerTypesList");
+        AvailableAttackerTowerTypesList = Resources.Load<TowerTypesList>("ScriptableObjects/AttackerTowerTypesList");
+        AvailableSupporterTowerTypesList = Resources.Load<TowerTypesList>("ScriptableObjects/SupporterTowerTypesList");
         SelectedTowerType = AvailableAttackerTowerTypesList.List[0];
     }
 }
