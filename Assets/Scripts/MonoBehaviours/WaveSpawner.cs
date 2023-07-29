@@ -12,7 +12,6 @@ public class WaveSpawner : MonoBehaviour
 
     void Update(){
         if (countdown <= 0) {
-            Debug.Log("SpawnWave");
             StartCoroutine(SpawnWave());
             countdown = waveInterval;
         }
@@ -20,7 +19,6 @@ public class WaveSpawner : MonoBehaviour
     }
 
     IEnumerator SpawnWave(){
-        Debug.Log("SpawnWave called");
         waveNumber++;
         float enemyCount = CalculateEnemiesPerWave(waveNumber);
         for (int i = 0; i < (int)enemyCount; i++) {

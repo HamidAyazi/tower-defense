@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AttackerTower : MonoBehaviour
 {
-    private Transform TargetTransform;
+    private Enemy TargetEnemy;
     private float LookForTargetTimer;
     private float LookForTargetTimerMAX = .2f;
     private TowerScriptableObject Tower;
@@ -38,19 +38,28 @@ public class AttackerTower : MonoBehaviour
             Enemy enemy = Collider2D.GetComponent<Enemy>();
             if (enemy != null)
             {
-                // Is a building!
-                if(TargetTransform == null)
+                // Is an Enemy!
+                if(TargetEnemy == null)
                 {
-                    TargetTransform = enemy.transform;
+                    TargetEnemy = enemy;
                 } else
                 {
                     if (Vector3.Distance(transform.position, enemy.transform.position) < 
-                        Vector3.Distance(transform.position, TargetTransform.position))
+                        Vector3.Distance(transform.position, TargetEnemy.transform.position))
                     {
-                        TargetTransform = enemy.transform;
+                        // CLoser!
+                        TargetEnemy = enemy;
                     }
                 }
             }
         }
+    }
+    private void HandleShooting()
+    {
+        if (TargetEnemy !=null)
+        {
+            new Projectile(transform.position, TargetEnemy);
+        }
+        
     }
 }
