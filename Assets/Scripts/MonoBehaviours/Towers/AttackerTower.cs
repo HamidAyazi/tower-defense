@@ -7,18 +7,20 @@ public class AttackerTower : MonoBehaviour
     private Enemy TargetEnemy;
     private float LookForTargetTimer;
     private float LookForTargetTimerMAX = .2f;
-    private TowerScriptableObject Tower;
+    private float ShootTimer = 0f;
+    private AttackerTowerScriptableObject AttackerTowerSO;
 
     // Start is called before the first frame update
     void Start()
     {
-        Tower = Resources.Load<TowerScriptableObject>("ScriptableObjects/Towers/Attackers/AttackerTower1");
+        AttackerTowerSO = Resources.Load<AttackerTowerScriptableObject>("ScriptableObjects/Towers/Attackers/AttackerTower1");
     }
 
     // Update is called once per frame
     void Update()
     {
         HandleTargeting();
+        HandleShooting();
     } 
     private void HandleTargeting()
     {
@@ -31,21 +33,19 @@ public class AttackerTower : MonoBehaviour
     }
     private void LookForTargets()
     {
-        Collider2D[] Collider2DArray = Physics2D.OverlapCircleAll(transform.position, Tower.BaseRange);
-
-        foreach(Collider2D Collider2D in Collider2DArray)
+        Collider2D[] Collider2DArray = Physics2D.OverlapCircleAll(transform.position, AttackerTowerSO.BaseRange);
+        foreach (Collider2D Collider2D in Collider2DArray)
         {
             Enemy enemy = Collider2D.GetComponent<Enemy>();
             if (enemy != null)
             {
                 // Is an Enemy!
-                if(TargetEnemy == null)
+                if (TargetEnemy == null)
                 {
                     TargetEnemy = enemy;
                 } else
                 {
-                    if (Vector3.Distance(transform.position, enemy.transform.position) < 
-                        Vector3.Distance(transform.position, TargetEnemy.transform.position))
+                    if (Vector3.Distance(transform.position, enemy.transform.position) < Vector3.Distance(transform.position, TargetEnemy.transform.position))
                     {
                         // CLoser!
                         TargetEnemy = enemy;
@@ -56,10 +56,16 @@ public class AttackerTower : MonoBehaviour
     }
     private void HandleShooting()
     {
-        if (TargetEnemy !=null)
+        ShootTimer -= Time.deltaTime;
+        if (ShootTimer < 0f)
         {
-            new Projectile(transform.position, TargetEnemy);
+            ShootTimer += AttackerTowerSO.BaseAttackSpeed;
+            if (TargetEnemy != null)
+            {
+                new Projectile (AttackerTowerSO.ProjectilePrefab ,transform.position, TargetEnemy);
+            }
         }
+        
         
     }
 }

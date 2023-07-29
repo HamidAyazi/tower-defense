@@ -1,29 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
-{
-    //public Transform ProjectilePrefab;
+{ 
     private Enemy TargetEnemy;
+    private Vector3 MoveDiraction;
+    private Vector3 LastMoveDiraction;
+    private float TimeToDie = 2f;
+    private float MoveSpeed = 2f;
 
-    public Projectile (Vector3 position, Enemy Enemy)
+    public Projectile(Transform Prefab, Vector3 position, Enemy TargetEnemy)
     {
-        //Instantiate(, position, Quaternion.identity);
-        TargetEnemy = Enemy;
-
+        Transform ProjectileTransform = Instantiate(Prefab, position, Quaternion.identity);
+        ProjectileTransform.GetComponent<Projectile>().TargetEnemy = TargetEnemy;
     }
     private void Update()
     {
-        Vector3 MoveDiraction = (TargetEnemy.transform.position - transform.position).normalized;
+        if (TargetEnemy != null)
+        {
+            MoveDiraction = (TargetEnemy.transform.position - transform.position).normalized;
+            LastMoveDiraction = MoveDiraction;
+        } else
+        {
+            MoveDiraction = LastMoveDiraction;
+        } 
 
-        float MoveSpeed = 20f;
         transform.position += MoveDiraction * MoveSpeed * Time.deltaTime;
-    }
-
-    private void SetTarget(Enemy Enemy)
-    {
-        this.TargetEnemy = Enemy;
+        Debug.Log(MoveDiraction);
+        TimeToDie -= Time.deltaTime;
+        if(TimeToDie < 0f)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -35,4 +45,5 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
 }
