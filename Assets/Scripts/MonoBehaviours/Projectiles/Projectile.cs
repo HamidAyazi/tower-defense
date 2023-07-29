@@ -9,7 +9,7 @@ public class Projectile : MonoBehaviour
 
     public Projectile (Vector3 position, Enemy Enemy)
     {
-        Instantiate(, position, Quaternion.identity);
+        //Instantiate(, position, Quaternion.identity);
         TargetEnemy = Enemy;
 
     }
