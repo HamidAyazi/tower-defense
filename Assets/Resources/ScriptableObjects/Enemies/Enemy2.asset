@@ -15,4 +15,4 @@ MonoBehaviour:
   BaseHealtPoint: 5
   BaseDamage: 1
   MovementSpeed: 5
-  EnemyPrefab: {fileID: 0}
+  EnemyPrefab: {fileID: 584016449469908458, guid: 91c1a103cb242f8439cbf0e8d6bc9949, type: 3}

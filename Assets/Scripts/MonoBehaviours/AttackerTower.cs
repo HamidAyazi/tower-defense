@@ -7,13 +7,12 @@ public class AttackerTower : MonoBehaviour
     private Transform TargetTransform;
     private float LookForTargetTimer;
     private float LookForTargetTimerMAX = .2f;
-    private float Range;
+    private TowerScriptableObject Tower;
 
     // Start is called before the first frame update
     void Start()
     {
-        Range = GetComponent<AttackerTowerScriptableObject>().BaseRange;
-        Debug.Log(Range);
+        Tower = Resources.Load<TowerScriptableObject>("ScriptableObjects/Towers/Attackers/AttackerTower1");
     }
 
     // Update is called once per frame
@@ -32,7 +31,7 @@ public class AttackerTower : MonoBehaviour
     }
     private void LookForTargets()
     {
-        Collider2D[] Collider2DArray = Physics2D.OverlapCircleAll(transform.position, Range);
+        Collider2D[] Collider2DArray = Physics2D.OverlapCircleAll(transform.position, Tower.BaseRange);
 
         foreach(Collider2D Collider2D in Collider2DArray)
         {
