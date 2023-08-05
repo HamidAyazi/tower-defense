@@ -62,7 +62,7 @@ public class AttackerTower : MonoBehaviour
             ShootTimer += AttackerTowerSO.BaseAttackSpeed;
             if (TargetEnemy != null)
             {
-                new Projectile (AttackerTowerSO.ProjectilePrefab ,transform.position, TargetEnemy);
+                Projectile.CreateProjectile(AttackerTowerSO.ProjectilePrefab ,transform.position, TargetEnemy);
             }
         }
         

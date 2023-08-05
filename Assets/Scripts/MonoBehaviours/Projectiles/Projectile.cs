@@ -11,10 +11,12 @@ public class Projectile : MonoBehaviour
     private float TimeToDie = 2f;
     private float MoveSpeed = 2f;
 
-    public Projectile(Transform Prefab, Vector3 position, Enemy TargetEnemy)
+    public static Projectile CreateProjectile (Transform Prefab, Vector3 position, Enemy TargetEnemy)
     {
         Transform ProjectileTransform = Instantiate(Prefab, position, Quaternion.identity);
-        ProjectileTransform.GetComponent<Projectile>().TargetEnemy = TargetEnemy;
+        Projectile Projectile = ProjectileTransform.GetComponent<Projectile>();
+        Projectile.TargetEnemy = TargetEnemy;
+        return Projectile;
     }
     private void Update()
     {
@@ -28,11 +30,10 @@ public class Projectile : MonoBehaviour
         } 
 
         transform.position += MoveDiraction * MoveSpeed * Time.deltaTime;
-        Debug.Log(MoveDiraction);
         TimeToDie -= Time.deltaTime;
         if(TimeToDie < 0f)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 
