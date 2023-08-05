@@ -31,17 +31,17 @@ public class Projectile : MonoBehaviour
 
         transform.position += MoveDiraction * MoveSpeed * Time.deltaTime;
         TimeToDie -= Time.deltaTime;
-        if(TimeToDie < 0f)
+        if (TimeToDie < 0f)
         {
-            //Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Enemy Enemy = collision.GetComponent<Enemy>();
+        EnemyMovement Enemy = collision.GetComponent<EnemyMovement>();
         if (Enemy != null)
-        {
+        { 
             // Hit an Enemy!
             Destroy(gameObject);
         }
