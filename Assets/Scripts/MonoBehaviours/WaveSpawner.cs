@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class WaveSpawner : MonoBehaviour
     public float waveInterval = 5f;
     private float countdown = 1f;
     private int waveNumber = 0;
+
+    public Text WaveText;
 
     void Update(){
         if (countdown <= 0) {
@@ -21,6 +24,7 @@ public class WaveSpawner : MonoBehaviour
     IEnumerator SpawnWave(){
         waveNumber++;
         float enemyCount = CalculateEnemiesPerWave(waveNumber);
+        WaveText.text = waveNumber.ToString();
         for (int i = 0; i < (int)enemyCount; i++) {
             SpawnEnemy();
             yield return new WaitForSeconds(1f);
