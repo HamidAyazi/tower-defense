@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TowerManager : MonoBehaviour
 {
-    private TowerScriptableObject SelectedTowerType;
+    private Transform SelectedTowerType;
     private TowerTypesList AvailableAttackerTowerTypesList;
     private TowerTypesList AvailableSupporterTowerTypesList;
     private Camera MainCamera;
@@ -20,7 +20,7 @@ public class TowerManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Instantiate(SelectedTowerType.TowerPrefab, GetMouseWorldPosition(), Quaternion.identity);
+            Instantiate(SelectedTowerType, GetMouseWorldPosition(), Quaternion.identity);
         }
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {

@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class TowerScriptableObject : ScriptableObject
 {
-    /*-------- Unity Attributes --------*/
-
-    // "TowerPrefab" is used to store each "Tower" unit's "Prefab" inside "Unity".
-    public Transform TowerPrefab;
-
-
     /*-------- Game Logic Attributes --------*/
 
     public int Level;

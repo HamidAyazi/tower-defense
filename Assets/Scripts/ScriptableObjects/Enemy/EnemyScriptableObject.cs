@@ -15,8 +15,4 @@ public class EnemyScriptableObject : ScriptableObject
     public int MovementSpeed;
     //public int BaseArmor;
 
-    /*-------- Unity Attributes --------*/
-
-    // "EnemyPrefab" is used to store each "Enemy" unit's "Prefab" inside "Unity".
-    public Transform EnemyPrefab;
 }

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: AttackerTowerTypesList
   m_EditorClassIdentifier: 
   List:
-  - {fileID: 11400000, guid: b601b68fad041534db62d5fcb7dded2b, type: 2}
-  - {fileID: 11400000, guid: e9704b3bf32cf1e478d235ee42076f31, type: 2}
+  - {fileID: 1754151569063332644, guid: 57228c580c5a31e458deb8e164aa8d40, type: 3}
+  - {fileID: 753728473650442081, guid: e2d80dcd0e949d64c91a04cbfe36f0b9, type: 3}

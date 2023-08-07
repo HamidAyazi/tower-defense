@@ -8,7 +8,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Start() {
         target = WaypointsScript.points[0];
-        MovementSpeed = Resources.Load<EnemyScriptableObject>("ScriptableObjects/Enemies/Enemy1").MovementSpeed;
+        MovementSpeed = GetComponent<Enemy>().EnemyType.MovementSpeed;
     }
 
     void Update() {

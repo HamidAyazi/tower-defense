@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetEnemy: {fileID: 0}
+  AttackerTowerSO: {fileID: 11400000, guid: b601b68fad041534db62d5fcb7dded2b, type: 2}
 --- !u!1 &7057688364856057074
 GameObject:
   m_ObjectHideFlags: 0

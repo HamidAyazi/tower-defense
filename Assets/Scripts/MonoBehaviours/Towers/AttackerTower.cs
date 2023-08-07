@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class AttackerTower : MonoBehaviour
 {
+    [SerializeField] private AttackerTowerScriptableObject AttackerTowerSO;
     public Enemy TargetEnemy;
     private Animator TowerAnimator;
     private float LookForTargetTimer;
     private float LookForTargetTimerMAX = .2f;
     private float ShootTimer = 0f;
-    private AttackerTowerScriptableObject AttackerTowerSO;
     private Transform Head;
     private Transform ProjectileSpawnPoint;
 
     // Start is called before the first frame update
     void Start()
     {
-        AttackerTowerSO = Resources.Load<AttackerTowerScriptableObject>("ScriptableObjects/Towers/Attackers/AttackerTower1");
         Head = transform.Find("Head");
         ProjectileSpawnPoint = Head.Find("ProjectileSpawnPoint");
         TowerAnimator = Head.GetComponent<Animator>();

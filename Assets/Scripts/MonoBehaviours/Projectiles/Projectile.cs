@@ -4,12 +4,14 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
-{ 
+{
+    [SerializeField] EnemyHealthSystem healthSystem;
     private Enemy TargetEnemy;
     private Vector3 MoveDiraction;
     private Vector3 LastMoveDiraction;
     private float TimeToDie = 2f;
     private float MoveSpeed = 6f;
+    private int Damage = 10;
 
     public static Projectile CreateProjectile (Transform Prefab, Vector3 position, Enemy TargetEnemy)
     {
@@ -43,6 +45,8 @@ public class Projectile : MonoBehaviour
         if (Enemy != null)
         { 
             // Hit an Enemy!
+            EnemyHealthSystem HealthSystem = TargetEnemy.GetComponent<EnemyHealthSystem>();
+            HealthSystem.Damage(Damage);
             Destroy(gameObject);
         }
     }
