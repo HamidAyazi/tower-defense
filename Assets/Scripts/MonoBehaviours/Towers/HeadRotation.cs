@@ -6,8 +6,9 @@ using UnityEngine;
 
 public class HeadRotation : MonoBehaviour
 {
-    Enemy TargetEnemy;
-    Vector3 Direction;
+    private Enemy TargetEnemy;
+    private Vector3 Direction;
+    private float RotationSpeed = 60f;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,8 @@ public class HeadRotation : MonoBehaviour
         if (TargetEnemy != null)
         {
             Direction = (TargetEnemy.transform.position - transform.position).normalized;
-            transform.eulerAngles = new Vector3(0, 0, GetAngleFromVector(Direction));
+            Quaternion Rotation = Quaternion.Euler(0f, 0f, GetAngleFromVector(Direction));
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Rotation, RotationSpeed * Time.deltaTime);
         }
 
     }
