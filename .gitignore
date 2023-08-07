@@ -17,6 +17,7 @@
 *.unityproj
 *.csproj
 *.pdb
+*.vs
 
 # Other ignored files
 .DS_Store
