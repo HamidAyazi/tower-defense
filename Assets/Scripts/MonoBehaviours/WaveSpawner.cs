@@ -13,6 +13,9 @@ public class WaveSpawner : MonoBehaviour
 
     public Text WaveText;
 
+    void Start () {
+        WaveText.text = waveNumber.ToString();
+    }
     void Update(){
         if (countdown <= 0) {
             StartCoroutine(SpawnWave());
