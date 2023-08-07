@@ -9,7 +9,7 @@ public class Projectile : MonoBehaviour
     private Vector3 MoveDiraction;
     private Vector3 LastMoveDiraction;
     private float TimeToDie = 2f;
-    private float MoveSpeed = 2f;
+    private float MoveSpeed = 6f;
 
     public static Projectile CreateProjectile (Transform Prefab, Vector3 position, Enemy TargetEnemy)
     {
