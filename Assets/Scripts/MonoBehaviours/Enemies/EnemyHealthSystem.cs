@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class EnemyHealthSystem : MonoBehaviour
 {
-    public event EventHandler OnDamaged;
-    public event EventHandler OnDied;
+    //public event EventHandler OnDamaged;
+    //public event EventHandler OnDied;
 
     private EnemyScriptableObject EnemySO;
     private int MaximumHealthPoint;
@@ -26,9 +26,9 @@ public class EnemyHealthSystem : MonoBehaviour
         //OnDamaged?.Invoke(this, EventArgs.Empty);
         if (IsDead())
         {
-            Debug.Log("going to die");
             //OnDied?.Invoke(this, EventArgs.Empty);
             Destroy(gameObject);
+            Debug.Log("died");
         }
         
     }
