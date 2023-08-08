@@ -7,6 +7,7 @@ public class Goal : MonoBehaviour
     [SerializeField] private GoalScriptableObject GoalSO;
     private int MaximumHealthPoint;
     private int HealthPoint;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,10 +21,8 @@ public class Goal : MonoBehaviour
         HealthPoint -= DamageReceived;
         HealthPoint = Mathf.Clamp(HealthPoint, 0, MaximumHealthPoint);
         Debug.Log("goal hp : " + HealthPoint);
-        //OnDamaged?.Invoke(this, EventArgs.Empty);
         if (IsDead())
         {
-            //OnDied?.Invoke(this, EventArgs.Empty);
             Destroy(gameObject);
             Debug.Log("goal died");
         }

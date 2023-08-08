@@ -3,9 +3,6 @@ using UnityEngine;
 
 public class EnemyHealthSystem : MonoBehaviour
 {
-    //public event EventHandler OnDamaged;
-    //public event EventHandler OnDied;
-
     private EnemyScriptableObject EnemySO;
     private int MaximumHealthPoint;
     private int HealthPoint;
@@ -23,10 +20,8 @@ public class EnemyHealthSystem : MonoBehaviour
         HealthPoint -= DamageReceived;
         HealthPoint = Mathf.Clamp(HealthPoint, 0, MaximumHealthPoint);
 
-        //OnDamaged?.Invoke(this, EventArgs.Empty);
         if (IsDead())
         {
-            //OnDied?.Invoke(this, EventArgs.Empty);
             Destroy(gameObject);
             Debug.Log("died");
         }

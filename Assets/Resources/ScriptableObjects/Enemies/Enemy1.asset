@@ -15,4 +15,3 @@ MonoBehaviour:
   BaseHealtPoint: 10
   BaseDamage: 1
   MovementSpeed: 1
-  EnemyPrefab: {fileID: 578425093426379370, guid: 1e724c7608152bc46b9fe892a9daa0b3, type: 3}
