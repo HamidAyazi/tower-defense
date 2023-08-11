@@ -23,7 +23,6 @@ public class EnemyHealthSystem : MonoBehaviour
         if (IsDead())
         {
             Destroy(gameObject);
-            Debug.Log("died");
         }
         
     }

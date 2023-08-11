@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class AttackerTower : MonoBehaviour
 {
-    [SerializeField] private AttackerTowerScriptableObject AttackerTowerSO;
+    public AttackerTowerScriptableObject AttackerTowerSO;
     public Enemy TargetEnemy;
-    private Animator TowerAnimator;
     private float LookForTargetTimer;
     private float LookForTargetTimerMAX = .2f;
     private float ShootTimer = 0f;
     private Transform Head;
     private Transform ProjectileSpawnPoint;
+    private HeadRotation HeadRotation;
+    private Animator TowerAnimator;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,7 @@ public class AttackerTower : MonoBehaviour
         Head = transform.Find("Head");
         ProjectileSpawnPoint = Head.Find("ProjectileSpawnPoint");
         TowerAnimator = Head.GetComponent<Animator>();
+        HeadRotation = Head.GetComponent<HeadRotation>();
     }
 
     // Update is called once per frame
@@ -64,8 +66,9 @@ public class AttackerTower : MonoBehaviour
         ShootTimer -= Time.deltaTime;
         if (ShootTimer < 0f)
         {
+            
             ShootTimer += AttackerTowerSO.BaseAttackSpeed;
-            if (TargetEnemy != null)
+            if (TargetEnemy != null && HeadRotation.IsLocked())
             {
                 TowerAnimator.SetTrigger("IsShooting");
                 Projectile.CreateProjectile(AttackerTowerSO.ProjectilePrefab , ProjectileSpawnPoint.position, TargetEnemy);

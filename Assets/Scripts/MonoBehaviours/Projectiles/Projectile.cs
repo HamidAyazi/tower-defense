@@ -41,10 +41,10 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        EnemyMovement Enemy = collision.GetComponent<EnemyMovement>();
+        Enemy Enemy = collision.GetComponent<Enemy>();
         if (Enemy != null)
         { 
-            // Hit an Enemy!
+            // Hit an Enemy!          
             EnemyHealthSystem HealthSystem = TargetEnemy.GetComponent<EnemyHealthSystem>();
             HealthSystem.Damage(Damage);
             Destroy(gameObject);
