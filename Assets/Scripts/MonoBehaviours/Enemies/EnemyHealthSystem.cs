@@ -6,11 +6,13 @@ public class EnemyHealthSystem : MonoBehaviour
     private EnemyScriptableObject EnemySO;
     private int MaximumHealthPoint;
     private int HealthPoint;
+    public event EventHandler OnEnemyDied;
 
     // Start is called before the first frame update
     void Start()
     {
         EnemySO = GetComponent<Enemy>().EnemyType;
+
         // Calculation based on levels goes here
         MaximumHealthPoint = EnemySO.BaseHealtPoint;
         HealthPoint = MaximumHealthPoint;
@@ -22,7 +24,7 @@ public class EnemyHealthSystem : MonoBehaviour
 
         if (IsDead())
         {
-            Destroy(gameObject);
+            OnEnemyDied?.Invoke(this, EventArgs.Empty);
         }
         
     }
@@ -38,4 +40,5 @@ public class EnemyHealthSystem : MonoBehaviour
     {
         return HealthPoint == 0;
     }
+
 }

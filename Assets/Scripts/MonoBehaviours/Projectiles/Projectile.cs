@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] EnemyHealthSystem healthSystem;
+    public event EventHandler OnEnemyDied;
     private Enemy TargetEnemy;
     private Vector3 MoveDiraction;
     private Vector3 LastMoveDiraction;
@@ -13,13 +12,14 @@ public class Projectile : MonoBehaviour
     private float MoveSpeed = 6f;
     private int Damage = 10;
 
-    public static Projectile CreateProjectile (Transform Prefab, Vector3 position, Enemy TargetEnemy)
+    // Start is called before the first frame update
+    void Start()
     {
-        Transform ProjectileTransform = Instantiate(Prefab, position, Quaternion.identity);
-        Projectile Projectile = ProjectileTransform.GetComponent<Projectile>();
-        Projectile.TargetEnemy = TargetEnemy;
-        return Projectile;
+        EnemyHealthSystem EHS = TargetEnemy.GetComponent<EnemyHealthSystem>();
+        EHS.OnEnemyDied += RemoveTarget_OnTargerDied;
+
     }
+        
     private void Update()
     {
         if (TargetEnemy != null)
@@ -39,16 +39,29 @@ public class Projectile : MonoBehaviour
         }
     }
 
+    public static Projectile CreateProjectile(Transform Prefab, Vector3 position, Enemy TargetEnemy)
+    {
+        Transform ProjectileTransform = Instantiate(Prefab, position, Quaternion.identity);
+        Projectile Projectile = ProjectileTransform.GetComponent<Projectile>();
+        Projectile.TargetEnemy = TargetEnemy;
+        return Projectile;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Enemy Enemy = collision.GetComponent<Enemy>();
         if (Enemy != null)
         { 
             // Hit an Enemy!          
-            EnemyHealthSystem HealthSystem = TargetEnemy.GetComponent<EnemyHealthSystem>();
+            EnemyHealthSystem HealthSystem = Enemy.GetComponent<EnemyHealthSystem>();
             HealthSystem.Damage(Damage);
             Destroy(gameObject);
         }
+    }
+
+    private void RemoveTarget_OnTargerDied(object sender, EventArgs e)
+    {
+        TargetEnemy = null;
     }
 
 }

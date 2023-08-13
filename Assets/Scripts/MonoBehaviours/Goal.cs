@@ -1,12 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class Goal : MonoBehaviour
 {
-    [SerializeField] private GoalScriptableObject GoalSO;
-    private int MaximumHealthPoint;
-    private int HealthPoint;
+    public GoalScriptableObject GoalSO;
+    public event EventHandler<OnDamagedEventArgs> OnGoalDamaged;
+    public event EventHandler OnGoalDied;
+    private float MaximumHealthPoint;
+    private float HealthPoint;
 
     // Start is called before the first frame update
     void Start()
@@ -20,15 +21,15 @@ public class Goal : MonoBehaviour
     {
         HealthPoint -= DamageReceived;
         HealthPoint = Mathf.Clamp(HealthPoint, 0, MaximumHealthPoint);
-        Debug.Log("goal hp : " + HealthPoint);
+        OnGoalDamaged?.Invoke(this, new OnDamagedEventArgs { HealthPoint = HealthPoint});
+
         if (IsDead())
         {
-            Destroy(gameObject);
-            Debug.Log("goal died");
+            OnGoalDied?.Invoke(this, EventArgs.Empty);
         }
 
     }
-    public int GetHealthPoint()
+    public float GetHealthPoint()
     {
         return HealthPoint;
     }
@@ -39,5 +40,9 @@ public class Goal : MonoBehaviour
     public bool IsDead()
     {
         return HealthPoint == 0;
+    }
+    public class OnDamagedEventArgs : EventArgs
+    {
+        public float HealthPoint;
     }
 }
