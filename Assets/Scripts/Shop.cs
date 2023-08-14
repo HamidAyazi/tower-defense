@@ -1,20 +1,31 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
-    BuildManager buildManager;
+    public GameObject TowerShop;
+    public GameObject BasicTowerPrefab;
+    public GameObject LaserTowerPrefab;
+    public TMPro.TextMeshProUGUI TowerName;
 
-    void Start() {
-        buildManager = BuildManager.instance;
+    private string SelectedTower = null;
 
+    public void CloseShopWindow(){
+        TowerShop.SetActive(false);
     }
     public void BasicTowerClick() {
-        Debug.Log("basic(1) tower clicked");
-        buildManager.SetTowerToBuild(buildManager.BasicTowerPrefab);
+        if(SelectedTower != "Basic"){
+            SelectedTower = "Basic";
+            TowerName.text = SelectedTower;
+            return;
+        } else {
+            TileManager.Instance.SelectedTile.Tower = (GameObject)Instantiate(BasicTowerPrefab, TileManager.Instance.SelectedTile.transform.position, TileManager.Instance.SelectedTile.transform.rotation);        
+            TowerShop.SetActive(false);
+            SelectedTower = null;
+        }
     }
 
-     public void LaserTowerCliCk() {
+    public void LaserTowerCliCk() {
         Debug.Log("laser(2) tower clicked");
-        buildManager.SetTowerToBuild(buildManager.LaserTowerPrefab);
     }
 }
