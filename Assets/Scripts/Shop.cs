@@ -21,11 +21,17 @@ public class Shop : MonoBehaviour
         } else {
             TileManager.Instance.SelectedTile.Tower = (GameObject)Instantiate(BasicTowerPrefab, TileManager.Instance.SelectedTile.transform.position, TileManager.Instance.SelectedTile.transform.rotation);        
             TowerShop.SetActive(false);
-            SelectedTower = null;
         }
     }
 
     public void LaserTowerCliCk() {
-        Debug.Log("laser(2) tower clicked");
+         if(SelectedTower != "Laser"){
+            SelectedTower = "Laser";
+            TowerName.text = SelectedTower;
+            return;
+        } else {
+            TileManager.Instance.SelectedTile.Tower = (GameObject)Instantiate(LaserTowerPrefab, TileManager.Instance.SelectedTile.transform.position, TileManager.Instance.SelectedTile.transform.rotation);        
+            TowerShop.SetActive(false);
+        }
     }
 }

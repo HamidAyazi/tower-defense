@@ -3376,6 +3376,7 @@ MonoBehaviour:
   TowerShop: {fileID: 307100307}
   BasicTowerPrefab: {fileID: 5904294667641698886, guid: 57228c580c5a31e458deb8e164aa8d40, type: 3}
   LaserTowerPrefab: {fileID: 8057311892522899817, guid: e2d80dcd0e949d64c91a04cbfe36f0b9, type: 3}
+  TowerName: {fileID: 762345395}
 --- !u!1 &309670250
 GameObject:
   m_ObjectHideFlags: 0
@@ -8293,7 +8294,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hello
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -10879,7 +10880,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1001275028}
   - component: {fileID: 1001275027}
-  - component: {fileID: 1001275029}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -10918,20 +10918,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1001275029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1001275026}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9ca0fdf45d0cf54f84dd33d06b60652, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BasicTowerPrefab: {fileID: 5904294667641698886, guid: 57228c580c5a31e458deb8e164aa8d40, type: 3}
-  LaserTowerPrefab: {fileID: 6647361738328796982, guid: bc11955a20b9d7f44bcabcf79da082ce, type: 3}
 --- !u!1001 &1002045928
 PrefabInstance:
   m_ObjectHideFlags: 0
