@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-    private GameObject Tower;
+    public GameObject Tower;
+    public GameObject TowerShop;
+
     void OnMouseDown(){
-        Debug.Log("Tower exists");
+        TileManager.Instance.SelectedTile = this;
         if (Tower != null){
-            Debug.Log("Tower exists");
+            Debug.Log(Tower);
             return;
         } else {
-            GameObject TowerToBuild = BuildManager.instance.GetTowerToBuild();
-            Tower = (GameObject)Instantiate(TowerToBuild, transform.position, transform.rotation);
+            OpenShopWindow();
         }
+    }
+
+    void OpenShopWindow(){
+        TowerShop.SetActive(true);
     }
 }
