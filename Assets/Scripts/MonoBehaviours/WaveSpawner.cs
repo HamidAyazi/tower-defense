@@ -26,31 +26,16 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator SpawnWave(){
         waveNumber++;
-        float enemyCount = CalculateEnemiesPerWave(waveNumber);
+        float enemyCount = waveNumber;
         WaveText.text = waveNumber.ToString();
         for (int i = 0; i < (int)enemyCount; i++) {
             SpawnEnemy();
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.3f);
         }
     } 
 
     void SpawnEnemy(){
         Instantiate(enemyPrefab, SpawnPoint.position, SpawnPoint.rotation);
-    }
-
-    private static float CalculateEnemiesPerWave(int waveNumber) {
-        if (waveNumber <= 25)
-        {
-            return 5 + (waveNumber - 1) * 3;
-        }
-        else if (waveNumber <= 50)
-        {
-            return 5 + 24 * 3 + (waveNumber - 25) * 2;
-        }
-        else
-        {
-            return 5 + 24 * 3 + 25 * 2 + (waveNumber - 50) * 0.5f;
-        }
     }
 
 }
