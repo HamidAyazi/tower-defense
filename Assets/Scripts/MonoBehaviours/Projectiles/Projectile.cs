@@ -9,7 +9,7 @@ public class Projectile : MonoBehaviour
     private Vector3 MoveDiraction;
     private Vector3 LastMoveDiraction;
     private float TimeToDie = 2f;
-    private float MoveSpeed = 6f;
+    private float MoveSpeed = 10f;
     private int Damage = 10;
 
     // Start is called before the first frame update
