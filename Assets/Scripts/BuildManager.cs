@@ -6,18 +6,19 @@ public class BuildManager : MonoBehaviour
 {
     public static BuildManager instance;
     private GameObject SelectedTower;
-    public GameObject TowerType1;
+    public GameObject BasicTowerPrefab;
+    public GameObject LaserTowerPrefab;
 
     void Awake(){
+        if(instance != null) return;
         instance = this;
     }
 
     public GameObject GetTowerToBuild() {
         return SelectedTower;
     }
-
-    void Start() {
-        SelectedTower = TowerType1;
+    public void SetTowerToBuild(GameObject Tower){
+        SelectedTower = Tower;
     }
 
 }
