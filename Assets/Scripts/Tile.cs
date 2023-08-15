@@ -11,6 +11,7 @@ public class Tile : MonoBehaviour
         TileManager.Instance.SelectedTile = this;
         if (Tower != null){
             Debug.Log(Tower);
+            TowerShop.SetActive(false);
             return;
         } else {
             OpenShopWindow();

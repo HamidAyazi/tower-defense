@@ -13,6 +13,12 @@ public class Shop : MonoBehaviour
     public void CloseShopWindow(){
         TowerShop.SetActive(false);
     }
+
+    private void OnEnable()
+    {
+        SelectedTower = null;
+        TowerName.text = "";
+    }
     public void BasicTowerClick() {
         if(SelectedTower != "Basic"){
             SelectedTower = "Basic";
