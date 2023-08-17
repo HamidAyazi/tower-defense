@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackerTower : MonoBehaviour
+public class DoubleBarrelTank : MonoBehaviour
 {
     /*-------- Logic Attributes --------*/
     private float ShootTimer = 0f;
     private float LookForTargetTimer;
     private Enemy TargetEnemy;
     private Transform Head;
-    private Transform ProjectileSpawnPoint;
+    private Transform ProjectileSpawnPoint1;
+    private Transform ProjectileSpawnPoint2;
     private HeadRotation HeadRotation;
     private Animator TowerAnimator;
 
@@ -26,7 +27,8 @@ public class AttackerTower : MonoBehaviour
     {
         // Get Projectile Spawn Point 
         Head = transform.Find("Head");
-        ProjectileSpawnPoint = Head.Find("ProjectileSpawnPoint");
+        ProjectileSpawnPoint1 = Head.Find("ProjectileSpawnPoint1");
+        ProjectileSpawnPoint2 = Head.Find("ProjectileSpawnPoint2");
 
         // Set Rotation
         TowerAnimator = Head.GetComponent<Animator>();
@@ -88,12 +90,12 @@ public class AttackerTower : MonoBehaviour
         ShootTimer -= Time.deltaTime;
         if (ShootTimer < 0f)
         {
-            
             ShootTimer += AttackSpeed;
             if (TargetEnemy != null && HeadRotation.IsLocked())
             {
                 TowerAnimator.SetTrigger("IsShooting");
-                SolidShot.CreateProjectile(AttackerTowerSO.ProjectilePrefab , ProjectileSpawnPoint.position, TargetEnemy, Damage);
+                SolidShot.CreateProjectile(AttackerTowerSO.ProjectilePrefab, ProjectileSpawnPoint1.position, TargetEnemy, Damage);
+                SolidShot.CreateProjectile(AttackerTowerSO.ProjectilePrefab, ProjectileSpawnPoint2.position, TargetEnemy, Damage);
             }
         }
         
