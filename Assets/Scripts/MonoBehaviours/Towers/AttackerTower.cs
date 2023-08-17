@@ -71,7 +71,7 @@ public class AttackerTower : MonoBehaviour
             if (TargetEnemy != null && HeadRotation.IsLocked())
             {
                 TowerAnimator.SetTrigger("IsShooting");
-                Projectile.CreateProjectile(AttackerTowerSO.ProjectilePrefab , ProjectileSpawnPoint.position, TargetEnemy);
+                SolidShot.CreateProjectile(AttackerTowerSO.ProjectilePrefab , ProjectileSpawnPoint.position, TargetEnemy, this);
             }
         }
         
