@@ -30,7 +30,7 @@ public class Shop : MonoBehaviour
         TowerName.text = "";
     }
     public void BasicTowerClick() {
-        if(price >= money){
+        // if(price >= money){
             if(SelectedTower != "Basic"){
                 SelectedTower = "Basic";
                 TowerName.text = SelectedTower;
