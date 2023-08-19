@@ -20,18 +20,6 @@ public class Tile : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    // void OnMouseDown(){
-    //     Debug.Log("Clicked");
-    //     TileManager.Instance.SelectedTile = this;
-    //     if (Tower != null){
-    //         Debug.Log(Tower);
-    //         TowerShop.SetActive(false);
-    //         return;
-    //     } else {
-    //         OpenShopWindow();
-    //     }
-    // }
-
     void OpenShopWindow(){
         TowerShop.SetActive(true);
     }
