@@ -3,6 +3,14 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public float moveSpeed = 20.0f;
+    public int targetFrameRate = 60;
+
+    private void Start()
+	{
+		QualitySettings.vSyncCount = 0;
+		Application.targetFrameRate = targetFrameRate;
+	}
+
 
     void Update() {
         float horizontalMovement = Input.GetAxis("Horizontal");
