@@ -11,7 +11,7 @@ public class WaveSpawner : MonoBehaviour
     private float countdown = 1f;
     private int waveNumber = 0;
 
-    public Text WaveText;
+    public TMPro.TextMeshProUGUI WaveText;
 
     void Start () {
         WaveText.text = waveNumber.ToString();
