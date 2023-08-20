@@ -47,8 +47,8 @@ public class DoubleBarrelTank : MonoBehaviour
     void Update()
     {
         HandleTargeting();
-        HeadRotation.SetTarget(TargetEnemy);
         HandleShooting();
+        HeadRotation.SetTarget(TargetEnemy);
 
     } 
     private void HandleTargeting()
@@ -72,6 +72,8 @@ public class DoubleBarrelTank : MonoBehaviour
                 if (TargetEnemy == null)
                 {
                     TargetEnemy = enemy;
+                } else
+                {
                     if (Vector3.Distance(transform.position, enemy.transform.position) < Vector3.Distance(transform.position, TargetEnemy.transform.position))
                     {
                         // CLoser!

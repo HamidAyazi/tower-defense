@@ -75,7 +75,9 @@ public class Shop : MonoBehaviour
                 TowerName.text = SelectedTower;
                 return;
             } else {
-                TileManager.Instance.SelectedTile.Tower = (GameObject)Instantiate(DoubleBarrelPrefab, TileManager.Instance.SelectedTile.transform.position, TileManager.Instance.SelectedTile.transform.rotation);
+                TileManager.Instance.SelectedTile.Tower = (GameObject)Instantiate(DoubleBarrelPrefab,
+                                                            TileManager.Instance.SelectedTile.transform.position,
+                                                            TileManager.Instance.SelectedTile.transform.rotation);
                 CloseShopWindow();
             }
         }

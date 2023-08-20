@@ -72,6 +72,8 @@ public class Tank : MonoBehaviour
                 if (TargetEnemy == null)
                 {
                     TargetEnemy = enemy;
+                } else
+                {
                     if (Vector3.Distance(transform.position, enemy.transform.position) < Vector3.Distance(transform.position, TargetEnemy.transform.position))
                     {
                         // CLoser!

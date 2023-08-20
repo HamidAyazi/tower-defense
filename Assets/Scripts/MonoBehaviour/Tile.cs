@@ -6,20 +6,17 @@ using UnityEngine.EventSystems;
 public class Tile : MonoBehaviour, IPointerClickHandler
 {
     public GameObject Tower;
-    public Shop TowerShop;
+    public GameObject TowerShop;
 
-    public void Start()
-    {
-    }
     public void OnPointerClick(PointerEventData eventData){
         TileManager.Instance.SelectedTile = this;
         if (Tower != null){
             Debug.Log(Tower);
-            TowerShop.CloseShopWindow();
+            //TowerShop.CloseShopWindow();
             // TODO - TowerUpgradeSystem.SetActive(true)
             return;
         } else {
-            TowerShop.OpenShopWindow();
+            //TowerShop.OpenShopWindow();
         }
     }
 }
