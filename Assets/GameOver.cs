@@ -14,6 +14,7 @@ public class GameOver : MonoBehaviour
     private void GameOverProcess(object sender, System.EventArgs e)
     {
         GameOverPanel.SetActive(true);
+        Time.timeScale = 0;
     }
 
     public void RetryClick(){
