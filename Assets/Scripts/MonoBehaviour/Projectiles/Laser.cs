@@ -2,7 +2,7 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class SolidShot : MonoBehaviour
+public class Laser : MonoBehaviour
 {
     /*-------- Logic Attributes --------*/
     public event EventHandler OnEnemyDied;
@@ -27,14 +27,22 @@ public class SolidShot : MonoBehaviour
         // Here goes to calculations based on level
         TimeToDie = ProjectileSO.MaxTimeToDie;
         Speed = ProjectileSO.BaseSpeed;
-
-        // Here goes other Logics
-        MoveDiraction = (TargetEnemy.transform.position - transform.position).normalized;
     }
 
     // Update is called once per frame
     private void Update()
     {
+        // Moves Toward a target. If target is dead then goes the same diraction.
+        if (TargetEnemy != null)
+        {
+            MoveDiraction = (TargetEnemy.transform.position - transform.position).normalized;
+            LastMoveDiraction = MoveDiraction;
+        }
+        else
+        {
+            MoveDiraction = LastMoveDiraction;
+        }
+
         transform.position += MoveDiraction * Speed * Time.deltaTime;
         TimeToDie -= Time.deltaTime;
         if (TimeToDie < 0f)
@@ -43,10 +51,10 @@ public class SolidShot : MonoBehaviour
         }
     }
 
-    public static SolidShot CreateProjectile(Transform ProjectilePrefab, Vector3 SpawnPosition, Enemy TargetEnemy, float Damage)
+    public static Laser CreateProjectile(Transform ProjectilePrefab, Vector3 SpawnPosition, Enemy TargetEnemy, float Damage)
     {
         Transform ProjectileTransform = Instantiate(ProjectilePrefab, SpawnPosition, Quaternion.identity);
-        SolidShot Projectile = ProjectileTransform.GetComponent<SolidShot>();
+        Laser Projectile = ProjectileTransform.GetComponent<Laser>();
         Projectile.TargetEnemy = TargetEnemy;
         Projectile.Damage = Damage;
         return Projectile;
