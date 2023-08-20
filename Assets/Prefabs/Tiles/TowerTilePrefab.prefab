@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2134103198212636078}
   - component: {fileID: 1456662568761506544}
-  - component: {fileID: 6112539112424552356}
   - component: {fileID: 2854215401946637091}
+  - component: {fileID: 6112539112424552356}
   m_Layer: 0
   m_Name: TowerTilePrefab
   m_TagString: Untagged
@@ -86,18 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6112539112424552356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4219224208676921935}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 656bec2fb546457488221ea59c6c0204, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &2854215401946637091
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -124,3 +112,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &6112539112424552356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4219224208676921935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 656bec2fb546457488221ea59c6c0204, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tower: {fileID: 0}
+  TowerShop: {fileID: 0}

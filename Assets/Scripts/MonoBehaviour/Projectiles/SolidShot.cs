@@ -27,14 +27,22 @@ public class SolidShot : MonoBehaviour
         // Here goes to calculations based on level
         TimeToDie = ProjectileSO.MaxTimeToDie;
         Speed = ProjectileSO.BaseSpeed;
-
-        // Here goes other Logics
-        MoveDiraction = (TargetEnemy.transform.position - transform.position).normalized;
     }
 
     // Update is called once per frame
     private void Update()
     {
+        // Moves Toward a target. If target is dead then goes the same diraction.
+        if (TargetEnemy != null)
+        {
+            MoveDiraction = (TargetEnemy.transform.position - transform.position).normalized;
+            LastMoveDiraction = MoveDiraction;
+        }
+        else
+        {
+            MoveDiraction = LastMoveDiraction;
+        }
+
         transform.position += MoveDiraction * Speed * Time.deltaTime;
         TimeToDie -= Time.deltaTime;
         if (TimeToDie < 0f)

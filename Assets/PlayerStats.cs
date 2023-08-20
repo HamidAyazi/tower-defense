@@ -6,6 +6,7 @@ public class PlayerStats : MonoBehaviour
 {
     public static int Money;
     public int StartingMoney = 150;
+    public static int HealthPoint;
     public TMPro.TextMeshProUGUI HudMoney;
 
     void Start()

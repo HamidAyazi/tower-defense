@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 209ae000119ad3c49803ab5885e9ce8d, type: 3}
   m_Name: Enemy2
   m_EditorClassIdentifier: 
-  BaseHealtPoint: 30
+  BaseHealtPoint: 5
   BaseDamage: 1
   MovementSpeed: 2
