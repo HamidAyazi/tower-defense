@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3dec6e4e0a717bb448d2cdcb4e4fecaa, type: 3}
-  m_Name: RailGun
+  m_Name: RailTank
   m_EditorClassIdentifier: 
   TowerPrefab: {fileID: 753728473650442081, guid: e2d80dcd0e949d64c91a04cbfe36f0b9, type: 3}
   Level: 2
