@@ -5,20 +5,38 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {
     public static int Money;
-    public int StartingMoney = 150;
-    public static int HealthPoint;
+    private int StartingMoney = 150;
     public TMPro.TextMeshProUGUI HudMoney;
+
+
+    public static int HealthPoint;
+    private int StartingHealth = 3;
+    public TMPro.TextMeshProUGUI HudHealth;
+
+
+    public static int Wave;
+    public TMPro.TextMeshProUGUI HudWave;
 
     void Start()
     {
         Money = StartingMoney;
         HudMoney.text = Money.ToString();
+
+
+        
+        HealthPoint = StartingHealth;
+        HudHealth.text = HealthPoint.ToString();
+
+
+        Wave = 0;
+        HudWave.text = Wave.ToString();
     }
 
-    // Update is called once per frame
     void Update()
     {
         HudMoney.text = Money.ToString();
+        HudHealth.text = HealthPoint.ToString();
+        HudWave.text = Wave.ToString();
     }
 
 }

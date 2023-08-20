@@ -11,11 +11,6 @@ public class WaveSpawner : MonoBehaviour
     private float countdown = 1f;
     private int waveNumber = 0;
 
-    public TMPro.TextMeshProUGUI WaveText;
-
-    void Start () {
-        WaveText.text = waveNumber.ToString();
-    }
     void Update(){
         if (countdown <= 0) {
             StartCoroutine(SpawnWave());
@@ -27,7 +22,7 @@ public class WaveSpawner : MonoBehaviour
     IEnumerator SpawnWave(){
         waveNumber++;
         float enemyCount = waveNumber;
-        WaveText.text = waveNumber.ToString();
+        PlayerStats.Wave = waveNumber;
         for (int i = 0; i < (int)enemyCount; i++) {
             SpawnEnemy();
             yield return new WaitForSeconds(0.3f);
