@@ -34,7 +34,7 @@ public class RailTank : MonoBehaviour
 
         // Here goes calculations based on level
         Damage = AttackerTowerSO.BaseDamage;
-        AttackSpeed = AttackerTowerSO.BaseAttackSpeed;
+        AttackSpeed = AttackerTowerSO.BaseAttackTime;
         Range = AttackerTowerSO.BaseRange;
         LookForTargetTimerMAX = AttackerTowerSO.BaseLookForTargetTimer;
         HeadRotation.SetRotationSpeed(AttackerTowerSO.BaseRotationSpeed);
@@ -92,7 +92,7 @@ public class RailTank : MonoBehaviour
             if (TargetEnemy != null && HeadRotation.IsLocked())
             {
                 TowerAnimator.SetTrigger("IsShooting");
-                SolidShot.CreateProjectile(AttackerTowerSO.ProjectilePrefab , ProjectileSpawnPoint.position, TargetEnemy, Damage);
+                Laser.CreateProjectile(AttackerTowerSO.ProjectilePrefab , ProjectileSpawnPoint.position, TargetEnemy, Damage);
             }
         }
         

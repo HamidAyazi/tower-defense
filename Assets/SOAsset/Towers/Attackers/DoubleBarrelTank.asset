@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3dec6e4e0a717bb448d2cdcb4e4fecaa, type: 3}
-  m_Name: Tank
+  m_Name: DoubleBarrelTank
   m_EditorClassIdentifier: 
-  BasePrice: 40
+  BasePrice: 10
   BaseRange: 5
   ProjectilePrefab: {fileID: 1726499099080084261, guid: c5546dcc5113917489767b417b396a0f, type: 3}
   BaseDamage: 10
-  BaseAttackSpeed: 1
+  BaseAttackTime: 1
   BaseRotationSpeed: 90
   BaseLookForTargetTimer: 0.2
