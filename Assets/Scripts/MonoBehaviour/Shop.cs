@@ -58,9 +58,9 @@ public class Shop : MonoBehaviour
                 return;
             } else {
                 PlayerStats.Money -= TankTower.BasePrice;
-                TileManager.Instance.SelectedTile.Tower = (GameObject) Instantiate(BasicTowerPrefab,
+                TileManager.Instance.SelectedTile.SetTower(Instantiate(BasicTowerPrefab,
                                                            TileManager.Instance.SelectedTile.transform.position,
-                                                           TileManager.Instance.SelectedTile.transform.rotation);        
+                                                           TileManager.Instance.SelectedTile.transform.rotation));        
                 CloseShopWindow();
             }
         }
@@ -75,9 +75,9 @@ public class Shop : MonoBehaviour
                 TowerName.text = SelectedTower;
                 return;
             } else {
-                TileManager.Instance.SelectedTile.Tower = (GameObject)Instantiate(DoubleBarrelPrefab,
+                TileManager.Instance.SelectedTile.SetTower(Instantiate(DoubleBarrelPrefab,
                                                             TileManager.Instance.SelectedTile.transform.position,
-                                                            TileManager.Instance.SelectedTile.transform.rotation);
+                                                            TileManager.Instance.SelectedTile.transform.rotation));
                 CloseShopWindow();
             }
         }

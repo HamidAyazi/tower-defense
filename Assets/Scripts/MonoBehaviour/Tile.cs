@@ -5,18 +5,23 @@ using UnityEngine.EventSystems;
 
 public class Tile : MonoBehaviour, IPointerClickHandler
 {
-    public GameObject Tower;
-    public GameObject TowerShop;
+    private GameObject Tower;
+    [SerializeField] private GameObject TowerShop;
 
     public void OnPointerClick(PointerEventData eventData){
         TileManager.Instance.SelectedTile = this;
+
         if (Tower != null){
             Debug.Log(Tower);
-            //TowerShop.CloseShopWindow();
+            TowerShop.GetComponent<Shop>().CloseShopWindow();
             // TODO - TowerUpgradeSystem.SetActive(true)
             return;
         } else {
-            //TowerShop.OpenShopWindow();
+            TowerShop.GetComponent<Shop>().OpenShopWindow();
         }
+    }
+    public void SetTower(GameObject Tower)
+    {
+        this.Tower = Tower;
     }
 }

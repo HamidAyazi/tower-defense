@@ -48,7 +48,6 @@ public class Tank : MonoBehaviour
     {
         HandleTargeting();
         HandleShooting();
-        HeadRotation.SetTarget(TargetEnemy);
 
     } 
     private void HandleTargeting()
@@ -72,12 +71,14 @@ public class Tank : MonoBehaviour
                 if (TargetEnemy == null)
                 {
                     TargetEnemy = enemy;
+                    HeadRotation.SetTarget(TargetEnemy);
                 } else
                 {
                     if (Vector3.Distance(transform.position, enemy.transform.position) < Vector3.Distance(transform.position, TargetEnemy.transform.position))
                     {
                         // CLoser!
                         TargetEnemy = enemy;
+                        HeadRotation.SetTarget(TargetEnemy);
                     }
                 }
             }
