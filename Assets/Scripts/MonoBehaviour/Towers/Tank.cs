@@ -34,7 +34,7 @@ public class Tank : MonoBehaviour
 
         // Here goes calculations based on level
         Damage = AttackerTowerSO.BaseDamage;
-        AttackSpeed = AttackerTowerSO.BaseAttackSpeed;
+        AttackSpeed = AttackerTowerSO.BaseAttackTime;
         Range = AttackerTowerSO.BaseRange;
         LookForTargetTimerMAX = AttackerTowerSO.BaseLookForTargetTimer;
         HeadRotation.SetRotationSpeed(AttackerTowerSO.BaseRotationSpeed);

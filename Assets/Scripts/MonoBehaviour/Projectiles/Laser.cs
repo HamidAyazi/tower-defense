@@ -2,7 +2,7 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class SolidShot : MonoBehaviour
+public class Laser : MonoBehaviour
 {
     /*-------- Logic Attributes --------*/
     [SerializeField] private ProjectileScriptableObject ProjectileSO;
@@ -50,10 +50,10 @@ public class SolidShot : MonoBehaviour
         }
     }
 
-    public static SolidShot CreateProjectile(Transform ProjectilePrefab, Vector3 SpawnPosition, Enemy TargetEnemy, float Damage)
+    public static Laser CreateProjectile(Transform ProjectilePrefab, Vector3 SpawnPosition, Enemy TargetEnemy, float Damage)
     {
         Transform ProjectileTransform = Instantiate(ProjectilePrefab, SpawnPosition, Quaternion.identity);
-        SolidShot Projectile = ProjectileTransform.GetComponent<SolidShot>();
+        Laser Projectile = ProjectileTransform.GetComponent<Laser>();
         Projectile.TargetEnemy = TargetEnemy;
         Projectile.Damage = Damage;
         return Projectile;

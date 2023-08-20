@@ -14,8 +14,8 @@ public class AttackerTowerScriptableObject : TowerScriptableObject
 
     // Base Damage of each "Tower" unit. When a "Tower" shots, the enemy's "HealthPoint" is reduced by it's "Damage". Scales with "Level".
     public float BaseDamage;
-    // Base attack speed of each "Tower" unit. It shows how fast each "Tower" unit can attack "Enemy" units. Scales with "Level".
-    public float BaseAttackSpeed;
+    // Base time each attack of each "Tower" unit takes . It shows how many seconds each "Tower" unit can attack "Enemy" units. Scales with "Level".
+    public float BaseAttackTime;
     // Base Rotation speed of each "Tower" unit. It shows how fast a "Tower" can switch rotates. Scales with "Level".
     public float BaseRotationSpeed;
     // Base time for "Tower" to look for an "Enemy". Scales with "LeveL".
