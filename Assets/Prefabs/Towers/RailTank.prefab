@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1754151569063332644}
   - component: {fileID: 4012987546220704851}
-  - component: {fileID: 7181636062354182239}
+  - component: {fileID: 1413823845779140739}
   m_Layer: 0
-  m_Name: Tank
+  m_Name: RailTank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7181636062354182239
+--- !u!114 &1413823845779140739
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,10 +95,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5904294667641698886}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 091f2f2435293f941bd5261329f0ec47, type: 3}
+  m_Script: {fileID: 11500000, guid: a81e5ff7f00fd184e929969e61157053, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackerTowerSO: {fileID: 11400000, guid: b601b68fad041534db62d5fcb7dded2b, type: 2}
+  AttackerTowerSO: {fileID: 11400000, guid: e9704b3bf32cf1e478d235ee42076f31, type: 2}
 --- !u!1 &7057688364856057074
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,7 +175,7 @@ SpriteRenderer:
   m_SortingLayerID: 1793171671
   m_SortingLayer: 2
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: c64c21aafa135ad4396bb9f55fe75206, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0a73bafed72706746b79c1f4692b06af, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -208,7 +208,7 @@ Animator:
   m_GameObject: {fileID: 7057688364856057074}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bc458d08857ed144aa418edc591cfe00, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8e16179d56165864b8b0fc207df6d183, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
