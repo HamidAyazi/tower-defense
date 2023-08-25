@@ -10,13 +10,21 @@ public class WaveSpawner : MonoBehaviour
     public float waveInterval = 5f;
     private float countdown = 1f;
     private int waveNumber = 0;
+    private bool waveToggle = false;
 
     void Update(){
-        if (countdown <= 0) {
-            StartCoroutine(SpawnWave());
-            countdown = waveInterval;
+        if(waveToggle){
+            if (countdown <= 0) {
+                StartCoroutine(SpawnWave());
+                countdown = waveInterval;
+            }
+            countdown -= Time.deltaTime;
         }
-        countdown -= Time.deltaTime;
+    }
+
+    public void ToggleWave(){
+        Debug.Log("Hi2");
+        waveToggle = !waveToggle;
     }
 
     IEnumerator SpawnWave(){
