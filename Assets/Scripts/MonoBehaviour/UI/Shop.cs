@@ -26,7 +26,7 @@ public class Shop : MonoBehaviour
 
     void Start()
     {
-        if (PlayerStats.Money < TankTower.BasePrice)
+        if (GameStats.Money < TankTower.BasePrice)
         {
             IsTankButtonActive = false;
         }
@@ -34,7 +34,7 @@ public class Shop : MonoBehaviour
 
     void Update()
     {
-        if (PlayerStats.Money < TankTower.BasePrice)
+        if (GameStats.Money < TankTower.BasePrice)
         {
             TankShopButton.interactable = false;
         } else
@@ -50,14 +50,14 @@ public class Shop : MonoBehaviour
     }
     
     public void BasicTowerClick() {
-        if(PlayerStats.Money >= TankTower.BasePrice)
+        if(GameStats.Money >= TankTower.BasePrice)
         {
             if(SelectedTower != "Basic"){
                 SelectedTower = "Basic";
                 TowerName.text = SelectedTower;
                 return;
             } else {
-                PlayerStats.Money -= TankTower.BasePrice;
+                GameStats.Money -= TankTower.BasePrice;
                 TileManager.Instance.SelectedTile.SetTower(Instantiate(BasicTowerPrefab,
                                                            TileManager.Instance.SelectedTile.transform.position,
                                                            TileManager.Instance.SelectedTile.transform.rotation));        
@@ -68,7 +68,7 @@ public class Shop : MonoBehaviour
 
     public void DoubleBarrelTowerCliCk() {
 
-        if (PlayerStats.Money >= DoubleBarrelTower.BasePrice)
+        if (GameStats.Money >= DoubleBarrelTower.BasePrice)
         {
             if (SelectedTower != "Double Barrel"){
                 SelectedTower = "Double Barrel";
@@ -85,12 +85,12 @@ public class Shop : MonoBehaviour
 
     void SetButtonStatus()
     {
-        if (PlayerStats.Money < TankTower.BasePrice && IsTankButtonActive)
+        if (GameStats.Money < TankTower.BasePrice && IsTankButtonActive)
         {
             TankShopButton.interactable = false;
             IsTankButtonActive = false;
         }
-        else if(PlayerStats.Money >= TankTower.BasePrice && !IsTankButtonActive)
+        else if(GameStats.Money >= TankTower.BasePrice && !IsTankButtonActive)
         {
             TankShopButton.interactable = false;
             IsTankButtonActive = false;

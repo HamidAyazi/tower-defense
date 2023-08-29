@@ -7,8 +7,8 @@ public class Goal : MonoBehaviour
 
     public void Damage(int DamageReceived)
     {
-        PlayerStats.HealthPoint -= DamageReceived;
-        if (PlayerStats.HealthPoint == 0)
+        GameStats.HealthPoint -= DamageReceived;
+        if (GameStats.HealthPoint == 0)
         {
             OnGoalDied?.Invoke(this, EventArgs.Empty);
         }

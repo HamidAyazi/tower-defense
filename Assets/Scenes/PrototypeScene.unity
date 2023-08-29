@@ -12849,10 +12849,11 @@ GameObject:
   - component: {fileID: 1001275028}
   - component: {fileID: 1001275032}
   - component: {fileID: 1001275027}
-  - component: {fileID: 1001275029}
   - component: {fileID: 1001275030}
   - component: {fileID: 1001275031}
   - component: {fileID: 1001275033}
+  - component: {fileID: 1001275034}
+  - component: {fileID: 1001275035}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -12890,21 +12891,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1001275029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1001275026}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dd1fbb37bff4d04ca9acc3fcce8659c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HudMoney: {fileID: 360019676}
-  HudHealth: {fileID: 1892350656}
-  HudWave: {fileID: 928380695}
 --- !u!114 &1001275030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12956,6 +12942,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4448c7aa55fb50b4ea7792fb4bb23db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1001275034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001275026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753a31ee98bbda84ca5023e510b2b00d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HudMoney: {fileID: 360019676}
+  HudHealth: {fileID: 1892350656}
+  HudWave: {fileID: 928380695}
+--- !u!114 &1001275035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001275026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60dc8b1ddb7168c46b551100dc780cae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerStatsFileName: PlayerStats.json
+  MapsFileName: Maps.json
+  LastPlayedLevelFileName: LastPlayedMap.json
 --- !u!1001 &1002045928
 PrefabInstance:
   m_ObjectHideFlags: 0
