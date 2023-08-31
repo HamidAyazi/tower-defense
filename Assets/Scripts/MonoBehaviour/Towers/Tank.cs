@@ -33,11 +33,7 @@ public class Tank : MonoBehaviour
         HeadRotation = Head.GetComponent<HeadRotation>();
 
         // Here goes calculations based on level
-        Damage = AttackerTowerSO.BaseDamage;
-        AttackSpeed = AttackerTowerSO.BaseAttackTime;
-        Range = AttackerTowerSO.BaseRange;
-        LookForTargetTimerMAX = AttackerTowerSO.BaseLookForTargetTimer;
-        HeadRotation.SetRotationSpeed(AttackerTowerSO.BaseRotationSpeed);
+        SetStatus();
 
         // Other Logics
         LookForTargetTimer = LookForTargetTimerMAX;
@@ -95,8 +91,14 @@ public class Tank : MonoBehaviour
                 TowerAnimator.SetTrigger("IsShooting");
                 SolidShot.CreateProjectile(AttackerTowerSO.ProjectilePrefab , ProjectileSpawnPoint.position, TargetEnemy, Damage);
             }
-        }
-        
-        
+        }  
+    }
+    public void SetStatus()
+    {
+        Damage = AttackerTowerSO.BaseDamage * Level * 1.5f;
+        AttackSpeed = AttackerTowerSO.BaseAttackTime * Level * 1.5f;
+        Range = AttackerTowerSO.BaseRange * Level * 1.5f;
+        LookForTargetTimerMAX = AttackerTowerSO.BaseLookForTargetTimer * Level * 1.5f;
+        HeadRotation.SetRotationSpeed(AttackerTowerSO.BaseRotationSpeed);
     }
 }
