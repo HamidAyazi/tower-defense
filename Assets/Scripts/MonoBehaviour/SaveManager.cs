@@ -26,13 +26,8 @@ public class SaveManager : MonoBehaviour
     private void Start()
     {
         Data = new GameData();
-        LoadAllMaps();
         LoadPlayerStats();
-        // if there are no map, for first app run
-        if(Maps != null)
-        {
-            Data.map = new GameData.Map();
-        }
+        LoadAllMaps();
     }
 
     private void SavePlayerStats()

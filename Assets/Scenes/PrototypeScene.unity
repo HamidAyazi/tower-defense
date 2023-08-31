@@ -3469,27 +3469,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1001275026}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60dc8b1ddb7168c46b551100dc780cae, type: 3}
+  m_Script: {fileID: 11500000, guid: b7c7fb79a84972640b10869ee9dde6c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Data:
-    playerStats:
-      PlayerName: New Player
-      PlayerLevel: 1
-    lastPlayedLevel:
-      map:
-        MapID: 0
-        XSize: 0
-        TileMap: 
-      RemainingCoins: 0
-      GoalHP: 0
-    map:
-      MapID: 0
-      XSize: 0
-      TileMap: 
-  PlayerStatsFileName: PlayerStats.json
-  MapsFileName: Maps.json
-  LastPlayedLevelFileName: LastPlayedMap.json
+  tilePrefabs:
+  - {fileID: 0}
+  - {fileID: 9010801528903255947, guid: 6d7bdb2c2cd9c084f878319aacc1c70c, type: 3}
+  - {fileID: 3023828909466051261, guid: 56b06fa2e7ce3e145bf6911146d97fda, type: 3}
+  - {fileID: 4786608066975801470, guid: 84faf7a34db8d7e45add19f0714ffd2c, type: 3}
+  - {fileID: 4219224208676921935, guid: eed234792808ddd4a85663a4c01890ca, type: 3}
 --- !u!1 &1042481244
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,6 +5,12 @@ public class GameData
     public LastPlayedLevel lastPlayedLevel;
     public Map map;
 
+    public GameData()
+    {
+        map = new Map();
+        lastPlayedLevel = new LastPlayedLevel();
+    }
+
     [System.Serializable]
     public class PlayerStats
     {
@@ -28,6 +34,13 @@ public class GameData
         public Map map;
         public int RemainingCoins;
         public int GoalHP;
+
+        public LastPlayedLevel()
+        {
+            this.map = new Map();
+            RemainingCoins = 0;
+            GoalHP = 0;
+        }
     }
 
     [System.Serializable]
