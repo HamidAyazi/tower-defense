@@ -4,7 +4,7 @@ using UnityEngine;
 public class SaveManager : MonoBehaviour
 {
     public static SaveManager Instance { get; private set; }
-    public static GameData Data;
+    public GameData Data;
 
     private List<GameData.Map> Maps;
 
@@ -26,8 +26,8 @@ public class SaveManager : MonoBehaviour
     private void Start()
     {
         Data = new GameData();
-        LoadAllMaps();
         LoadPlayerStats();
+        LoadAllMaps();
     }
 
     private void SavePlayerStats()
