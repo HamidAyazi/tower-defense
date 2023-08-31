@@ -4,7 +4,7 @@ using UnityEngine;
 public class SaveManager : MonoBehaviour
 {
     public static SaveManager Instance { get; private set; }
-    public static GameData Data;
+    public GameData Data;
 
     private List<GameData.Map> Maps;
 
@@ -28,6 +28,11 @@ public class SaveManager : MonoBehaviour
         Data = new GameData();
         LoadAllMaps();
         LoadPlayerStats();
+        // if there are no map, for first app run
+        if(Maps != null)
+        {
+            Data.map = new GameData.Map();
+        }
     }
 
     private void SavePlayerStats()
