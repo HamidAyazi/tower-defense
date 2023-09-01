@@ -20,7 +20,6 @@ public class EnemyMovement : MonoBehaviour
         // Move towards random location near actual target
         Vector3 dir = randomTarget - transform.position;
         transform.Translate(dir.normalized * MovementSpeed * Time.deltaTime);
-
         // Calculate the random target position only if the enemy has reached the current target
         if (Vector3.Distance(target.position, transform.position) <= offSet)
         {

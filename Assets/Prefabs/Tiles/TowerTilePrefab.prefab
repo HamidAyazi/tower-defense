@@ -72,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2129510847
-  m_SortingLayer: -1
+  m_SortingLayerID: -645009547
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
@@ -124,5 +124,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 656bec2fb546457488221ea59c6c0204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Tower: {fileID: 0}
   TowerShop: {fileID: 0}

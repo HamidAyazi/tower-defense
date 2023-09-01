@@ -1,3 +1,5 @@
+using UnityEngine;
+
 [System.Serializable]
 public class GameData
 {
@@ -56,7 +58,7 @@ public class GameData
         public int MapID;
         public int XSize;
         public int[] TileMap;
-        
+        public Vector3 SpawnPointPosition;
 
         public Map()
         {

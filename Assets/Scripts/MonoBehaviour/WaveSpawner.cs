@@ -6,13 +6,18 @@ using UnityEngine.UI;
 public class WaveSpawner : MonoBehaviour
 {
     public Transform enemyPrefab;
-    public Transform SpawnPoint;
     public float waveInterval = 5f;
+
+    private Vector3 SpawnPointPosition;
     private float countdown = 1f;
     private int waveNumber = 0;
     private bool waveToggle = false;
 
-    void Update(){
+    private void Start()
+    {
+        SpawnPointPosition = SaveManager.Instance.Data.map.SpawnPointPosition;
+    }
+    private void Update(){
         if(waveToggle){
             if (countdown <= 0) {
                 StartCoroutine(SpawnWave());
@@ -38,7 +43,8 @@ public class WaveSpawner : MonoBehaviour
     } 
 
     void SpawnEnemy(){
-        Instantiate(enemyPrefab, SpawnPoint.position, SpawnPoint.rotation);
+        Debug.Log(SpawnPointPosition);
+        Instantiate(enemyPrefab, SpawnPointPosition, Quaternion.identity);
     }
 
 }
