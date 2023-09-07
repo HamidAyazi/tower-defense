@@ -62,13 +62,13 @@ public class SaveManager : MonoBehaviour
     private void OnApplicationQuit()
     {
         SavePlayerStats();
-        SaveLastPlayedMap();
+        //SaveLastPlayedMap();
         SaveAllMaps();
     }
 
     public void LoadLastPlayedMap()
     {
-        FileHandler.LoadData<GameData.LastPlayedLevel>(LastPlayedLevelFileName);
+        Data.lastPlayedLevel = FileHandler.LoadData<GameData.LastPlayedLevel>(LastPlayedLevelFileName);
     }
 
     public void SaveMap()
