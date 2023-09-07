@@ -16,6 +16,7 @@ public class WaveSpawner : MonoBehaviour
     private void Start()
     {
         SpawnPointPosition = SaveManager.Instance.Data.map.SpawnPointPosition;
+        Debug.Log(SpawnPointPosition);
     }
     private void Update(){
         if(waveToggle){
@@ -28,7 +29,6 @@ public class WaveSpawner : MonoBehaviour
     }
 
     public void ToggleWave(){
-        Debug.Log("Hi2");
         waveToggle = !waveToggle;
     }
 
@@ -43,7 +43,6 @@ public class WaveSpawner : MonoBehaviour
     } 
 
     void SpawnEnemy(){
-        Debug.Log(SpawnPointPosition);
         Instantiate(enemyPrefab, SpawnPointPosition, Quaternion.identity);
     }
 

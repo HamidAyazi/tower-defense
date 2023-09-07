@@ -1,14 +1,12 @@
 using UnityEngine;
-using static GameData;
 using UnityEngine.UI;
+using static GameData;
 
 public class MapGenerator : MonoBehaviour
 {
     public GameObject[] tilePrefabs; // Prefabs for different tile types
     private Map mapData; // Your Map data
     private int tileSize = 1; // Size of each tile
-
-
 
     // loading screen
     [SerializeField] private GameObject loadingScreen;
@@ -27,6 +25,10 @@ public class MapGenerator : MonoBehaviour
     {
         Vector3 spawnPosition = Vector3.zero;
         Vector3 cameraCenter = Camera.main.transform.position;
+        GameObject NewTile;
+        GameObject tilePrefab;
+        int tileIndex;
+        int tileType;
 
         // Calculate the starting position for the map based on the camera's position and the map's size
         float mapWidth = mapData.XSize * tileSize;
@@ -38,20 +40,24 @@ public class MapGenerator : MonoBehaviour
         {
             for (int x = 0; x < mapData.XSize; x++)
             {
-                int tileIndex = x + y * mapData.XSize;
-                int tileType = mapData.TileMap[tileIndex];
-
-                GameObject tilePrefab = tilePrefabs[tileType];
+                tileIndex = x + y * mapData.XSize;
+                tileType = mapData.TileMap[tileIndex];
+                tilePrefab = tilePrefabs[tileType];
 
                 if (tilePrefab != null)
                 {
                     spawnPosition.x = mapStartPosition.x + x * tileSize;
                     spawnPosition.y = mapStartPosition.y - y * tileSize;
 
-                    Instantiate(tilePrefab, spawnPosition, Quaternion.identity);
-                    if(tileIndex == 1)
+                    NewTile = Instantiate(tilePrefab, spawnPosition, Quaternion.identity);
+                    if(tileType == 1)
                     {
-                        SaveManager.Instance.Data.map.SpawnPointPosition = spawnPosition;
+                        Debug.Log("hereee");
+                        SaveManager.Instance.Data.map.SpawnPointPosition = NewTile.transform.position;
+                    }
+                    if(tileType == 3)
+                    {
+                        WaypointsScript.AddPoint(NewTile.transform.position);
                     }
                 }
             }
