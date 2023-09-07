@@ -16,7 +16,8 @@ public class LoadingScreen : MonoBehaviour
 
         AsyncOperation operation = SceneManager.LoadSceneAsync(SceneIndex);
         while(!operation.isDone) {
-            slider.value = Mathf.Clamp01(operation.progress/ 0.9f);
+            slider.value = Mathf.Clamp01(operation.progress/ 0.9f) / 2;
+            Debug.Log(slider.value);
             yield return null;
         }
     }
