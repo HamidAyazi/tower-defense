@@ -1,11 +1,21 @@
 using UnityEngine;
 using static GameData;
+using UnityEngine.UI;
 
 public class MapGenerator : MonoBehaviour
 {
     public GameObject[] tilePrefabs; // Prefabs for different tile types
     private Map mapData; // Your Map data
     private int tileSize = 1; // Size of each tile
+
+
+
+    // loading screen
+    [SerializeField] private GameObject loadingScreen;
+    [SerializeField] private Slider slider;
+    // loading screen
+
+
 
     private void Start()
     {
@@ -39,12 +49,15 @@ public class MapGenerator : MonoBehaviour
                     spawnPosition.y = mapStartPosition.y - y * tileSize;
 
                     Instantiate(tilePrefab, spawnPosition, Quaternion.identity);
-                }
-                if(tileIndex == 1)
-                {
-                    SaveManager.Instance.Data.map.SpawnPointPosition = spawnPosition;
+                    if(tileIndex == 1)
+                    {
+                        SaveManager.Instance.Data.map.SpawnPointPosition = spawnPosition;
+                    }
                 }
             }
+            float result = (float)y / ((float)mapData.TileMap.Length / (float)mapData.XSize); // update loading screen slider
+            slider.value = (result / 2f + 0.5f); // update loading screen slider
         }
+        loadingScreen.SetActive(false); // disable loading screen
     }
 }
