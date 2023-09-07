@@ -52,7 +52,6 @@ public class MapGenerator : MonoBehaviour
                     NewTile = Instantiate(tilePrefab, spawnPosition, Quaternion.identity);
                     if(tileType == 1)
                     {
-                        Debug.Log("hereee");
                         SaveManager.Instance.Data.map.SpawnPointPosition = NewTile.transform.position;
                     }
                     if(tileType == 3)
