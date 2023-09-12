@@ -7,7 +7,7 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundAudio[] SoundAudioArr;
     private static GameObject SoundGameObject;
-    private static AudioSource audioSource;
+    private static AudioSource GlobalAudioSource;
 
     [System.Serializable]
     public class SoundAudio
@@ -15,18 +15,18 @@ public class SoundManager : MonoBehaviour
         public Sound sound;
         public AudioClip clip;
     }
-    public void PlaySound(Sound sound)
+    public static void PlaySound(Sound sound)
     {
         if (SoundGameObject == null)
         {
             SoundGameObject = new GameObject("OneShotSound");
-            audioSource = SoundGameObject.AddComponent<AudioSource>();
+            GlobalAudioSource = SoundGameObject.AddComponent<AudioSource>();
         }
-        audioSource.PlayOneShot(GetSound(sound));
+        GlobalAudioSource.PlayOneShot(GetSound(sound));
     }
-    public static void PlaySound(Sound sound, Vector3 position)
+    public static void PlaySound(Sound sound, Vector3 position, string Name)
     {
-        GameObject PositionedSoundGameObject = new GameObject("PositionedSound");
+        GameObject PositionedSoundGameObject = new GameObject(Name);
         PositionedSoundGameObject.transform.position = position;
         AudioSource audioSource = SoundGameObject.AddComponent<AudioSource>();
         audioSource.clip = GetSound(sound);
