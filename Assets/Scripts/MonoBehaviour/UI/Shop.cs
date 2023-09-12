@@ -58,6 +58,8 @@ public class Shop : MonoBehaviour
                 TileManager.Instance.SelectedTile.SetTower(Instantiate(BasicTowerPrefab,
                                                            TileManager.Instance.SelectedTile.transform.position,
                                                            TileManager.Instance.SelectedTile.transform.rotation));
+                SoundManager.PlaySound(Sound.TowerSpawn, TileManager.Instance.SelectedTile.transform.position);
+
                 CloseShopWindow();
             }
         }
@@ -75,6 +77,8 @@ public class Shop : MonoBehaviour
                 TileManager.Instance.SelectedTile.SetTower(Instantiate(DoubleBarrelPrefab,
                                                             TileManager.Instance.SelectedTile.transform.position,
                                                             TileManager.Instance.SelectedTile.transform.rotation));
+                SoundManager.PlaySound(Sound.TowerSpawn, TileManager.Instance.SelectedTile.transform.position);
+
                 CloseShopWindow();
             }
         }
