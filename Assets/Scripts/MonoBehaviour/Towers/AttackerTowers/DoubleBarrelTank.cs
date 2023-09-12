@@ -92,7 +92,7 @@ public class DoubleBarrelTank : MonoBehaviour
                 // trigger shooting animation
                 TowerAnimator.SetTrigger("IsShooting");
                 // play shooting sound
-                //SoundManager.PlaySound(Sound.TankShot, ProjectileSpawnPoint1.position, "Double Barrel Tank Shot");
+                SoundManager.PlaySound(Sound.TankShot, ProjectileSpawnPoint1.position, "Double Barrel Tank Shot");
                 // shoot
                 SolidShot.CreateProjectile(ProjectilePrefab, ProjectileSpawnPoint1.position, TargetEnemy, Status.Damage);
                 SolidShot.CreateProjectile(ProjectilePrefab, ProjectileSpawnPoint2.position, TargetEnemy, Status.Damage);

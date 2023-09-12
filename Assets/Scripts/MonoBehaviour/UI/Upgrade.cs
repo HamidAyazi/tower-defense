@@ -19,8 +19,8 @@ public class Upgrade : MonoBehaviour
     // OnEnable runs every time the game object gets enabled
     private void OnEnable()
     {
-        AttackerTowerStatus status = TileManager.Instance.SelectedTile.GetTower().GetComponent<AttackerTowerStatus>();
-        float[] statusarray = status.GetLevelStatus(status.Level);
+        //AttackerTowerStatus status = TileManager.Instance.SelectedTile.GetTower().GetComponent<AttackerTowerStatus>();
+        //float[] statusarray = status.GetLevelStatus(status.Level);
     }
     public void OpenUpgradeWindow()
     {

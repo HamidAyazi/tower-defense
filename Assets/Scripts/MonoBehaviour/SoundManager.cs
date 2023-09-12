@@ -19,6 +19,7 @@ public static class SoundManager
             SoundGameObject = new GameObject("OneShotSound");
             GlobalAudioSource = SoundGameObject.AddComponent<AudioSource>();
         }
+        GlobalAudioSource.volume = 1f;
         GlobalAudioSource.PlayOneShot(GetSound(sound));
     }
     public static void PlaySound(Sound sound, Vector3 position, string Name)
@@ -27,6 +28,8 @@ public static class SoundManager
         PositionedSoundGameObject.transform.position = position;
         AudioSource audioSource = PositionedSoundGameObject.AddComponent<AudioSource>();
         audioSource.clip = GetSound(sound);
+        audioSource.rolloffMode = AudioRolloffMode.Linear;
+        audioSource.maxDistance = 5f;
         audioSource.Play();
 
         Object.Destroy(PositionedSoundGameObject, audioSource.clip.length);

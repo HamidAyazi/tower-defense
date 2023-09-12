@@ -92,7 +92,7 @@ public class RailTank : MonoBehaviour
                 // trigger shooting animation
                 TowerAnimator.SetTrigger("IsShooting");
                 // play shooting sound
-                //SoundManager.PlaySound(Sound.TankShot, ProjectileSpawnPoint1.position, "Double Barrel Tank Shot");
+                SoundManager.PlaySound(Sound.TankShot, ProjectileSpawnPoint.position, "Double Barrel Tank Shot");
                 // shoot
                 Laser.CreateProjectile(ProjectilePrefab, ProjectileSpawnPoint.position, TargetEnemy, Status.Damage);
             }

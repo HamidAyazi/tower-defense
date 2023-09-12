@@ -94,7 +94,7 @@ public class Tank : MonoBehaviour
                 // trigger shooting animation
                 TowerAnimator.SetTrigger("IsShooting");
                 // play shooting sound
-                //SoundManager.PlaySound(Sound.TankShot, ProjectileSpawnPoint.position, "Tank Shot");
+                SoundManager.PlaySound(Sound.TankShot, ProjectileSpawnPoint.position, "Tank Shot");
                 // shoot
                 SolidShot.CreateProjectile(ProjectilePrefab, ProjectileSpawnPoint.position, TargetEnemy, Status.Damage);
             }
