@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class SoundManager : MonoBehaviour
+public static class SoundManager
 {
     public static SoundAudio[] SoundAudioArr;
     private static GameObject SoundGameObject;
@@ -37,6 +37,7 @@ public class SoundManager : MonoBehaviour
 
     private static AudioClip GetSound(Sound sound)
     {
+
         foreach (var soundAudio in SoundAudioArr)
         {
             if (soundAudio.sound == sound) return soundAudio.clip;
