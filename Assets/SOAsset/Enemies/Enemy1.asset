@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 209ae000119ad3c49803ab5885e9ce8d, type: 3}
   m_Name: Enemy1
   m_EditorClassIdentifier: 
+  Name: Dayere
   BaseHealtPoint: 10
   BaseDamage: 1
   MovementSpeed: 1

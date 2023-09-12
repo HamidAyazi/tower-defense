@@ -12,6 +12,9 @@ public class SpeedManager : MonoBehaviour
     [SerializeField] private Sprite speed3xImage;
 
     public void ChangeSpeed(){
+        //play click sound
+        SoundManager.PlaySound(Sound.ButtonClick);
+        // change speed
         if(Speed == 1){
             X2Speed();
         } else if (Speed == 2){

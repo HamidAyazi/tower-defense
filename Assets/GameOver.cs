@@ -13,6 +13,7 @@ public class GameOver : MonoBehaviour
 
     private void GameOverProcess(object sender, System.EventArgs e)
     {
+        SoundManager.PlaySound(Sound.GameOver);
         GameOverPanel.SetActive(true);
         Time.timeScale = 0;
     }
