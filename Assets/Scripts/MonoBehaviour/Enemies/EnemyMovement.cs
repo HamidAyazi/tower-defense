@@ -12,7 +12,7 @@ public class EnemyMovement : MonoBehaviour
     {
         target = WaypointsScript.GetPosition(wavepointIndex);
         randomTarget = target;
-        MovementSpeed = GetComponent<Enemy>().EnemyType.MovementSpeed;
+        MovementSpeed = GetComponent<Enemy>().EnemySO.MovementSpeed;
     }
 
     private void Update()
