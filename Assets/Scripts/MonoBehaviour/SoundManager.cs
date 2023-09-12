@@ -28,11 +28,11 @@ public static class SoundManager
     {
         GameObject PositionedSoundGameObject = new GameObject(Name);
         PositionedSoundGameObject.transform.position = position;
-        AudioSource audioSource = SoundGameObject.AddComponent<AudioSource>();
+        AudioSource audioSource = PositionedSoundGameObject.AddComponent<AudioSource>();
         audioSource.clip = GetSound(sound);
         audioSource.Play();
 
-        Object.Destroy(SoundGameObject, audioSource.clip.length);
+        Object.Destroy(PositionedSoundGameObject, audioSource.clip.length);
     }
 
     private static AudioClip GetSound(Sound sound)

@@ -101,10 +101,10 @@ public class Shop : MonoBehaviour
     }
     public void OpenShopWindow()
     {
-        gameObject.SetActive(true);
+        transform.GetChild(0).gameObject.SetActive(true);
     }
     public void CloseShopWindow()
     {
-        gameObject.SetActive(false);
+        transform.GetChild(0).gameObject.SetActive(false);
     }
 }

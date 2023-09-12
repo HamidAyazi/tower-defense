@@ -22,9 +22,7 @@ public class Tile : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData){
         TileManager.Instance.SelectedTile = this;
-
         if (Tower != null){
-            Debug.Log(Tower);
             shop.CloseShopWindow();
             // TODO - TowerUpgradeSystem.SetActive(true)
             return;
