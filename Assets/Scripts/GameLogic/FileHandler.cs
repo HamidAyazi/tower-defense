@@ -16,7 +16,7 @@ public class FileHandler
         }
         catch (System.Exception e)
         {
-            Debug.LogError("Error occurred when trying to save data: " + e.Message);
+            Debug.LogError("Error occurred when trying to save data:\n" + e.Message);
         }
     }
 
