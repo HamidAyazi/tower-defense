@@ -7,12 +7,14 @@ public class Tile : MonoBehaviour, IPointerClickHandler
 {
     private GameObject Tower;
     private Shop shop;
+    private Upgrade upgrade;
 
     void Start(){
         try
         {
             GameObject Canvas = GameObject.Find("Canvas");
             shop = Canvas.GetComponentInChildren<Shop>();
+            upgrade = Canvas.GetComponent<Upgrade>();
         }
         catch (System.Exception e)
         {
@@ -24,7 +26,7 @@ public class Tile : MonoBehaviour, IPointerClickHandler
         TileManager.Instance.SelectedTile = this;
         if (Tower != null){
             shop.CloseShopWindow();
-            // TODO - TowerUpgradeSystem.SetActive(true)
+            upgrade.OpenUpgradeWindow();
             return;
         } else {
             shop.OpenShopWindow();
@@ -33,5 +35,9 @@ public class Tile : MonoBehaviour, IPointerClickHandler
     public void SetTower(GameObject Tower)
     {
         this.Tower = Tower;
+    }
+    public GameObject GetTower()
+    {
+        return Tower;
     }
 }

@@ -2,23 +2,23 @@ using UnityEngine;
 
 public class DoubleBarrelTank : MonoBehaviour
 {
-    /*-------- Logic Attributes --------*/
-    private float ShootTimer = 0f;
-    private float LookForTargetTimer;
-    private Enemy TargetEnemy;
+    /*-------- Projectile Attributes --------*/
+    // Transform of "Tower" "Projectile". Each "Tower" of this type use this "Projectile" for shooting.
+    public Transform ProjectilePrefab;
+
+    /*-------- Head Attributes --------*/
     private Transform Head;
     private Transform ProjectileSpawnPoint1;
     private Transform ProjectileSpawnPoint2;
     private HeadRotation HeadRotation;
     private Animator TowerAnimator;
 
-    /*-------- AttackerTower Attributes --------*/
-    [SerializeField] private AttackerTowerScriptableObject AttackerTowerSO;
-    private int Level;
-    private float Damage;
-    private float AttackSpeed;
-    private float Range;
-    private float LookForTargetTimerMAX;
+    /*-------- Logic Attributes --------*/
+    private float ShootTimer = 0f;
+    private float LookForTargetTimer;
+    private float LookForTargetTimerMAX = 0.02f;
+    private Enemy TargetEnemy;
+    private AttackerTowerStatus Status;
 
     // Start is called before the first frame update
     void Start()
@@ -28,16 +28,13 @@ public class DoubleBarrelTank : MonoBehaviour
         ProjectileSpawnPoint1 = Head.Find("ProjectileSpawnPoint1");
         ProjectileSpawnPoint2 = Head.Find("ProjectileSpawnPoint2");
 
+        // Set Status
+        Status = GetComponent<AttackerTowerStatus>();
+
         // Set Rotation
         TowerAnimator = Head.GetComponent<Animator>();
         HeadRotation = Head.GetComponent<HeadRotation>();
-
-        // Here goes calculations based on level
-        Damage = AttackerTowerSO.BaseDamage;
-        AttackSpeed = AttackerTowerSO.BaseAttackTime;
-        Range = AttackerTowerSO.BaseRange;
-        LookForTargetTimerMAX = AttackerTowerSO.BaseLookForTargetTimer;
-        HeadRotation.SetRotationSpeed(AttackerTowerSO.BaseRotationSpeed);
+        HeadRotation.SetRotationSpeed(Status.RotationSpeed);
 
         // Other Logics
         LookForTargetTimer = LookForTargetTimerMAX;
@@ -60,7 +57,7 @@ public class DoubleBarrelTank : MonoBehaviour
     }
     private void LookForTargets()
     {
-        Collider2D[] Collider2DArray = Physics2D.OverlapCircleAll(transform.position, Range);
+        Collider2D[] Collider2DArray = Physics2D.OverlapCircleAll(transform.position, Status.Range);
         foreach (Collider2D Collider2D in Collider2DArray)
         {
             Enemy enemy = Collider2D.GetComponent<Enemy>();
@@ -73,7 +70,8 @@ public class DoubleBarrelTank : MonoBehaviour
                     HeadRotation.SetTarget(TargetEnemy);
                 } else
                 {
-                    if (Vector3.Distance(transform.position, enemy.transform.position) < Vector3.Distance(transform.position, TargetEnemy.transform.position))
+                    if (Vector3.Distance(transform.position, enemy.transform.position) <
+                        Vector3.Distance(transform.position, TargetEnemy.transform.position))
                     {
                         // CLoser!
                         TargetEnemy = enemy;
@@ -88,16 +86,16 @@ public class DoubleBarrelTank : MonoBehaviour
         ShootTimer -= Time.deltaTime;
         if (ShootTimer < 0f)
         {
-            ShootTimer += AttackSpeed;
+            ShootTimer += Status.AttackSpeed;
             if (TargetEnemy != null && HeadRotation.IsLocked())
             {
                 // trigger shooting animation
                 TowerAnimator.SetTrigger("IsShooting");
                 // play shooting sound
-                SoundManager.PlaySound(Sound.TankShot, ProjectileSpawnPoint1.position, "Double Barrel Tank Shot");
+                //SoundManager.PlaySound(Sound.TankShot, ProjectileSpawnPoint1.position, "Double Barrel Tank Shot");
                 // shoot
-                SolidShot.CreateProjectile(AttackerTowerSO.ProjectilePrefab, ProjectileSpawnPoint1.position, TargetEnemy, Damage);
-                SolidShot.CreateProjectile(AttackerTowerSO.ProjectilePrefab, ProjectileSpawnPoint2.position, TargetEnemy, Damage);
+                SolidShot.CreateProjectile(ProjectilePrefab, ProjectileSpawnPoint1.position, TargetEnemy, Status.Damage);
+                SolidShot.CreateProjectile(ProjectilePrefab, ProjectileSpawnPoint2.position, TargetEnemy, Status.Damage);
             }
         }
         

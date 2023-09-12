@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1754151569063332644}
   - component: {fileID: 4012987546220704851}
   - component: {fileID: 7181636062354182239}
+  - component: {fileID: 4217237837628362354}
   m_Layer: 0
   m_Name: Tank
   m_TagString: Untagged
@@ -98,6 +99,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 091f2f2435293f941bd5261329f0ec47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ProjectilePrefab: {fileID: 1726499099080084261, guid: c5546dcc5113917489767b417b396a0f, type: 3}
+--- !u!114 &4217237837628362354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5904294667641698886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54e4563d989e79f42be0afbfa3531d64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DamageMP: 1.02
+  AttackTimeMP: 0.98
+  RangeMP: 1.02
+  RotationSpeedMP: 1.02
   AttackerTowerSO: {fileID: 11400000, guid: b601b68fad041534db62d5fcb7dded2b, type: 2}
 --- !u!1 &7057688364856057074
 GameObject:

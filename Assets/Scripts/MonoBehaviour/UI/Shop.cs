@@ -37,6 +37,9 @@ public class Shop : MonoBehaviour
         if (GameStats.Money < TankTower.BasePrice)
         {
             TankShopButton.interactable = false;
+        } else
+        {
+            TankShopButton.interactable = true;
         }
     }
 

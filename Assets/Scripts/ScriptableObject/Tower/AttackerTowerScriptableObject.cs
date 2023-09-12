@@ -5,11 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "AttackerTower", menuName = "ScriptableObjects/AttackerTower")]
 public class AttackerTowerScriptableObject : TowerScriptableObject
 {
-    /*-------- Unity Attributes --------*/
-
-    // Transform of "Tower" "Projectile". Each "Tower" of this type use this "Projectile" for shooting.
-    public Transform ProjectilePrefab;
-
     /*-------- Attack Tower Attributes --------*/
 
     // Base Damage of each "Tower" unit. When a "Tower" shots, the enemy's "HealthPoint" is reduced by it's "Damage". Scales with "Level".

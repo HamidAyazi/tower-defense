@@ -1,25 +1,26 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Tank : MonoBehaviour
 {
-    /*-------- Logic Attributes --------*/
-    private float ShootTimer = 0f;
-    private float LookForTargetTimer;
-    private Enemy TargetEnemy;
+    /*-------- Projectile Attributes --------*/
+    // Transform of "Tower" "Projectile". Each "Tower" of this type use this "Projectile" for shooting.
+    public Transform ProjectilePrefab;
+
+    /*-------- Head Attributes --------*/
     private Transform Head;
     private Transform ProjectileSpawnPoint;
     private HeadRotation HeadRotation;
     private Animator TowerAnimator;
 
-    /*-------- AttackerTower Attributes --------*/
-    [SerializeField] private AttackerTowerScriptableObject AttackerTowerSO;
-    private int Level;
-    private float Damage;
-    private float AttackSpeed;
-    private float Range;
-    private float LookForTargetTimerMAX;
+    /*-------- Logic Attributes --------*/
+    private float ShootTimer = 0f;
+    private float LookForTargetTimer;
+    private float LookForTargetTimerMAX = 0.02f;
+    private Enemy TargetEnemy;
+    private AttackerTowerStatus Status;
 
     // Start is called before the first frame update
     void Start()
@@ -28,12 +29,13 @@ public class Tank : MonoBehaviour
         Head = transform.Find("Head");
         ProjectileSpawnPoint = Head.Find("ProjectileSpawnPoint");
 
+        // Set Status
+        Status = GetComponent<AttackerTowerStatus>();
+
         // Set Rotation
         TowerAnimator = Head.GetComponent<Animator>();
         HeadRotation = Head.GetComponent<HeadRotation>();
-
-        // Here goes calculations based on level
-        SetStatus();
+        HeadRotation.SetRotationSpeed(Status.RotationSpeed);
 
         // Other Logics
         LookForTargetTimer = LookForTargetTimerMAX;
@@ -57,7 +59,7 @@ public class Tank : MonoBehaviour
     }
     private void LookForTargets()
     {
-        Collider2D[] Collider2DArray = Physics2D.OverlapCircleAll(transform.position, Range);
+        Collider2D[] Collider2DArray = Physics2D.OverlapCircleAll(transform.position, Status.Range);
         foreach (Collider2D Collider2D in Collider2DArray)
         {
             Enemy enemy = Collider2D.GetComponent<Enemy>();
@@ -70,7 +72,8 @@ public class Tank : MonoBehaviour
                     HeadRotation.SetTarget(TargetEnemy);
                 } else
                 {
-                    if (Vector3.Distance(transform.position, enemy.transform.position) < Vector3.Distance(transform.position, TargetEnemy.transform.position))
+                    if (Vector3.Distance(transform.position, enemy.transform.position) <
+                        Vector3.Distance(transform.position, TargetEnemy.transform.position))
                     {
                         // CLoser!
                         TargetEnemy = enemy;
@@ -85,24 +88,17 @@ public class Tank : MonoBehaviour
         ShootTimer -= Time.deltaTime;
         if (ShootTimer < 0f)
         {
-            ShootTimer += AttackSpeed;
+            ShootTimer += Status.AttackSpeed;
             if (TargetEnemy != null && HeadRotation.IsLocked())
             {
                 // trigger shooting animation
                 TowerAnimator.SetTrigger("IsShooting");
                 // play shooting sound
-                SoundManager.PlaySound(Sound.TankShot, ProjectileSpawnPoint.position, "Tank Shot");
+                //SoundManager.PlaySound(Sound.TankShot, ProjectileSpawnPoint.position, "Tank Shot");
                 // shoot
-                SolidShot.CreateProjectile(AttackerTowerSO.ProjectilePrefab , ProjectileSpawnPoint.position, TargetEnemy, Damage);
+                SolidShot.CreateProjectile(ProjectilePrefab, ProjectileSpawnPoint.position, TargetEnemy, Status.Damage);
             }
         }  
     }
-    public void SetStatus()
-    {
-        Damage = AttackerTowerSO.BaseDamage * Level * 1.5f;
-        AttackSpeed = AttackerTowerSO.BaseAttackTime * Level * 1.5f;
-        Range = AttackerTowerSO.BaseRange * Level * 1.5f;
-        LookForTargetTimerMAX = AttackerTowerSO.BaseLookForTargetTimer * Level * 1.5f;
-        HeadRotation.SetRotationSpeed(AttackerTowerSO.BaseRotationSpeed);
-    }
+    
 }
