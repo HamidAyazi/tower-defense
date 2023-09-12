@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SupporterTower : MonoBehaviour
+public class Enhancer : MonoBehaviour
 {
     [SerializeField] private SupporterTowerScriptableObject SupporterTowerSO;
     // Start is called before the first frame update

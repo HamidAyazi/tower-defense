@@ -5,9 +5,9 @@ using UnityEngine.UIElements;
 
 public class SoundManager : MonoBehaviour
 {
-    public SoundAudio[] SoundAudioArr;
-    GameObject SoundGameObject;
-    AudioSource audioSource;
+    public static SoundAudio[] SoundAudioArr;
+    private static GameObject SoundGameObject;
+    private static AudioSource audioSource;
 
     [System.Serializable]
     public class SoundAudio
@@ -24,7 +24,7 @@ public class SoundManager : MonoBehaviour
         }
         audioSource.PlayOneShot(GetSound(sound));
     }
-    public void PlaySound(Sound sound, Vector3 position)
+    public static void PlaySound(Sound sound, Vector3 position)
     {
         GameObject PositionedSoundGameObject = new GameObject("PositionedSound");
         PositionedSoundGameObject.transform.position = position;
@@ -35,7 +35,7 @@ public class SoundManager : MonoBehaviour
         Object.Destroy(SoundGameObject, audioSource.clip.length);
     }
 
-    private AudioClip GetSound(Sound sound)
+    private static AudioClip GetSound(Sound sound)
     {
         foreach (var soundAudio in SoundAudioArr)
         {

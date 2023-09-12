@@ -22,7 +22,7 @@ public class Shop : MonoBehaviour
 
 
     public TMPro.TextMeshProUGUI TowerName;
-    private string SelectedTower = null;
+    private string SelectedTower;
 
     void Start()
     {
@@ -37,9 +37,6 @@ public class Shop : MonoBehaviour
         if (GameStats.Money < TankTower.BasePrice)
         {
             TankShopButton.interactable = false;
-        } else
-        {
-            
         }
     }
 
@@ -52,15 +49,15 @@ public class Shop : MonoBehaviour
     public void BasicTowerClick() {
         if(GameStats.Money >= TankTower.BasePrice)
         {
-            if(SelectedTower != "Basic"){
-                SelectedTower = "Basic";
+            if(SelectedTower != TankTower.Name){
+                SelectedTower = TankTower.Name;
                 TowerName.text = SelectedTower;
                 return;
             } else {
                 GameStats.Money -= TankTower.BasePrice;
                 TileManager.Instance.SelectedTile.SetTower(Instantiate(BasicTowerPrefab,
                                                            TileManager.Instance.SelectedTile.transform.position,
-                                                           TileManager.Instance.SelectedTile.transform.rotation));        
+                                                           TileManager.Instance.SelectedTile.transform.rotation));
                 CloseShopWindow();
             }
         }
@@ -70,8 +67,8 @@ public class Shop : MonoBehaviour
 
         if (GameStats.Money >= DoubleBarrelTower.BasePrice)
         {
-            if (SelectedTower != "Double Barrel"){
-                SelectedTower = "Double Barrel";
+            if (SelectedTower != DoubleBarrelTower.Name){
+                SelectedTower = DoubleBarrelTower.Name;
                 TowerName.text = SelectedTower;
                 return;
             } else {
