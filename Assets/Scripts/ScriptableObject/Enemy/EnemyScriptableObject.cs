@@ -7,6 +7,7 @@ public class EnemyScriptableObject : ScriptableObject
 {
     /*-------- Game Logic Attributes --------*/
 
+    public string Name;
     // Base max health point of each "Enemy" unit. Unit dies after "HealthPoint" reaches value '0'. Scales with "WaveNumber".
     public int BaseHealtPoint;
     // Base damage of each "Enemy" unit. If unit reaches "Goal", the "HealthPoint" of "Goal" reduces by it's "Damage". Scales with "WaveNumber".

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public EnemyScriptableObject EnemyType;
+    public EnemyScriptableObject EnemySO;
     private EnemyHealthSystem EnemyHealthSystem;
     private int Damage;
 
@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         // Here calculates "Damage" based on "Level"
-        Damage = EnemyType.BaseDamage;
+        Damage = EnemySO.BaseDamage;
 
         EnemyHealthSystem = GetComponent<EnemyHealthSystem>();
         EnemyHealthSystem.OnEnemyDied += EnemyHealthSystem_OnEnemyDied;
@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
 
     private void EnemyHealthSystem_OnEnemyDied(object sender, System.EventArgs e)
     {
+        SoundManager.PlaySound(Sound.EnemyDie, transform.position, EnemySO.Name + "Die Sound");
         Destroy(gameObject);
     }
 

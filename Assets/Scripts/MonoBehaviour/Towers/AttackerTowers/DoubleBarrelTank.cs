@@ -1,15 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Tank : MonoBehaviour
+public class DoubleBarrelTank : MonoBehaviour
 {
     /*-------- Logic Attributes --------*/
     private float ShootTimer = 0f;
     private float LookForTargetTimer;
     private Enemy TargetEnemy;
     private Transform Head;
-    private Transform ProjectileSpawnPoint;
+    private Transform ProjectileSpawnPoint1;
+    private Transform ProjectileSpawnPoint2;
     private HeadRotation HeadRotation;
     private Animator TowerAnimator;
 
@@ -26,14 +25,19 @@ public class Tank : MonoBehaviour
     {
         // Get Projectile Spawn Point 
         Head = transform.Find("Head");
-        ProjectileSpawnPoint = Head.Find("ProjectileSpawnPoint");
+        ProjectileSpawnPoint1 = Head.Find("ProjectileSpawnPoint1");
+        ProjectileSpawnPoint2 = Head.Find("ProjectileSpawnPoint2");
 
         // Set Rotation
         TowerAnimator = Head.GetComponent<Animator>();
         HeadRotation = Head.GetComponent<HeadRotation>();
 
         // Here goes calculations based on level
-        SetStatus();
+        Damage = AttackerTowerSO.BaseDamage;
+        AttackSpeed = AttackerTowerSO.BaseAttackTime;
+        Range = AttackerTowerSO.BaseRange;
+        LookForTargetTimerMAX = AttackerTowerSO.BaseLookForTargetTimer;
+        HeadRotation.SetRotationSpeed(AttackerTowerSO.BaseRotationSpeed);
 
         // Other Logics
         LookForTargetTimer = LookForTargetTimerMAX;
@@ -44,7 +48,6 @@ public class Tank : MonoBehaviour
     {
         HandleTargeting();
         HandleShooting();
-
     } 
     private void HandleTargeting()
     {
@@ -88,17 +91,16 @@ public class Tank : MonoBehaviour
             ShootTimer += AttackSpeed;
             if (TargetEnemy != null && HeadRotation.IsLocked())
             {
+                // trigger shooting animation
                 TowerAnimator.SetTrigger("IsShooting");
-                SolidShot.CreateProjectile(AttackerTowerSO.ProjectilePrefab , ProjectileSpawnPoint.position, TargetEnemy, Damage);
+                // play shooting sound
+                SoundManager.PlaySound(Sound.TankShot, ProjectileSpawnPoint1.position, "Double Barrel Tank Shot");
+                // shoot
+                SolidShot.CreateProjectile(AttackerTowerSO.ProjectilePrefab, ProjectileSpawnPoint1.position, TargetEnemy, Damage);
+                SolidShot.CreateProjectile(AttackerTowerSO.ProjectilePrefab, ProjectileSpawnPoint2.position, TargetEnemy, Damage);
             }
-        }  
-    }
-    public void SetStatus()
-    {
-        Damage = AttackerTowerSO.BaseDamage * Level * 1.5f;
-        AttackSpeed = AttackerTowerSO.BaseAttackTime * Level * 1.5f;
-        Range = AttackerTowerSO.BaseRange * Level * 1.5f;
-        LookForTargetTimerMAX = AttackerTowerSO.BaseLookForTargetTimer * Level * 1.5f;
-        HeadRotation.SetRotationSpeed(AttackerTowerSO.BaseRotationSpeed);
+        }
+        
+        
     }
 }

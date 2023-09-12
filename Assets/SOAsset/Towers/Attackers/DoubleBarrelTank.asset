@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dec6e4e0a717bb448d2cdcb4e4fecaa, type: 3}
   m_Name: DoubleBarrelTank
   m_EditorClassIdentifier: 
+  Name: Double Barrel Tank
   BasePrice: 10
   BaseRange: 5
   ProjectilePrefab: {fileID: 1726499099080084261, guid: c5546dcc5113917489767b417b396a0f, type: 3}

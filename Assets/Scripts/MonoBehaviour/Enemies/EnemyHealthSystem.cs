@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class EnemyHealthSystem : MonoBehaviour
 {
-    private EnemyScriptableObject EnemySO;
     private float MaximumHealthPoint;
     private float HealthPoint;
     public event EventHandler OnEnemyDied;
@@ -11,10 +10,8 @@ public class EnemyHealthSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        EnemySO = GetComponent<Enemy>().EnemyType;
-
         // Calculation based on levels goes here
-        MaximumHealthPoint = EnemySO.BaseHealtPoint;
+        MaximumHealthPoint = GetComponent<Enemy>().EnemySO.BaseHealtPoint;
         HealthPoint = MaximumHealthPoint;
     }
     public void DealDamage(float DamageReceived)
