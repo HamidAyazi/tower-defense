@@ -88,7 +88,11 @@ public class Tank : MonoBehaviour
             ShootTimer += AttackSpeed;
             if (TargetEnemy != null && HeadRotation.IsLocked())
             {
+                // trigger shooting animation
                 TowerAnimator.SetTrigger("IsShooting");
+                // play shooting sound
+                SoundManager.PlaySound(Sound.TankShot, ProjectileSpawnPoint.position, "Tank Shot");
+                // shoot
                 SolidShot.CreateProjectile(AttackerTowerSO.ProjectilePrefab , ProjectileSpawnPoint.position, TargetEnemy, Damage);
             }
         }  
