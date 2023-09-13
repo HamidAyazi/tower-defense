@@ -2745,7 +2745,7 @@ GameObject:
   - component: {fileID: 569427519}
   - component: {fileID: 569427518}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: Range Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2880,7 +2880,7 @@ GameObject:
   - component: {fileID: 571054176}
   - component: {fileID: 571054175}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Range Value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4408,7 +4408,7 @@ GameObject:
   - component: {fileID: 742785675}
   - component: {fileID: 742785674}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: Rotation Speed Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5419,7 +5419,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b45b8e6443fe82f49b44f6dcd88184f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectedTile: {fileID: 0}
 --- !u!1 &876792308
 GameObject:
   m_ObjectHideFlags: 0
@@ -5560,6 +5559,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d097537fe2791a46950e1f1eae612cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Damage: {fileID: 1281943176}
+  AttackSpeed: {fileID: 1040408314}
+  Range: {fileID: 571054175}
+  RotationSpeed: {fileID: 1592270988}
 --- !u!1 &928380693
 GameObject:
   m_ObjectHideFlags: 0
@@ -7353,37 +7356,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1374108959}
   m_CullTransparentMesh: 1
---- !u!1 &1378688158
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1378688160}
-  m_Layer: 0
-  m_Name: Towers
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1378688160
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1378688158}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1388333754
 GameObject:
   m_ObjectHideFlags: 0
@@ -8398,7 +8370,7 @@ GameObject:
   - component: {fileID: 1592270989}
   - component: {fileID: 1592270988}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: 'Rotation Speed Value '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

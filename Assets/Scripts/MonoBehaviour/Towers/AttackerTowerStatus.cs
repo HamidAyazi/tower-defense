@@ -14,7 +14,7 @@ public class AttackerTowerStatus : MonoBehaviour
 
     /*-------- AttackerTower Attributes --------*/
     public AttackerTowerScriptableObject AttackerTowerSO;
-    [NonSerialized] public int Level;
+    [NonSerialized] public int CurrentLevel;
     [NonSerialized] public float Damage;
     [NonSerialized] public float AttackSpeed;
     [NonSerialized] public float Range;
@@ -23,7 +23,7 @@ public class AttackerTowerStatus : MonoBehaviour
 
     private void Awake()
     {
-        Level = 1;
+        CurrentLevel = 1;
         Damage = AttackerTowerSO.BaseDamage;
         AttackSpeed = AttackerTowerSO.BaseAttackTime;
         Range = AttackerTowerSO.BaseRange;
@@ -31,15 +31,20 @@ public class AttackerTowerStatus : MonoBehaviour
     }
     public void Upgrade()
     {
-        Level++;
+        float[] NewStatus = GetLevelStatus(CurrentLevel++);
+        Damage = NewStatus[0];
+        AttackSpeed = NewStatus[1];
+        Range = NewStatus[2];
+        RotationSpeed = NewStatus[3];
+
     }
     public float[] GetLevelStatus(int Level)
     {
         float[] Status = new float[4];
-        Status[0] = AttackerTowerSO.BaseDamage * Level * DamageMP;
-        Status[1] = AttackerTowerSO.BaseAttackTime * Level * AttackTimeMP;
-        Status[2] = AttackerTowerSO.BaseRange * Level * RangeMP;
-        Status[3] = AttackerTowerSO.BaseRotationSpeed * Level * RotationSpeedMP;
-        return null;
+        Status[0] = AttackerTowerSO.BaseDamage * (1 + Level-- * DamageMP);
+        Status[1] = AttackerTowerSO.BaseAttackTime * (1 - Level * AttackTimeMP);
+        Status[2] = AttackerTowerSO.BaseRange * (1 + Level * RangeMP);
+        Status[3] = AttackerTowerSO.BaseRotationSpeed * (1 + Level * RotationSpeedMP);
+        return Status;
     }
 }

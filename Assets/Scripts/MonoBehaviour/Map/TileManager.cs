@@ -1,9 +1,10 @@
+using System;
 using UnityEngine;
 
 public class TileManager : MonoBehaviour
 {
     public static TileManager Instance { get; private set; }
-    public Tile SelectedTile;
+    [NonSerialized] public Tile SelectedTile;
 
     private void Awake()
     {

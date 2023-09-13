@@ -14,7 +14,7 @@ public class Tile : MonoBehaviour, IPointerClickHandler
         {
             GameObject Canvas = GameObject.Find("Canvas");
             shop = Canvas.GetComponentInChildren<Shop>();
-            upgrade = Canvas.GetComponent<Upgrade>();
+            upgrade = Canvas.GetComponentInChildren<Upgrade>();
         }
         catch (System.Exception e)
         {

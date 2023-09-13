@@ -58,12 +58,13 @@ public class Shop : MonoBehaviour
                 return;
             } else {
                 GameStats.Money -= TankTower.BasePrice;
+                // play tower spawn sound
+                SoundManager.PlaySound(Sound.TowerSpawn, TileManager.Instance.SelectedTile.transform.position,
+                                        SelectedTower + " Spawn Sound");
+                // place tower
                 TileManager.Instance.SelectedTile.SetTower(Instantiate(BasicTowerPrefab,
                                                            TileManager.Instance.SelectedTile.transform.position,
                                                            TileManager.Instance.SelectedTile.transform.rotation));
-                //play tower spawn sound
-                SoundManager.PlaySound(Sound.TowerSpawn, TileManager.Instance.SelectedTile.transform.position, SelectedTower + " Spawn Sound");
-
                 CloseShopWindow();
             }
         }
@@ -78,12 +79,13 @@ public class Shop : MonoBehaviour
                 TowerName.text = SelectedTower;
                 return;
             } else {
+                // play tower spawn sound
+                SoundManager.PlaySound(Sound.TowerSpawn, TileManager.Instance.SelectedTile.transform.position,
+                                        SelectedTower + " Spawn Sound");
+                // place tower
                 TileManager.Instance.SelectedTile.SetTower(Instantiate(DoubleBarrelPrefab,
                                                             TileManager.Instance.SelectedTile.transform.position,
                                                             TileManager.Instance.SelectedTile.transform.rotation));
-                // play tower spawn sound
-                SoundManager.PlaySound(Sound.TowerSpawn, TileManager.Instance.SelectedTile.transform.position, SelectedTower + " Spawn Sound");
-
                 CloseShopWindow();
             }
         }
