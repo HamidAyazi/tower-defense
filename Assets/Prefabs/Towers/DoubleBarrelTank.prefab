@@ -112,10 +112,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54e4563d989e79f42be0afbfa3531d64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageMP: 0.02
-  AttackTimeMP: 0.02
-  RangeMP: 0.02
-  RotationSpeedMP: 0.02
+  DamageMp: 0.02
+  AttackSpeedMp: 0.02
+  RangeMp: 0.02
+  RotationSpeedMp: 0.02
   AttackerTowerSO: {fileID: 11400000, guid: 7a44ca33996a541429397af8d899384c, type: 2}
 --- !u!1 &7057688364856057074
 GameObject:

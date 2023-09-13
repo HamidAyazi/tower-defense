@@ -1,16 +1,13 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static Cinemachine.DocumentationSortingAttribute;
 
 public class AttackerTowerStatus : MonoBehaviour
 {
     /*-------- Multipliers --------*/
-    [SerializeField] private float DamageMP;
-    [SerializeField] private float AttackTimeMP;
-    [SerializeField] private float RangeMP;
-    [SerializeField] private float RotationSpeedMP;
+    [SerializeField] private float DamageMp;
+    [SerializeField] private float AttackSpeedMp;
+    [SerializeField] private float RangeMp;
+    [SerializeField] private float RotationSpeedMp;
 
     /*-------- AttackerTower Attributes --------*/
     public AttackerTowerScriptableObject AttackerTowerSO;
@@ -25,7 +22,7 @@ public class AttackerTowerStatus : MonoBehaviour
     {
         CurrentLevel = 1;
         Damage = AttackerTowerSO.BaseDamage;
-        AttackSpeed = AttackerTowerSO.BaseAttackTime;
+        AttackSpeed = AttackerTowerSO.BaseAttackSpeed;
         Range = AttackerTowerSO.BaseRange;
         RotationSpeed = AttackerTowerSO.BaseRotationSpeed;
     }
@@ -41,10 +38,10 @@ public class AttackerTowerStatus : MonoBehaviour
     public float[] GetLevelStatus(int Level)
     {
         float[] Status = new float[4];
-        Status[0] = AttackerTowerSO.BaseDamage * (1 + Level-- * DamageMP);
-        Status[1] = AttackerTowerSO.BaseAttackTime * (1 - Level * AttackTimeMP);
-        Status[2] = AttackerTowerSO.BaseRange * (1 + Level * RangeMP);
-        Status[3] = AttackerTowerSO.BaseRotationSpeed * (1 + Level * RotationSpeedMP);
+        Status[0] = AttackerTowerSO.BaseDamage * (1 + Level-- * DamageMp);
+        Status[1] = AttackerTowerSO.BaseAttackSpeed * (1 + Level * AttackSpeedMp);
+        Status[2] = AttackerTowerSO.BaseRange * (1 + Level * RangeMp);
+        Status[3] = AttackerTowerSO.BaseRotationSpeed * (1 + Level * RotationSpeedMp);
         return Status;
     }
 }

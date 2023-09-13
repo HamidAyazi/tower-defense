@@ -86,7 +86,7 @@ public class RailTank : MonoBehaviour
         ShootTimer -= Time.deltaTime;
         if (ShootTimer < 0f)
         {
-            ShootTimer += Status.AttackSpeed;
+            ShootTimer += 1 / Status.AttackSpeed;
             if (TargetEnemy != null && HeadRotation.IsLocked())
             {
                 // trigger shooting animation

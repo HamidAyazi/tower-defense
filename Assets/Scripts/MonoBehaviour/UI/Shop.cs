@@ -91,7 +91,7 @@ public class Shop : MonoBehaviour
         }
     }
 
-    void SetButtonStatus()
+    private void SetButtonStatus()
     {
         if (GameStats.Money < TankTower.BasePrice && IsTankButtonActive)
         {
