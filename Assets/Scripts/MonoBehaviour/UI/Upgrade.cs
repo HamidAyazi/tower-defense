@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Upgrade : MonoBehaviour
@@ -45,6 +43,7 @@ public class Upgrade : MonoBehaviour
         for (int i = 0; i < UpgradePreviewArray.Length; i++)
         {
             UpgradePreviewArray[i] -= CurrentStatusArray[i];
+            UpgradePreviewArray[i] = Mathf.Round(UpgradePreviewArray[i] * 100f) / 100f;
         }
         DamageUpgrade.text = "+" + UpgradePreviewArray[0].ToString();
         AttackSpeedUpgrade.text = "+" + UpgradePreviewArray[1].ToString();
