@@ -20,29 +20,29 @@ public class Tank : MonoBehaviour
     private float LookForTargetTimer;
     private float LookForTargetTimerMAX = 0.02f;
     private Enemy TargetEnemy;
-    private AttackerTowerStatus Status;
+    private AttackerTowerStats Stats;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         // Get Projectile Spawn Point 
         Head = transform.Find("Head");
         ProjectileSpawnPoint = Head.Find("ProjectileSpawnPoint");
 
         // Set Status
-        Status = GetComponent<AttackerTowerStatus>();
+        Stats = GetComponent<AttackerTowerStats>();
 
         // Set Rotation
         TowerAnimator = Head.GetComponent<Animator>();
         HeadRotation = Head.GetComponent<HeadRotation>();
-        HeadRotation.SetRotationSpeed(Status.RotationSpeed);
+        HeadRotation.SetRotationSpeed(Stats.RotationSpeed);
 
         // Other Logics
         LookForTargetTimer = LookForTargetTimerMAX;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         HandleTargeting();
         HandleShooting();
@@ -59,7 +59,7 @@ public class Tank : MonoBehaviour
     }
     private void LookForTargets()
     {
-        Collider2D[] Collider2DArray = Physics2D.OverlapCircleAll(transform.position, Status.Range);
+        Collider2D[] Collider2DArray = Physics2D.OverlapCircleAll(transform.position, Stats.Range);
         foreach (Collider2D Collider2D in Collider2DArray)
         {
             Enemy enemy = Collider2D.GetComponent<Enemy>();
@@ -88,7 +88,7 @@ public class Tank : MonoBehaviour
         ShootTimer -= Time.deltaTime;
         if (ShootTimer < 0f)
         {
-            ShootTimer += 1 / Status.AttackSpeed;
+            ShootTimer += 1 / Stats.AttackSpeed;
             if (TargetEnemy != null && HeadRotation.IsLocked())
             {
                 // trigger shooting animation
@@ -96,7 +96,7 @@ public class Tank : MonoBehaviour
                 // play shooting sound
                 SoundManager.PlaySound(Sound.TankShot, ProjectileSpawnPoint.position, "Tank Shot");
                 // shoot
-                SolidShot.CreateProjectile(ProjectilePrefab, ProjectileSpawnPoint.position, TargetEnemy, Status.Damage);
+                SolidShot.CreateProjectile(ProjectilePrefab, ProjectileSpawnPoint.position, TargetEnemy, Stats.Damage);
             }
         }  
     }

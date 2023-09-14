@@ -5,11 +5,10 @@ public class GameOver : MonoBehaviour
 {
     public Goal goal;
     [SerializeField] private GameObject GameOverPanel;
-    void Start()
+    private void Start()
     {
         goal.OnGoalDied += GameOverProcess;
     }
-
 
     private void GameOverProcess(object sender, System.EventArgs e)
     {
@@ -18,10 +17,16 @@ public class GameOver : MonoBehaviour
         Time.timeScale = 0;
     }
 
+    /// <summary>
+    /// Restart a played map and set everything on the map to it's default.
+    /// </summary>
     public void RetryClick(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    /// <summary>
+    /// Close <c>PlayScene</c> and switch to <c>MainMenuScene</c>.
+    /// </summary>
     public void MenuClick(){
         SceneManager.LoadScene(0);
     }

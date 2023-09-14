@@ -23,12 +23,7 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
-    public void ToggleWave(){
-        SpawnPointPosition = SaveManager.Instance.Data.map.SpawnPointPosition;
-        waveToggle = !waveToggle;
-    }
-
-    IEnumerator SpawnWave(){
+    private IEnumerator SpawnWave(){
         waveNumber++;
         float enemyCount = waveNumber;
         GameStats.Wave = waveNumber;
@@ -38,8 +33,17 @@ public class WaveSpawner : MonoBehaviour
         }
     } 
 
-    void SpawnEnemy(){
+    private void SpawnEnemy(){
         Instantiate(enemyPrefab, SpawnPointPosition, Quaternion.identity);
+    }
+
+    /// <summary>
+    /// Start or Stop an Enemy Wave.
+    /// </summary>
+    public void ToggleWave()
+    {
+        SpawnPointPosition = SaveManager.Instance.Data.map.SpawnPointPosition;
+        waveToggle = !waveToggle;
     }
 
 }

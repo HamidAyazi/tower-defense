@@ -16,7 +16,7 @@ public class Laser : MonoBehaviour
     private float Speed;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         EnemyHealthSystem EHS = TargetEnemy.GetComponent<EnemyHealthSystem>();
 
@@ -50,15 +50,6 @@ public class Laser : MonoBehaviour
         }
     }
 
-    public static Laser CreateProjectile(Transform ProjectilePrefab, Vector3 SpawnPosition, Enemy TargetEnemy, float Damage)
-    {
-        Transform ProjectileTransform = Instantiate(ProjectilePrefab, SpawnPosition, Quaternion.identity);
-        Laser Projectile = ProjectileTransform.GetComponent<Laser>();
-        Projectile.TargetEnemy = TargetEnemy;
-        Projectile.Damage = Damage;
-        return Projectile;
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Enemy Enemy = collision.GetComponent<Enemy>();
@@ -74,6 +65,15 @@ public class Laser : MonoBehaviour
     private void RemoveTarget_OnTargerDied(object sender, EventArgs e)
     {
         TargetEnemy = null;
+    }
+
+    public static Laser CreateProjectile(Transform ProjectilePrefab, Vector3 SpawnPosition, Enemy TargetEnemy, float Damage)
+    {
+        Transform ProjectileTransform = Instantiate(ProjectilePrefab, SpawnPosition, Quaternion.identity);
+        Laser Projectile = ProjectileTransform.GetComponent<Laser>();
+        Projectile.TargetEnemy = TargetEnemy;
+        Projectile.Damage = Damage;
+        return Projectile;
     }
 
 }

@@ -17,22 +17,19 @@ public class GameStats : MonoBehaviour
     public static int Wave;
     public TMPro.TextMeshProUGUI HudWave;
 
-    void Start()
+    private void Start()
     {
         Money = StartingMoney;
         HudMoney.text = Money.ToString();
 
-
-        
         HealthPoint = StartingHealth;
         HudHealth.text = HealthPoint.ToString();
-
 
         Wave = 0;
         HudWave.text = Wave.ToString();
     }
 
-    void Update()
+    private void Update()
     {
         HudMoney.text = Money.ToString();
         HudHealth.text = HealthPoint.ToString();

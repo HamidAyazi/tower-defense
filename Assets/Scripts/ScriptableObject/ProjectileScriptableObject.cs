@@ -7,8 +7,8 @@ public class ProjectileScriptableObject : ScriptableObject
 {
     /*-------- Projectile Attributes --------*/
 
-
+    // Speed of the Projectile.
     public float BaseSpeed;
-
+    // Time to die for a Projectile after hit missing.
     public float MaxTimeToDie;
 }

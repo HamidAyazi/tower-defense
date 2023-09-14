@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class AttackerTowerStatus : MonoBehaviour
+public class AttackerTowerStats : MonoBehaviour
 {
     /*-------- Multipliers --------*/
     [SerializeField] private float DamageMp;
@@ -26,6 +26,10 @@ public class AttackerTowerStatus : MonoBehaviour
         Range = AttackerTowerSO.BaseRange;
         RotationSpeed = AttackerTowerSO.BaseRotationSpeed;
     }
+
+    /// <summary>
+    /// Upgrade the <c>AttackerTower</c> and set new status.
+    /// </summary>
     public void Upgrade()
     {
         float[] NewStatus = GetLevelStatus(CurrentLevel++);
@@ -35,6 +39,12 @@ public class AttackerTowerStatus : MonoBehaviour
         RotationSpeed = NewStatus[3];
 
     }
+
+    /// <summary>
+    /// Get <c>AttackerTower</c> status in specifed level.
+    /// </summary>
+    /// <param name="Level">Level that the status is fixed.</param>
+    /// <returns>An array of <c>AttackerTower</c> status.</returns>
     public float[] GetLevelStatus(int Level)
     {
         float[] Status = new float[4];

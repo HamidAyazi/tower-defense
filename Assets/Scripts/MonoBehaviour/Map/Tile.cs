@@ -7,14 +7,14 @@ public class Tile : MonoBehaviour, IPointerClickHandler
 {
     private GameObject Tower;
     private Shop shop;
-    private Upgrade upgrade;
+    private UpgradeMenu upgrade;
 
-    void Start(){
+    private void Start(){
         try
         {
             GameObject Canvas = GameObject.Find("Canvas");
             shop = Canvas.GetComponentInChildren<Shop>();
-            upgrade = Canvas.GetComponentInChildren<Upgrade>();
+            upgrade = Canvas.GetComponentInChildren<UpgradeMenu>();
         }
         catch (System.Exception e)
         {
@@ -22,6 +22,10 @@ public class Tile : MonoBehaviour, IPointerClickHandler
         }
     }
 
+    /// <summary>
+    /// Open either <c>ShopPanel</c>  or <c>UpgradePanel</c> when a <c>Tile</c> is selected.
+    /// </summary>
+    /// <param name="eventData">Pointer click event data.</param>
     public void OnPointerClick(PointerEventData eventData){
         TileManager.Instance.SelectedTile = this;
         if (Tower != null){
@@ -32,10 +36,20 @@ public class Tile : MonoBehaviour, IPointerClickHandler
             shop.OpenShopWindow();
         }
     }
+
+    /// <summary>
+    /// Set a <c>Tower</c> to the <c>Tile</c>.
+    /// </summary>
+    /// <param name="Tower"><c>Tower</c> game object to set.</param>
     public void SetTower(GameObject Tower)
     {
         this.Tower = Tower;
     }
+
+    /// <summary>
+    /// A method to get <c>Tile</c>'s <c>Tower</c>.
+    /// </summary>
+    /// <returns><c>Tower</c> that is built on a tile.</returns>
     public GameObject GetTower()
     {
         return Tower;

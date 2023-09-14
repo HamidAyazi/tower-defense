@@ -8,6 +8,9 @@ public class GameData
     public LastPlayedLevel lastPlayedLevel;
     public Map map;
 
+    /// <summary>
+    /// Constructor for <c>GameData</c> class. Loads new <c>Map</c> and new <c>PlayerStats</c>
+    /// </summary>
     public GameData()
     {
         map = new Map();
@@ -22,6 +25,11 @@ public class GameData
         public Settings PlayerSettings;
         public TalentTree PlayerTalentTree;
 
+        /// <summary>
+        /// Constructor for <c>PlayerStats</c> class.
+        /// It sets <c>PlayerName</c> to 'New Player' and <c>PlayerLevel</c> to 1.
+        /// It also Loads default <c>PlayerSettings</c> and <c>PlayerTalentTree</c>.
+        /// </summary>
         public PlayerStats()
         {
             PlayerName = "New Player";
@@ -38,6 +46,10 @@ public class GameData
         public int RemainingCoins;
         public int GoalHP;
 
+        /// <summary>
+        /// Constructor for <c>LastPlayedLevel</c> class.
+        /// This class is under developement and it's not finished yet.
+        /// </summary>
         public LastPlayedLevel()
         {
             this.map = new Map();
@@ -61,6 +73,10 @@ public class GameData
         public int[] TileMap;
         [NonSerialized] public Vector3 SpawnPointPosition;
 
+        /// <summary>
+        /// Constructor for <c>Map</c> class.
+        /// It set default <c>MapID</c> tp 0, <c>XSize</c> to 10 and contains default map array.
+        /// </summary>
         public Map()
         {
             MapID = 0;

@@ -6,8 +6,9 @@ using static SoundManager;
 public class SoundInit : MonoBehaviour
 {
     [SerializeField] private SoundAudio[] SoundAudioArr;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         SoundManager.SoundAudioArr = SoundAudioArr;
     }

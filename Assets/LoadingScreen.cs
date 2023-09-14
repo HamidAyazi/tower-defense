@@ -7,17 +7,23 @@ public class LoadingScreen : MonoBehaviour
 {
     public GameObject loadingScreen;
     public Slider slider;
-    public void LoadLevel(int SceneIndex){
-        loadingScreen.SetActive(true);
-        StartCoroutine(LoadAsynchronously(SceneIndex));
-    }
 
-    IEnumerator LoadAsynchronously(int SceneIndex){
+    private IEnumerator LoadAsynchronously(int SceneIndex){
 
         AsyncOperation operation = SceneManager.LoadSceneAsync(SceneIndex);
         while(!operation.isDone) {
             slider.value = Mathf.Clamp01(operation.progress/ 0.9f) / 2;
             yield return null;
         }
+    }
+
+    /// <summary>
+    /// Open loading screen and change scene.
+    /// </summary>
+    /// <param name="SceneIndex">Index of the Scene.</param>
+    public void LoadLevel(int SceneIndex)
+    {
+        loadingScreen.SetActive(true);
+        StartCoroutine(LoadAsynchronously(SceneIndex));
     }
 }

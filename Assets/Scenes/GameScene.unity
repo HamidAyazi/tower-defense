@@ -5563,6 +5563,12 @@ MonoBehaviour:
   AttackSpeed: {fileID: 1040408314}
   Range: {fileID: 571054175}
   RotationSpeed: {fileID: 1592270988}
+  CurrentLevel: {fileID: 0}
+  DamageUpgrade: {fileID: 0}
+  AttackSpeedUpgrade: {fileID: 0}
+  RangeUpgrade: {fileID: 0}
+  RotationSpeedUpgrade: {fileID: 0}
+  NextLevel: {fileID: 0}
 --- !u!1 &928380693
 GameObject:
   m_ObjectHideFlags: 0

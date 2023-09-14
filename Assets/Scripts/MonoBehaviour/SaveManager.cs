@@ -23,6 +23,7 @@ public class SaveManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
     }
+
     private void Start()
     {
         Data = new GameData();
@@ -48,12 +49,14 @@ public class SaveManager : MonoBehaviour
     {
         FileHandler.SaveData(Data.lastPlayedLevel, LastPlayedLevelFileName);
     }
+
     private void SaveAllMaps()
     {
         // Save map list to the file
         FileHandler.SaveData<List<GameData.Map>>(Maps, MapsFileName);
 
     }
+
     private void LoadAllMaps()
     {
         Maps = FileHandler.LoadData<List<GameData.Map>>(MapsFileName);
@@ -66,11 +69,17 @@ public class SaveManager : MonoBehaviour
         SaveAllMaps();
     }
 
+    /// <summary>
+    /// Load <c>LastPlayedMap</c> from device.
+    /// </summary>
     public void LoadLastPlayedMap()
     {
         Data.lastPlayedLevel = FileHandler.LoadData<GameData.LastPlayedLevel>(LastPlayedLevelFileName);
     }
 
+    /// <summary>
+    /// Add new created <c>Map</c> to <c>Maps</c> list.
+    /// </summary>
     public void SaveMap()
     {
         // Save new created map
@@ -85,6 +94,11 @@ public class SaveManager : MonoBehaviour
             
     }
 
+    /// <summary>
+    /// Get a <c>Map</c> from <c>Maps</c> List.
+    /// </summary>
+    /// <param name="MapID"><c>ID</c> of the wanted <c>Map</c></param>
+    /// <returns><c>Map</c> if it is found or Null if it's not.</returns>
     public GameData.Map FindMap(int MapID)
     {
             // Load a specific map

@@ -8,7 +8,6 @@ public class Shop : MonoBehaviour
     public AttackerTowerScriptableObject DoubleBarrelTower;
     // tower assets
 
-
     // tower prefabs
     public GameObject DoubleBarrelPrefab;
     public GameObject BasicTowerPrefab;
@@ -19,12 +18,10 @@ public class Shop : MonoBehaviour
     private bool IsTankButtonActive = false;
     // tower buttons
 
-
-
     public TMPro.TextMeshProUGUI TowerName;
     private string SelectedTower;
 
-    void Start()
+    private void Start()
     {
         if (GameStats.Money < TankTower.BasePrice)
         {
@@ -32,7 +29,7 @@ public class Shop : MonoBehaviour
         }
     }
 
-    void Update()
+    private void Update()
     {
         if (GameStats.Money < TankTower.BasePrice)
         {
@@ -48,7 +45,23 @@ public class Shop : MonoBehaviour
         SelectedTower = null;
         TowerName.text = "";
     }
-    
+    private void SetButtonStatus()
+    {
+        if (GameStats.Money < TankTower.BasePrice && IsTankButtonActive)
+        {
+            TankShopButton.interactable = false;
+            IsTankButtonActive = false;
+        }
+        else if (GameStats.Money >= TankTower.BasePrice && !IsTankButtonActive)
+        {
+            TankShopButton.interactable = false;
+            IsTankButtonActive = false;
+        }
+    }
+
+    /// <summary>
+    /// Place Tank on the selected tile.
+    /// </summary>
     public void BasicTowerClick() {
         if(GameStats.Money >= TankTower.BasePrice)
         {
@@ -70,6 +83,9 @@ public class Shop : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Place Double Barrel Tank on selected tile.
+    /// </summary>
     public void DoubleBarrelTowerCliCk() {
 
         if (GameStats.Money >= DoubleBarrelTower.BasePrice)
@@ -91,23 +107,17 @@ public class Shop : MonoBehaviour
         }
     }
 
-    private void SetButtonStatus()
-    {
-        if (GameStats.Money < TankTower.BasePrice && IsTankButtonActive)
-        {
-            TankShopButton.interactable = false;
-            IsTankButtonActive = false;
-        }
-        else if(GameStats.Money >= TankTower.BasePrice && !IsTankButtonActive)
-        {
-            TankShopButton.interactable = false;
-            IsTankButtonActive = false;
-        }
-    }
+    /// <summary>
+    /// Open Shop Menu UI.
+    /// </summary>
     public void OpenShopWindow()
     {
         transform.GetChild(0).gameObject.SetActive(true);
     }
+
+    /// <summary>
+    /// Close Shop Menu UI.
+    /// </summary>
     public void CloseShopWindow()
     {
         transform.GetChild(0).gameObject.SetActive(false);
