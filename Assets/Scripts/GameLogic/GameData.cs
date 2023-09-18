@@ -9,6 +9,7 @@ public class GameData
 
     public GameData()
     {
+        playerStats = new PlayerStats();
         map = new Map();
         lastPlayedLevel = new LastPlayedLevel();
     }
