@@ -87,7 +87,7 @@ public class TalentButton : MonoBehaviour
             isUnlocked = isUnlocked,
             MinReqLevel = MinReqLevel
         };
-        Debug.Log(SaveManager.Instance.Data.playerStats.PlayerTalentTree.Talents);
+        Debug.Log(talentData);
         SaveManager.Instance.Data.playerStats.PlayerTalentTree.Talents.Add(talentData);
         // string json = JsonUtility.ToJson(talentData);
 
