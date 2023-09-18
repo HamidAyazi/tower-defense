@@ -15,8 +15,7 @@ MonoBehaviour:
   Name: Tank
   BasePrice: 40
   BaseRange: 5
-  ProjectilePrefab: {fileID: 1726499099080084261, guid: c5546dcc5113917489767b417b396a0f, type: 3}
   BaseDamage: 10
-  BaseAttackTime: 1
+  BaseAttackSpeed: 1
   BaseRotationSpeed: 90
   BaseLookForTargetTimer: 0.2

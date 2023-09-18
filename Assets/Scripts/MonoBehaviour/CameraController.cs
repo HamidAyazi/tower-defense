@@ -11,8 +11,7 @@ public class CameraController : MonoBehaviour
 		Application.targetFrameRate = targetFrameRate;
 	}
 
-
-    void Update() {
+    private void Update() {
         float horizontalMovement = Input.GetAxis("Horizontal");
         float verticalMovement = Input.GetAxis("Vertical");
 

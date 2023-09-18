@@ -15,8 +15,7 @@ MonoBehaviour:
   Name: Rail Tank
   BasePrice: 20
   BaseRange: 15
-  ProjectilePrefab: {fileID: 1726499099080084261, guid: c5546dcc5113917489767b417b396a0f, type: 3}
   BaseDamage: 3
-  BaseAttackTime: 4
+  BaseAttackSpeed: 1
   BaseRotationSpeed: 45
   BaseLookForTargetTimer: 0.2

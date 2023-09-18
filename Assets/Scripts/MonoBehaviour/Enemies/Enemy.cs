@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     private int Damage;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         // Here calculates "Damage" based on "Level"
         Damage = EnemySO.BaseDamage;
@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
 
     private void EnemyHealthSystem_OnEnemyDied(object sender, System.EventArgs e)
     {
-        SoundManager.PlaySound(Sound.EnemyDie, transform.position, EnemySO.Name + "Die Sound");
+        //SoundManager.PlaySound(Sound.EnemyDie, transform.position, EnemySO.Name + "Die Sound");
         Destroy(gameObject);
     }
 

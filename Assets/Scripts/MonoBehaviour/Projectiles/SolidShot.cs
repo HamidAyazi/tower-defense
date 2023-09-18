@@ -16,7 +16,7 @@ public class SolidShot : MonoBehaviour
     private float Speed;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         EnemyHealthSystem EHS = TargetEnemy.GetComponent<EnemyHealthSystem>();
 
@@ -50,14 +50,6 @@ public class SolidShot : MonoBehaviour
         }
     }
 
-    public static SolidShot CreateProjectile(Transform ProjectilePrefab, Vector3 SpawnPosition, Enemy TargetEnemy, float Damage)
-    {
-        Transform ProjectileTransform = Instantiate(ProjectilePrefab, SpawnPosition, Quaternion.identity);
-        SolidShot Projectile = ProjectileTransform.GetComponent<SolidShot>();
-        Projectile.TargetEnemy = TargetEnemy;
-        Projectile.Damage = Damage;
-        return Projectile;
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -76,4 +68,20 @@ public class SolidShot : MonoBehaviour
         TargetEnemy = null;
     }
 
+    /// <summary>
+    /// Creates a <c>SolidShot</c> and launches it to enemy.
+    /// </summary>
+    /// <param name="ProjectilePrefab">Prefab of the Projectile.</param>
+    /// <param name="SpawnPosition">Spawn position of the projectile.</param>
+    /// <param name="TargetEnemy">Target of the projectile.</param>
+    /// <param name="Damage">Damage to be dealt to the target.</param>
+    /// <returns>Game object of the projectile.</returns>
+    public static SolidShot CreateProjectile(Transform ProjectilePrefab, Vector3 SpawnPosition, Enemy TargetEnemy, float Damage)
+    {
+        Transform ProjectileTransform = Instantiate(ProjectilePrefab, SpawnPosition, Quaternion.identity);
+        SolidShot Projectile = ProjectileTransform.GetComponent<SolidShot>();
+        Projectile.TargetEnemy = TargetEnemy;
+        Projectile.Damage = Damage;
+        return Projectile;
+    }
 }

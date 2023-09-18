@@ -5,14 +5,8 @@ using UnityEngine;
 public class GameMaster : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         Time.timeScale = 1;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

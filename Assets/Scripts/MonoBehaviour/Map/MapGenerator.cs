@@ -13,15 +13,13 @@ public class MapGenerator : MonoBehaviour
     [SerializeField] private Slider slider;
     // loading screen
 
-
-
     private void Start()
     {
         mapData = SaveManager.Instance.Data.map;
         GenerateMap();
     }
 
-    void GenerateMap()
+    private void GenerateMap()
     {
         Vector3 spawnPosition = Vector3.zero;
         Vector3 cameraCenter = Camera.main.transform.position;

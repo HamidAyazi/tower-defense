@@ -10,7 +10,7 @@ public class HeadRotation : MonoBehaviour
     private Vector3 Direction;
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (TargetEnemy != null)
         {
@@ -22,6 +22,11 @@ public class HeadRotation : MonoBehaviour
         }
 
     }
+    
+    /// <summary>
+    /// Check if <c>Tower</c> is locked on a target or not.
+    /// </summary>
+    /// <returns>True if <c>Tower</c> is looking at <c>TargetEnemy</c>, elsewise False.</returns>
     public bool IsLocked()
     {
         // Ensure the angle is positive and within 0 to 180 degrees range
@@ -36,10 +41,20 @@ public class HeadRotation : MonoBehaviour
         // Check if the tower's angle difference is within the angle threshold
         return MinAngleDifference <= 95f && MinAngleDifference >= 85f;
     }
+
+    /// <summary>
+    /// Set target for tower's head to be locked on.
+    /// </summary>
+    /// <param name="TargetEnemy">Target to be locked on.</param>
     public void SetTarget(Enemy TargetEnemy)
     {
         this.TargetEnemy = TargetEnemy;
     }
+
+    /// <summary>
+    /// Set head's rotation speed.
+    /// </summary>
+    /// <param name="RotationSpeed">Speed in degrees per second.</param>
     public void SetRotationSpeed(float RotationSpeed)
     {
         this.RotationSpeed = RotationSpeed;

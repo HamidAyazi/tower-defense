@@ -6,6 +6,7 @@ public class TowerScriptableObject : ScriptableObject
 {
     /*-------- Game Logic Attributes --------*/
 
+    // Name of the Tower.
     public string Name;
     // Base Price of each "Tower" unit. When a "Tower" is placed, the "Querency" will be reduce by it's "Price". Scales with "Level".
     public int BasePrice;
