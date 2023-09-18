@@ -25,11 +25,7 @@ public class TalentButton : MonoBehaviour
 
     void Start()
     {
-        // Debug.Log()
-        // transform.parent.
-        // TalentTree.Talents.add(this);
-        // LoadTalentData();
-        // SaveTalentData();
+        updateTalent();
         UnlockNode();
         setColor();
     }
@@ -63,7 +59,7 @@ public class TalentButton : MonoBehaviour
         Level +=1;
         UnlockNode();
         CheckChildUnlock();
-        SaveTalentData();
+        updateTalent();
         setColor();
     }
 
@@ -77,42 +73,25 @@ public class TalentButton : MonoBehaviour
         }
     }
 
-    public void SaveTalentData()
-    {
-        TalentData talentData = new TalentData
-        {
-            id = id,
-            MaxLevel = MaxLevel,
-            nodeName = nodeName,
-            Level = Level,
-            isUnlocked = isUnlocked,
-            MinReqLevel = MinReqLevel
-        };
-        // Debug.Log(nodeName);
-        // SaveManager.Instance.Data.playerStats.PlayerTalentTree.Talents.Add(talentData);
-        // string json = JsonUtility.ToJson(talentData);
 
-        // // Define a path to save the file (you can customize this path)
-        // string filePath = Application.persistentDataPath + "/" + nodeName + ".json";
-
-        // // Write the JSON data to the file
-        // File.WriteAllText(filePath, json);
-    }
-
-    public void LoadTalentData()
-    {
-        SaveManager.Instance.Data.playerStats.PlayerTalentTree.Talents.Find(talent => talent.id == id);
-        // string filePath = Application.persistentDataPath + "/" + nodeName + ".json";
-        // Debug.Log(filePath);
-
-        // if (File.Exists(filePath))
-        // {
-        //     string json = File.ReadAllText(filePath);
-        //     TalentData talentData = JsonUtility.FromJson<TalentData>(json);
-
-        //     Level = talentData.Level;
-        //     isUnlocked = talentData.isUnlocked;
-        // }
+    public void updateTalent(){
+        TalentData talent = SaveManager.Instance.Data.playerStats.PlayerTalentTree.Talents.Find(talent => talent.id == id);
+        if(talent == null) {
+            TalentData talentData = new TalentData
+            {
+                id = id,
+                MaxLevel = MaxLevel,
+                nodeName = nodeName,
+                Level = Level,
+                isUnlocked = isUnlocked,
+                MinReqLevel = MinReqLevel
+            };
+            SaveManager.Instance.Data.playerStats.PlayerTalentTree.Talents.Add(talentData);
+        } else {
+            Level = talent.Level;
+            isUnlocked = talent.isUnlocked;
+            setColor();
+        }
     }
 }
 
