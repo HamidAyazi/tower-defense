@@ -25,10 +25,11 @@ public class TalentButton : MonoBehaviour
 
     void Start()
     {
+        // Debug.Log()
         // transform.parent.
         // TalentTree.Talents.add(this);
         // LoadTalentData();
-        SaveTalentData();
+        // SaveTalentData();
         UnlockNode();
         setColor();
     }
@@ -87,8 +88,8 @@ public class TalentButton : MonoBehaviour
             isUnlocked = isUnlocked,
             MinReqLevel = MinReqLevel
         };
-        Debug.Log(talentData);
-        SaveManager.Instance.Data.playerStats.PlayerTalentTree.Talents.Add(talentData);
+        // Debug.Log(nodeName);
+        // SaveManager.Instance.Data.playerStats.PlayerTalentTree.Talents.Add(talentData);
         // string json = JsonUtility.ToJson(talentData);
 
         // // Define a path to save the file (you can customize this path)

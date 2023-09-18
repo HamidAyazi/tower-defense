@@ -50,29 +50,11 @@ public class SaveManager : MonoBehaviour
         }
     }
 
-    private void SaveLastPlayedMap()
-    {
-        FileHandler.SaveData(Data.lastPlayedLevel, LastPlayedLevelFileName);
-    }
-
-    private void SaveAllMaps()
-    {
-        // Save map list to the file
-        FileHandler.SaveData<List<GameData.Map>>(Maps, MapsFileName);
-
-    }
-
     private void LoadAllMaps()
     {
         Maps = FileHandler.LoadData<List<GameData.Map>>(MapsFileName);
     }
 
-    private void OnApplicationQuit()
-    {
-        SavePlayerStats();
-        //SaveLastPlayedMap();
-        SaveAllMaps();
-    }
 
     /// <summary>
     /// Load <c>LastPlayedMap</c> from device.
