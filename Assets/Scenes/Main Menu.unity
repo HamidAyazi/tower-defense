@@ -675,18 +675,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d38ad2f711fc2b3448e2c651c8dfea04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 7
   btn: {fileID: 100302547}
   nodeName: Rotation speed
   Level: 0
-  MaxLevel: 0
+  MaxLevel: 10
   isUnlocked: 0
   MinReqLevel: 0
   ColorFull: {r: 1, g: 0.7411765, b: 0, a: 1}
   ColorAvailable: {r: 0.8784314, g: 0.29411766, b: 0.69411767, a: 1}
   ColorUnavailable: {r: 0.48235294, g: 0.48235294, b: 0.48235294, a: 1}
-  ParentNodes: []
-  ChildNodes: []
+  ParentNodes:
+  - {fileID: 67534817}
+  ChildNodes:
+  - {fileID: 627336302}
 --- !u!1 &100860628
 GameObject:
   m_ObjectHideFlags: 0
@@ -1876,17 +1878,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d38ad2f711fc2b3448e2c651c8dfea04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 11
   btn: {fileID: 462798574}
   nodeName: attack speed
   Level: 0
-  MaxLevel: 0
+  MaxLevel: 10
   isUnlocked: 0
   MinReqLevel: 0
   ColorFull: {r: 1, g: 0.7411765, b: 0, a: 1}
   ColorAvailable: {r: 0.8784314, g: 0.29411766, b: 0.69411767, a: 1}
   ColorUnavailable: {r: 0.48235294, g: 0.48235294, b: 0.48235294, a: 1}
-  ParentNodes: []
+  ParentNodes:
+  - {fileID: 627336302}
   ChildNodes: []
 --- !u!1 &470231764
 GameObject:
@@ -2038,18 +2041,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d38ad2f711fc2b3448e2c651c8dfea04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 14
   btn: {fileID: 470231767}
   nodeName: dropped money
   Level: 0
-  MaxLevel: 0
+  MaxLevel: 5
   isUnlocked: 0
   MinReqLevel: 0
   ColorFull: {r: 1, g: 0.7411765, b: 0, a: 1}
   ColorAvailable: {r: 0.8784314, g: 0.29411766, b: 0.69411767, a: 1}
   ColorUnavailable: {r: 0.48235294, g: 0.48235294, b: 0.48235294, a: 1}
-  ParentNodes: []
-  ChildNodes: []
+  ParentNodes:
+  - {fileID: 1106377258}
+  ChildNodes:
+  - {fileID: 1410357610}
 --- !u!1 &587414984
 GameObject:
   m_ObjectHideFlags: 0
@@ -2335,18 +2340,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d38ad2f711fc2b3448e2c651c8dfea04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 17
   btn: {fileID: 611264667}
   nodeName: upgrade level
   Level: 0
-  MaxLevel: 0
+  MaxLevel: 6
   isUnlocked: 0
   MinReqLevel: 0
   ColorFull: {r: 1, g: 0.7411765, b: 0, a: 1}
   ColorAvailable: {r: 0.8784314, g: 0.29411766, b: 0.69411767, a: 1}
   ColorUnavailable: {r: 0.48235294, g: 0.48235294, b: 0.48235294, a: 1}
-  ParentNodes: []
-  ChildNodes: []
+  ParentNodes:
+  - {fileID: 1096076567}
+  ChildNodes:
+  - {fileID: 820975114}
 --- !u!1 &619857907
 GameObject:
   m_ObjectHideFlags: 0
@@ -2573,18 +2580,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d38ad2f711fc2b3448e2c651c8dfea04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 9
   btn: {fileID: 627336299}
   nodeName: Projectile speed
   Level: 0
-  MaxLevel: 0
+  MaxLevel: 10
   isUnlocked: 0
   MinReqLevel: 0
   ColorFull: {r: 1, g: 0.7411765, b: 0, a: 1}
   ColorAvailable: {r: 0.8784314, g: 0.29411766, b: 0.69411767, a: 1}
   ColorUnavailable: {r: 0.48235294, g: 0.48235294, b: 0.48235294, a: 1}
-  ParentNodes: []
-  ChildNodes: []
+  ParentNodes:
+  - {fileID: 100302550}
+  - {fileID: 867105966}
+  ChildNodes:
+  - {fileID: 462798577}
+  - {fileID: 0}
 --- !u!1 &634001865
 GameObject:
   m_ObjectHideFlags: 0
@@ -2825,18 +2836,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d38ad2f711fc2b3448e2c651c8dfea04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 12
   btn: {fileID: 648710993}
   nodeName: health
   Level: 0
-  MaxLevel: 0
+  MaxLevel: 10
   isUnlocked: 0
   MinReqLevel: 0
   ColorFull: {r: 1, g: 0.7411765, b: 0, a: 1}
   ColorAvailable: {r: 0.8784314, g: 0.29411766, b: 0.69411767, a: 1}
   ColorUnavailable: {r: 0.48235294, g: 0.48235294, b: 0.48235294, a: 1}
-  ParentNodes: []
-  ChildNodes: []
+  ParentNodes:
+  - {fileID: 67534817}
+  ChildNodes:
+  - {fileID: 1106377258}
+  - {fileID: 1096076567}
 --- !u!1 &660035349
 GameObject:
   m_ObjectHideFlags: 0
@@ -3433,13 +3447,14 @@ MonoBehaviour:
   btn: {fileID: 820975111}
   nodeName: starting level
   Level: 0
-  MaxLevel: 0
+  MaxLevel: 2
   isUnlocked: 0
   MinReqLevel: 0
   ColorFull: {r: 1, g: 0.7411765, b: 0, a: 1}
   ColorAvailable: {r: 0.8784314, g: 0.29411766, b: 0.69411767, a: 1}
   ColorUnavailable: {r: 0.48235294, g: 0.48235294, b: 0.48235294, a: 1}
-  ParentNodes: []
+  ParentNodes:
+  - {fileID: 611264670}
   ChildNodes: []
 --- !u!1 &840123303
 GameObject:
@@ -3669,18 +3684,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d38ad2f711fc2b3448e2c651c8dfea04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 8
   btn: {fileID: 867105963}
   nodeName: Range
   Level: 0
-  MaxLevel: 0
+  MaxLevel: 10
   isUnlocked: 0
   MinReqLevel: 0
   ColorFull: {r: 1, g: 0.7411765, b: 0, a: 1}
   ColorAvailable: {r: 0.8784314, g: 0.29411766, b: 0.69411767, a: 1}
   ColorUnavailable: {r: 0.48235294, g: 0.48235294, b: 0.48235294, a: 1}
-  ParentNodes: []
-  ChildNodes: []
+  ParentNodes:
+  - {fileID: 67534817}
+  ChildNodes:
+  - {fileID: 627336302}
 --- !u!1 &892996057
 GameObject:
   m_ObjectHideFlags: 0
@@ -4210,17 +4227,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d38ad2f711fc2b3448e2c651c8dfea04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 10
   btn: {fileID: 953094007}
   nodeName: damage
   Level: 0
-  MaxLevel: 0
+  MaxLevel: 10
   isUnlocked: 0
   MinReqLevel: 0
   ColorFull: {r: 1, g: 0.7411765, b: 0, a: 1}
   ColorAvailable: {r: 0.8784314, g: 0.29411766, b: 0.69411767, a: 1}
   ColorUnavailable: {r: 0.48235294, g: 0.48235294, b: 0.48235294, a: 1}
-  ParentNodes: []
+  ParentNodes:
+  - {fileID: 627336302}
   ChildNodes: []
 --- !u!1 &976166752
 GameObject:
@@ -4620,18 +4638,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d38ad2f711fc2b3448e2c651c8dfea04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 16
   btn: {fileID: 1096076564}
   nodeName: sell refund
   Level: 0
-  MaxLevel: 0
+  MaxLevel: 10
   isUnlocked: 0
   MinReqLevel: 0
   ColorFull: {r: 1, g: 0.7411765, b: 0, a: 1}
   ColorAvailable: {r: 0.8784314, g: 0.29411766, b: 0.69411767, a: 1}
   ColorUnavailable: {r: 0.48235294, g: 0.48235294, b: 0.48235294, a: 1}
-  ParentNodes: []
-  ChildNodes: []
+  ParentNodes:
+  - {fileID: 648710996}
+  ChildNodes:
+  - {fileID: 611264670}
 --- !u!1 &1106377252
 GameObject:
   m_ObjectHideFlags: 0
@@ -4782,18 +4802,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d38ad2f711fc2b3448e2c651c8dfea04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 13
   btn: {fileID: 1106377255}
   nodeName: starting money
   Level: 0
-  MaxLevel: 0
+  MaxLevel: 10
   isUnlocked: 0
   MinReqLevel: 0
   ColorFull: {r: 1, g: 0.7411765, b: 0, a: 1}
   ColorAvailable: {r: 0.8784314, g: 0.29411766, b: 0.69411767, a: 1}
   ColorUnavailable: {r: 0.48235294, g: 0.48235294, b: 0.48235294, a: 1}
-  ParentNodes: []
-  ChildNodes: []
+  ParentNodes:
+  - {fileID: 648710996}
+  ChildNodes:
+  - {fileID: 470231770}
 --- !u!1 &1137647177
 GameObject:
   m_ObjectHideFlags: 0
@@ -5782,17 +5804,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d38ad2f711fc2b3448e2c651c8dfea04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 15
   btn: {fileID: 1410357607}
   nodeName: upgrade discount
   Level: 0
-  MaxLevel: 0
+  MaxLevel: 10
   isUnlocked: 0
   MinReqLevel: 0
   ColorFull: {r: 1, g: 0.7411765, b: 0, a: 1}
   ColorAvailable: {r: 0.8784314, g: 0.29411766, b: 0.69411767, a: 1}
   ColorUnavailable: {r: 0.48235294, g: 0.48235294, b: 0.48235294, a: 1}
-  ParentNodes: []
+  ParentNodes:
+  - {fileID: 470231770}
   ChildNodes: []
 --- !u!1 &1478161562
 GameObject:
