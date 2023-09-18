@@ -25,30 +25,23 @@ public class TalentButton : MonoBehaviour
 
     void Start()
     {
-        updateTalent();
+        loadTalent();
         UnlockNode();
-        setColor();
     }
 
-    public void UnlockNode() {
-        if(!isUnlocked){
-            btn.interactable = false;
-            bool canUnlock = true;
-            foreach (TalentButton talent in ParentNodes)
-            {
-                if(talent.Level < MinReqLevel) canUnlock = false;
+     public void UnlockNode() {
+        foreach(TalentButton talent in ChildNodes){
+            if (!talent.isUnlocked) {
+                if(talent.MinReqLevel <= Level) {
+                    talent.isUnlocked = true;
+                    talent.updateButton();
+                }
             }
-            if(canUnlock){
-                isUnlocked = true;
-                btn.interactable = true;
-            }
-            setColor();
         }
     }
 
-    public void CheckChildUnlock(){
+    private void CheckChildUnlock(){
         foreach(TalentButton talent in ChildNodes){
-                Debug.Log(talent.nodeName); 
             if(!talent.isUnlocked) {
                 talent.UnlockNode();
             }
@@ -59,14 +52,19 @@ public class TalentButton : MonoBehaviour
         Level +=1;
         UnlockNode();
         CheckChildUnlock();
+        updateButton();
+        if(id == 5){
+            // Debug.Log(isUnlocked);
+        }
         updateTalent();
-        setColor();
     }
 
-    public void setColor(){
+    public void updateButton(){
         if(Level >= MaxLevel){
+            btn.interactable = false;
             btn.targetGraphic.color = ColorFull;
         } else if (!isUnlocked) {
+            btn.interactable = false;
             btn.targetGraphic.color = ColorUnavailable;
         } else {
             btn.targetGraphic.color = ColorAvailable;
@@ -74,28 +72,42 @@ public class TalentButton : MonoBehaviour
     }
 
 
-    public void updateTalent(){
+    private void loadTalent(){
         TalentData talent = SaveManager.Instance.Data.playerStats.PlayerTalentTree.Talents.Find(talent => talent.id == id);
         if(talent == null) {
             TalentData talentData = new TalentData
             {
                 id = id,
-                MaxLevel = MaxLevel,
-                nodeName = nodeName,
                 Level = Level,
-                isUnlocked = isUnlocked,
-                MinReqLevel = MinReqLevel
+                isUnlocked = isUnlocked
             };
             SaveManager.Instance.Data.playerStats.PlayerTalentTree.Talents.Add(talentData);
         } else {
+            if(id == 5){
+            // Debug.Log(talent.isUnlocked);
+            }
             Level = talent.Level;
             isUnlocked = talent.isUnlocked;
-            setColor();
+            updateButton();
         }
     }
+
+    private void updateTalent(){
+        int index = SaveManager.Instance.Data.playerStats.PlayerTalentTree.Talents.FindIndex(talent => talent.id == id);
+        if (index != -1)
+        {
+            TalentData talentData = new TalentData
+            {
+                id = id,
+                Level = Level,
+                isUnlocked = isUnlocked
+            };
+            SaveManager.Instance.Data.playerStats.PlayerTalentTree.Talents[index] = talentData;
+        }
+    }
+
 }
 
-[System.Serializable]
 public class TalentData
 {
     public int id;
