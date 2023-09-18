@@ -27,6 +27,7 @@ public class TalentButton : MonoBehaviour
     {
         // transform.parent.
         // TalentTree.Talents.add(this);
+        // LoadTalentData();
         SaveTalentData();
         UnlockNode();
         setColor();
@@ -86,7 +87,8 @@ public class TalentButton : MonoBehaviour
             isUnlocked = isUnlocked,
             MinReqLevel = MinReqLevel
         };
-        SaveManager.Instance.Data.PlayerStats.TalentTree.Talents.add(talentData);
+        Debug.Log(SaveManager.Instance.Data.playerStats.PlayerTalentTree.Talents);
+        SaveManager.Instance.Data.playerStats.PlayerTalentTree.Talents.Add(talentData);
         // string json = JsonUtility.ToJson(talentData);
 
         // // Define a path to save the file (you can customize this path)
@@ -98,17 +100,18 @@ public class TalentButton : MonoBehaviour
 
     public void LoadTalentData()
     {
-        string filePath = Application.persistentDataPath + "/" + nodeName + ".json";
-        Debug.Log(filePath);
+        SaveManager.Instance.Data.playerStats.PlayerTalentTree.Talents.Find(talent => talent.id == id);
+        // string filePath = Application.persistentDataPath + "/" + nodeName + ".json";
+        // Debug.Log(filePath);
 
-        if (File.Exists(filePath))
-        {
-            string json = File.ReadAllText(filePath);
-            TalentData talentData = JsonUtility.FromJson<TalentData>(json);
+        // if (File.Exists(filePath))
+        // {
+        //     string json = File.ReadAllText(filePath);
+        //     TalentData talentData = JsonUtility.FromJson<TalentData>(json);
 
-            Level = talentData.Level;
-            isUnlocked = talentData.isUnlocked;
-        }
+        //     Level = talentData.Level;
+        //     isUnlocked = talentData.isUnlocked;
+        // }
     }
 }
 

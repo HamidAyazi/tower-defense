@@ -9,6 +9,7 @@ public class TalentTree
     public List<TalentData> Talents;
     public TalentTree()
     {
+        Talents = new List<TalentData>();
         StartMoney = 100;
         StartHealthPoint = 100;
     }
