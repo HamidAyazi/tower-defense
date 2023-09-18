@@ -11,16 +11,25 @@ public class TalentButton : MonoBehaviour
     [SerializeField] private int MaxLevel;
     [SerializeField] private bool isUnlocked = false;
     [SerializeField] private int MinReqLevel;
+    [SerializeField] private Color ColorFull;
+    [SerializeField] private Color ColorAvailable;
+    [SerializeField] private Color ColorUnavailable;
 
 
     public List<TalentButton> ParentNodes = new List<TalentButton>();
     public List<TalentButton> ChildNodes = new List<TalentButton>();
+
+
+
+
+
     void Start()
     {
+        // transform.parent.
         // TalentTree.Talents.add(this);
-        // SaveTalentData();
-        LoadTalentData();
+        SaveTalentData();
         UnlockNode();
+        setColor();
     }
 
     public void UnlockNode() {
@@ -35,6 +44,7 @@ public class TalentButton : MonoBehaviour
                 isUnlocked = true;
                 btn.interactable = true;
             }
+            setColor();
         }
     }
 
@@ -47,15 +57,22 @@ public class TalentButton : MonoBehaviour
         }
     }
 
-    public void LogMe(){
-        Debug.Log("logging here");
-    }
-
     public void getTalent(){
         Level +=1;
         UnlockNode();
         CheckChildUnlock();
         SaveTalentData();
+        setColor();
+    }
+
+    public void setColor(){
+        if(Level >= MaxLevel){
+            btn.targetGraphic.color = ColorFull;
+        } else if (!isUnlocked) {
+            btn.targetGraphic.color = ColorUnavailable;
+        } else {
+            btn.targetGraphic.color = ColorAvailable;
+        }
     }
 
     public void SaveTalentData()
@@ -69,14 +86,14 @@ public class TalentButton : MonoBehaviour
             isUnlocked = isUnlocked,
             MinReqLevel = MinReqLevel
         };
+        SaveManager.Instance.Data.PlayerStats.TalentTree.Talents.add(talentData);
+        // string json = JsonUtility.ToJson(talentData);
 
-        string json = JsonUtility.ToJson(talentData);
+        // // Define a path to save the file (you can customize this path)
+        // string filePath = Application.persistentDataPath + "/" + nodeName + ".json";
 
-        // Define a path to save the file (you can customize this path)
-        string filePath = Application.persistentDataPath + "/" + nodeName + ".json";
-
-        // Write the JSON data to the file
-        File.WriteAllText(filePath, json);
+        // // Write the JSON data to the file
+        // File.WriteAllText(filePath, json);
     }
 
     public void LoadTalentData()
@@ -104,5 +121,5 @@ public class TalentData
     public int Level;
     public bool isUnlocked;
     public int MinReqLevel;
-    // Add other properties here if needed
+    
 }

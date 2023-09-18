@@ -445,7 +445,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 5fda05489b881474b95a3931ab6e79e7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -482,6 +482,9 @@ MonoBehaviour:
   MaxLevel: 1
   isUnlocked: 1
   MinReqLevel: 0
+  ColorFull: {r: 1, g: 0.7411765, b: 0, a: 1}
+  ColorAvailable: {r: 0.8784314, g: 0.29411766, b: 0.69411767, a: 1}
+  ColorUnavailable: {r: 0.48235294, g: 0.48235294, b: 0.48235294, a: 1}
   ParentNodes: []
   ChildNodes:
   - {fileID: 1552484453}
@@ -535,6 +538,7 @@ GameObject:
   - component: {fileID: 100302548}
   - component: {fileID: 100302547}
   - component: {fileID: 100302546}
+  - component: {fileID: 100302550}
   m_Layer: 5
   m_Name: Rotation speed
   m_TagString: Untagged
@@ -641,7 +645,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 5fda05489b881474b95a3931ab6e79e7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -659,6 +663,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100302544}
   m_CullTransparentMesh: 1
+--- !u!114 &100302550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100302544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d38ad2f711fc2b3448e2c651c8dfea04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  btn: {fileID: 0}
+  nodeName: 
+  Level: 0
+  MaxLevel: 0
+  isUnlocked: 0
+  MinReqLevel: 0
+  ColorFull: {r: 1, g: 0.7411765, b: 0, a: 1}
+  ColorAvailable: {r: 0.8784314, g: 0.29411766, b: 0.69411767, a: 1}
+  ColorUnavailable: {r: 0.48235294, g: 0.48235294, b: 0.48235294, a: 1}
+  ParentNodes: []
+  ChildNodes: []
 --- !u!1 &100860628
 GameObject:
   m_ObjectHideFlags: 0
@@ -1002,7 +1030,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 5fda05489b881474b95a3931ab6e79e7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1039,6 +1067,9 @@ MonoBehaviour:
   MaxLevel: 10
   isUnlocked: 0
   MinReqLevel: 1
+  ColorFull: {r: 1, g: 0.7411765, b: 0, a: 1}
+  ColorAvailable: {r: 0.8784314, g: 0.29411766, b: 0.69411767, a: 1}
+  ColorUnavailable: {r: 0.48235294, g: 0.48235294, b: 0.48235294, a: 1}
   ParentNodes:
   - {fileID: 1552484453}
   ChildNodes:
@@ -1708,6 +1739,7 @@ GameObject:
   - component: {fileID: 462798575}
   - component: {fileID: 462798574}
   - component: {fileID: 462798573}
+  - component: {fileID: 462798577}
   m_Layer: 5
   m_Name: attack speed
   m_TagString: Untagged
@@ -1814,7 +1846,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 5fda05489b881474b95a3931ab6e79e7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1832,6 +1864,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 462798571}
   m_CullTransparentMesh: 1
+--- !u!114 &462798577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462798571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d38ad2f711fc2b3448e2c651c8dfea04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  btn: {fileID: 0}
+  nodeName: 
+  Level: 0
+  MaxLevel: 0
+  isUnlocked: 0
+  MinReqLevel: 0
+  ColorFull: {r: 1, g: 0.7411765, b: 0, a: 1}
+  ColorAvailable: {r: 0.8784314, g: 0.29411766, b: 0.69411767, a: 1}
+  ColorUnavailable: {r: 0.48235294, g: 0.48235294, b: 0.48235294, a: 1}
+  ParentNodes: []
+  ChildNodes: []
 --- !u!1 &470231764
 GameObject:
   m_ObjectHideFlags: 0
@@ -1845,6 +1901,7 @@ GameObject:
   - component: {fileID: 470231768}
   - component: {fileID: 470231767}
   - component: {fileID: 470231766}
+  - component: {fileID: 470231770}
   m_Layer: 5
   m_Name: dropped money
   m_TagString: Untagged
@@ -1951,7 +2008,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 5fda05489b881474b95a3931ab6e79e7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1969,6 +2026,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 470231764}
   m_CullTransparentMesh: 1
+--- !u!114 &470231770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470231764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d38ad2f711fc2b3448e2c651c8dfea04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  btn: {fileID: 0}
+  nodeName: 
+  Level: 0
+  MaxLevel: 0
+  isUnlocked: 0
+  MinReqLevel: 0
+  ColorFull: {r: 1, g: 0.7411765, b: 0, a: 1}
+  ColorAvailable: {r: 0.8784314, g: 0.29411766, b: 0.69411767, a: 1}
+  ColorUnavailable: {r: 0.48235294, g: 0.48235294, b: 0.48235294, a: 1}
+  ParentNodes: []
+  ChildNodes: []
 --- !u!1 &587414984
 GameObject:
   m_ObjectHideFlags: 0
@@ -2117,6 +2198,7 @@ GameObject:
   - component: {fileID: 611264668}
   - component: {fileID: 611264667}
   - component: {fileID: 611264666}
+  - component: {fileID: 611264670}
   m_Layer: 5
   m_Name: max upgrade level
   m_TagString: Untagged
@@ -2223,7 +2305,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 5fda05489b881474b95a3931ab6e79e7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2241,6 +2323,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 611264664}
   m_CullTransparentMesh: 1
+--- !u!114 &611264670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611264664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d38ad2f711fc2b3448e2c651c8dfea04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  btn: {fileID: 0}
+  nodeName: 
+  Level: 0
+  MaxLevel: 0
+  isUnlocked: 0
+  MinReqLevel: 0
+  ColorFull: {r: 1, g: 0.7411765, b: 0, a: 1}
+  ColorAvailable: {r: 0.8784314, g: 0.29411766, b: 0.69411767, a: 1}
+  ColorUnavailable: {r: 0.48235294, g: 0.48235294, b: 0.48235294, a: 1}
+  ParentNodes: []
+  ChildNodes: []
 --- !u!1 &619857907
 GameObject:
   m_ObjectHideFlags: 0
@@ -2330,6 +2436,7 @@ GameObject:
   - component: {fileID: 627336300}
   - component: {fileID: 627336299}
   - component: {fileID: 627336298}
+  - component: {fileID: 627336302}
   m_Layer: 5
   m_Name: Projectile speed
   m_TagString: Untagged
@@ -2436,7 +2543,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 5fda05489b881474b95a3931ab6e79e7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2454,6 +2561,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 627336296}
   m_CullTransparentMesh: 1
+--- !u!114 &627336302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627336296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d38ad2f711fc2b3448e2c651c8dfea04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  btn: {fileID: 0}
+  nodeName: 
+  Level: 0
+  MaxLevel: 0
+  isUnlocked: 0
+  MinReqLevel: 0
+  ColorFull: {r: 1, g: 0.7411765, b: 0, a: 1}
+  ColorAvailable: {r: 0.8784314, g: 0.29411766, b: 0.69411767, a: 1}
+  ColorUnavailable: {r: 0.48235294, g: 0.48235294, b: 0.48235294, a: 1}
+  ParentNodes: []
+  ChildNodes: []
 --- !u!1 &634001865
 GameObject:
   m_ObjectHideFlags: 0
@@ -2557,6 +2688,7 @@ GameObject:
   - component: {fileID: 648710994}
   - component: {fileID: 648710993}
   - component: {fileID: 648710992}
+  - component: {fileID: 648710996}
   m_Layer: 5
   m_Name: base health
   m_TagString: Untagged
@@ -2663,7 +2795,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 5fda05489b881474b95a3931ab6e79e7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2681,6 +2813,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 648710990}
   m_CullTransparentMesh: 1
+--- !u!114 &648710996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648710990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d38ad2f711fc2b3448e2c651c8dfea04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  btn: {fileID: 0}
+  nodeName: 
+  Level: 0
+  MaxLevel: 0
+  isUnlocked: 0
+  MinReqLevel: 0
+  ColorFull: {r: 1, g: 0.7411765, b: 0, a: 1}
+  ColorAvailable: {r: 0.8784314, g: 0.29411766, b: 0.69411767, a: 1}
+  ColorUnavailable: {r: 0.48235294, g: 0.48235294, b: 0.48235294, a: 1}
+  ParentNodes: []
+  ChildNodes: []
 --- !u!1 &660035349
 GameObject:
   m_ObjectHideFlags: 0
@@ -2945,10 +3101,6 @@ MonoBehaviour:
     playerStats:
       PlayerName: New Player
       PlayerLevel: 1
-      PlayerTalentTree:
-        StartMoney: 100
-        StartHealthPoint: 100
-        Talents: []
     lastPlayedLevel:
       map:
         MapID: 0
@@ -3140,6 +3292,7 @@ GameObject:
   - component: {fileID: 820975112}
   - component: {fileID: 820975111}
   - component: {fileID: 820975110}
+  - component: {fileID: 820975114}
   m_Layer: 5
   m_Name: starting level
   m_TagString: Untagged
@@ -3246,7 +3399,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 5fda05489b881474b95a3931ab6e79e7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3264,6 +3417,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 820975108}
   m_CullTransparentMesh: 1
+--- !u!114 &820975114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820975108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d38ad2f711fc2b3448e2c651c8dfea04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  btn: {fileID: 0}
+  nodeName: 
+  Level: 0
+  MaxLevel: 0
+  isUnlocked: 0
+  MinReqLevel: 0
+  ColorFull: {r: 1, g: 0.7411765, b: 0, a: 1}
+  ColorAvailable: {r: 0.8784314, g: 0.29411766, b: 0.69411767, a: 1}
+  ColorUnavailable: {r: 0.48235294, g: 0.48235294, b: 0.48235294, a: 1}
+  ParentNodes: []
+  ChildNodes: []
 --- !u!1 &840123303
 GameObject:
   m_ObjectHideFlags: 0
@@ -3355,6 +3532,7 @@ GameObject:
   - component: {fileID: 867105964}
   - component: {fileID: 867105963}
   - component: {fileID: 867105962}
+  - component: {fileID: 867105966}
   m_Layer: 5
   m_Name: Range
   m_TagString: Untagged
@@ -3461,7 +3639,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 5fda05489b881474b95a3931ab6e79e7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3479,6 +3657,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 867105960}
   m_CullTransparentMesh: 1
+--- !u!114 &867105966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867105960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d38ad2f711fc2b3448e2c651c8dfea04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  btn: {fileID: 0}
+  nodeName: 
+  Level: 0
+  MaxLevel: 0
+  isUnlocked: 0
+  MinReqLevel: 0
+  ColorFull: {r: 1, g: 0.7411765, b: 0, a: 1}
+  ColorAvailable: {r: 0.8784314, g: 0.29411766, b: 0.69411767, a: 1}
+  ColorUnavailable: {r: 0.48235294, g: 0.48235294, b: 0.48235294, a: 1}
+  ParentNodes: []
+  ChildNodes: []
 --- !u!1 &892996057
 GameObject:
   m_ObjectHideFlags: 0
@@ -3871,6 +4073,7 @@ GameObject:
   - component: {fileID: 953094008}
   - component: {fileID: 953094007}
   - component: {fileID: 953094006}
+  - component: {fileID: 953094010}
   m_Layer: 5
   m_Name: damage
   m_TagString: Untagged
@@ -3977,7 +4180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 5fda05489b881474b95a3931ab6e79e7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3995,6 +4198,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 953094004}
   m_CullTransparentMesh: 1
+--- !u!114 &953094010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 953094004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d38ad2f711fc2b3448e2c651c8dfea04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  btn: {fileID: 0}
+  nodeName: 
+  Level: 0
+  MaxLevel: 0
+  isUnlocked: 0
+  MinReqLevel: 0
+  ColorFull: {r: 1, g: 0.7411765, b: 0, a: 1}
+  ColorAvailable: {r: 0.8784314, g: 0.29411766, b: 0.69411767, a: 1}
+  ColorUnavailable: {r: 0.48235294, g: 0.48235294, b: 0.48235294, a: 1}
+  ParentNodes: []
+  ChildNodes: []
 --- !u!1 &976166752
 GameObject:
   m_ObjectHideFlags: 0
@@ -4256,6 +4483,7 @@ GameObject:
   - component: {fileID: 1096076565}
   - component: {fileID: 1096076564}
   - component: {fileID: 1096076563}
+  - component: {fileID: 1096076567}
   m_Layer: 5
   m_Name: tower sell refund
   m_TagString: Untagged
@@ -4362,7 +4590,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 5fda05489b881474b95a3931ab6e79e7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4380,6 +4608,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1096076561}
   m_CullTransparentMesh: 1
+--- !u!114 &1096076567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096076561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d38ad2f711fc2b3448e2c651c8dfea04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  btn: {fileID: 0}
+  nodeName: 
+  Level: 0
+  MaxLevel: 0
+  isUnlocked: 0
+  MinReqLevel: 0
+  ColorFull: {r: 1, g: 0.7411765, b: 0, a: 1}
+  ColorAvailable: {r: 0.8784314, g: 0.29411766, b: 0.69411767, a: 1}
+  ColorUnavailable: {r: 0.48235294, g: 0.48235294, b: 0.48235294, a: 1}
+  ParentNodes: []
+  ChildNodes: []
 --- !u!1 &1106377252
 GameObject:
   m_ObjectHideFlags: 0
@@ -4393,6 +4645,7 @@ GameObject:
   - component: {fileID: 1106377256}
   - component: {fileID: 1106377255}
   - component: {fileID: 1106377254}
+  - component: {fileID: 1106377258}
   m_Layer: 5
   m_Name: starting money
   m_TagString: Untagged
@@ -4499,7 +4752,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 5fda05489b881474b95a3931ab6e79e7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4517,6 +4770,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1106377252}
   m_CullTransparentMesh: 1
+--- !u!114 &1106377258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106377252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d38ad2f711fc2b3448e2c651c8dfea04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  btn: {fileID: 0}
+  nodeName: 
+  Level: 0
+  MaxLevel: 0
+  isUnlocked: 0
+  MinReqLevel: 0
+  ColorFull: {r: 1, g: 0.7411765, b: 0, a: 1}
+  ColorAvailable: {r: 0.8784314, g: 0.29411766, b: 0.69411767, a: 1}
+  ColorUnavailable: {r: 0.48235294, g: 0.48235294, b: 0.48235294, a: 1}
+  ParentNodes: []
+  ChildNodes: []
 --- !u!1 &1137647177
 GameObject:
   m_ObjectHideFlags: 0
@@ -4649,7 +4926,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 5fda05489b881474b95a3931ab6e79e7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4686,6 +4963,9 @@ MonoBehaviour:
   MaxLevel: 10
   isUnlocked: 0
   MinReqLevel: 5
+  ColorFull: {r: 1, g: 0.7411765, b: 0, a: 1}
+  ColorAvailable: {r: 0.8784314, g: 0.29411766, b: 0.69411767, a: 1}
+  ColorUnavailable: {r: 0.48235294, g: 0.48235294, b: 0.48235294, a: 1}
   ParentNodes:
   - {fileID: 130085162}
   ChildNodes: []
@@ -5309,7 +5589,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 5fda05489b881474b95a3931ab6e79e7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5346,6 +5626,9 @@ MonoBehaviour:
   MaxLevel: 10
   isUnlocked: 0
   MinReqLevel: 1
+  ColorFull: {r: 1, g: 0.7411765, b: 0, a: 1}
+  ColorAvailable: {r: 0.8784314, g: 0.29411766, b: 0.69411767, a: 1}
+  ColorUnavailable: {r: 0.48235294, g: 0.48235294, b: 0.48235294, a: 1}
   ParentNodes:
   - {fileID: 1729068966}
   ChildNodes: []
@@ -5362,6 +5645,7 @@ GameObject:
   - component: {fileID: 1410357608}
   - component: {fileID: 1410357607}
   - component: {fileID: 1410357606}
+  - component: {fileID: 1410357610}
   m_Layer: 5
   m_Name: tower upgrade discount
   m_TagString: Untagged
@@ -5468,7 +5752,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 5fda05489b881474b95a3931ab6e79e7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5486,6 +5770,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1410357604}
   m_CullTransparentMesh: 1
+--- !u!114 &1410357610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1410357604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d38ad2f711fc2b3448e2c651c8dfea04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  btn: {fileID: 0}
+  nodeName: 
+  Level: 0
+  MaxLevel: 0
+  isUnlocked: 0
+  MinReqLevel: 0
+  ColorFull: {r: 1, g: 0.7411765, b: 0, a: 1}
+  ColorAvailable: {r: 0.8784314, g: 0.29411766, b: 0.69411767, a: 1}
+  ColorUnavailable: {r: 0.48235294, g: 0.48235294, b: 0.48235294, a: 1}
+  ParentNodes: []
+  ChildNodes: []
 --- !u!1 &1478161562
 GameObject:
   m_ObjectHideFlags: 0
@@ -5794,7 +6102,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 5fda05489b881474b95a3931ab6e79e7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5829,8 +6137,11 @@ MonoBehaviour:
   nodeName: 3x Speed
   Level: 0
   MaxLevel: 1
-  isUnlocked: 1
+  isUnlocked: 0
   MinReqLevel: 1
+  ColorFull: {r: 1, g: 0.7399219, b: 0, a: 1}
+  ColorAvailable: {r: 0.8773585, g: 0.29300457, b: 0.69257087, a: 1}
+  ColorUnavailable: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 1}
   ParentNodes:
   - {fileID: 67534817}
   ChildNodes:
@@ -6299,7 +6610,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 5fda05489b881474b95a3931ab6e79e7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6336,6 +6647,9 @@ MonoBehaviour:
   MaxLevel: 1
   isUnlocked: 0
   MinReqLevel: 1
+  ColorFull: {r: 1, g: 0.7411765, b: 0, a: 1}
+  ColorAvailable: {r: 0.8784314, g: 0.29411766, b: 0.69411767, a: 1}
+  ColorUnavailable: {r: 0.48235294, g: 0.48235294, b: 0.48235294, a: 1}
   ParentNodes:
   - {fileID: 1552484453}
   ChildNodes:
