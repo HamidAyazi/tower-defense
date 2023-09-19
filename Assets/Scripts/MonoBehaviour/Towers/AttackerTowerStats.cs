@@ -8,6 +8,8 @@ public class AttackerTowerStats : MonoBehaviour
     [SerializeField] private float AttackSpeedMp;
     [SerializeField] private float RangeMp;
     [SerializeField] private float RotationSpeedMp;
+    [SerializeField] private int PriceMp;
+    [SerializeField] private int MaxLevel;
 
     /*-------- AttackerTower Attributes --------*/
     public AttackerTowerScriptableObject AttackerTowerSO;
@@ -37,7 +39,6 @@ public class AttackerTowerStats : MonoBehaviour
         AttackSpeed = NewStatus[1];
         Range = NewStatus[2];
         RotationSpeed = NewStatus[3];
-
     }
 
     /// <summary>
@@ -47,11 +48,20 @@ public class AttackerTowerStats : MonoBehaviour
     /// <returns>An array of <c>AttackerTower</c> status.</returns>
     public float[] GetLevelStatus(int Level)
     {
-        float[] Status = new float[4];
-        Status[0] = AttackerTowerSO.BaseDamage * (1 + Level-- * DamageMp);
+        if (Level == MaxLevel)
+        {
+            return null;
+        }
+        float[] Status = new float[5];
+        Status[0] = AttackerTowerSO.BaseDamage * (1 + Level * DamageMp);
         Status[1] = AttackerTowerSO.BaseAttackSpeed * (1 + Level * AttackSpeedMp);
         Status[2] = AttackerTowerSO.BaseRange * (1 + Level * RangeMp);
         Status[3] = AttackerTowerSO.BaseRotationSpeed * (1 + Level * RotationSpeedMp);
+        Status[4] = AttackerTowerSO.BasePrice + PriceMp * (Level - 2);
         return Status;
+    }
+    public int GetMaxLevel()
+    {
+        return MaxLevel;
     }
 }

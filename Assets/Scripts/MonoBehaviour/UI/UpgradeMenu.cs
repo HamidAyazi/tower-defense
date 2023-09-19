@@ -14,25 +14,26 @@ public class UpgradeMenu : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI RangeUpgrade;
     [SerializeField] private TMPro.TextMeshProUGUI RotationSpeedUpgrade;
     [SerializeField] private TMPro.TextMeshProUGUI NextLevel;
+    [SerializeField] private TMPro.TextMeshProUGUI UpgradePrice;
+    // Icons
     [SerializeField] private GameObject arrowImage;
-
-
-
-    private bool UpgradeConfirm = false;
-
+    //
+    private bool UpgradeConfirm;
     private AttackerTowerStats TowerStats;
     private float[] CurrentStatsArray;
 
     private void Start(){
         arrowImage.SetActive(false);
+        UpgradeConfirm = false;
         NextLevel.text = "";
         DamageUpgrade.text = "";
         AttackSpeedUpgrade.text = "";
         RangeUpgrade.text = "";
         RotationSpeedUpgrade.text = "";
+        UpgradePrice.text = "";
     }
     // Set Upgrade Panel Current Status Text numbers
-    private void SetStatusText()
+    private void SetStatsText()
     {
         CurrentStatsArray = TowerStats.GetLevelStatus(TowerStats.CurrentLevel);
         CurrentLevel.text = TowerStats.CurrentLevel.ToString();
@@ -40,9 +41,10 @@ public class UpgradeMenu : MonoBehaviour
         AttackSpeed.text = CurrentStatsArray[1].ToString();
         Range.text = CurrentStatsArray[2].ToString();
         RotationSpeed.text = CurrentStatsArray[3].ToString();
+        UpgradePrice.text = CurrentStatsArray[4].ToString();
     }
     // Set Upgrade Panel Upgrade Preview Text numbers
-    private void SetUpgradePreview()
+    private void SetUpgradePreviewText()
     {
         float[] UpgradePreviewArray = TowerStats.GetLevelStatus(TowerStats.CurrentLevel + 1);
         for (int i = 0; i < UpgradePreviewArray.Length; i++)
@@ -57,16 +59,18 @@ public class UpgradeMenu : MonoBehaviour
         RotationSpeedUpgrade.text = "+" + UpgradePreviewArray[3].ToString();
     }
 
-
+    /// <summary>
+    /// 
+    /// </summary>
     public void UpgradeTower(){
         if(!UpgradeConfirm){
             UpgradeConfirm = true;
-            SetUpgradePreview();
+            SetUpgradePreviewText();
             arrowImage.SetActive(true);
         } else {
             TowerStats.Upgrade();
-            SetStatusText();
-            SetUpgradePreview();
+            SetStatsText();
+            SetUpgradePreviewText();
         }
     }
     /// <summary>
@@ -76,8 +80,8 @@ public class UpgradeMenu : MonoBehaviour
     {
         TowerStats = TileManager.Instance.SelectedTile.GetTower().GetComponent<AttackerTowerStats>();
         transform.GetChild(0).gameObject.SetActive(true);
-        SetStatusText();
-        //SetUpgradePreview();
+        UpgradeConfirm = false;
+        SetStatsText();
     }
 
     /// <summary>

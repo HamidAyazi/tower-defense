@@ -4213,7 +4213,7 @@ GameObject:
   - component: {fileID: 664626286}
   - component: {fileID: 664626285}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: UpgradeText (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5097,7 +5097,7 @@ GameObject:
   - component: {fileID: 797782879}
   - component: {fileID: 797782878}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: PriceText (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5855,6 +5855,7 @@ MonoBehaviour:
   RangeUpgrade: {fileID: 695532875}
   RotationSpeedUpgrade: {fileID: 1127451568}
   NextLevel: {fileID: 608717872}
+  UpgradePrice: {fileID: 797782878}
   arrowImage: {fileID: 1437052719}
 --- !u!1 &928380693
 GameObject:
