@@ -19,7 +19,9 @@ public class AttackerTowerStats : MonoBehaviour
     [NonSerialized] public float Range;
     [NonSerialized] public float RotationSpeed;
 
-
+    /// <summary>
+    /// First init when a tower is placed
+    /// </summary>
     private void Awake()
     {
         CurrentLevel = 1;
@@ -60,6 +62,10 @@ public class AttackerTowerStats : MonoBehaviour
         Status[4] = AttackerTowerSO.BasePrice + PriceMp * (Level - 2);
         return Status;
     }
+    /// <summary>
+    /// Get max level of each tower.
+    /// </summary>
+    /// <returns><code>Tower</code> max level.</returns>
     public int GetMaxLevel()
     {
         return MaxLevel;

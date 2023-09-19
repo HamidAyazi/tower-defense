@@ -32,7 +32,9 @@ public class UpgradeMenu : MonoBehaviour
         RotationSpeedUpgrade.text = "";
         UpgradePrice.text = "";
     }
-    // Set Upgrade Panel Current Status Text numbers
+    /// <summary>
+    /// Set Upgrade Panel Current Status Text numbers
+    /// </summary>
     private void SetStatsText()
     {
         CurrentStatsArray = TowerStats.GetLevelStatus(TowerStats.CurrentLevel);
@@ -43,7 +45,9 @@ public class UpgradeMenu : MonoBehaviour
         RotationSpeed.text = CurrentStatsArray[3].ToString();
         UpgradePrice.text = CurrentStatsArray[4].ToString();
     }
-    // Set Upgrade Panel Upgrade Preview Text numbers
+    /// <summary>
+    /// Set Upgrade Panel Upgrade Preview Text numbers
+    /// </summary>
     private void SetUpgradePreviewText()
     {
         float[] UpgradePreviewArray = TowerStats.GetLevelStatus(TowerStats.CurrentLevel + 1);
