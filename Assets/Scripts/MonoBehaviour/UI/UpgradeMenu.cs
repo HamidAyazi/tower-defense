@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UpgradeMenu : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class UpgradeMenu : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI RotationSpeedUpgrade;
     [SerializeField] private TMPro.TextMeshProUGUI NextLevel;
     [SerializeField] private GameObject arrowImage;
+    
+    [SerializeField] private Button UpgradeBtn;
 
 
 
@@ -23,7 +26,7 @@ public class UpgradeMenu : MonoBehaviour
     private AttackerTowerStats TowerStats;
     private float[] CurrentStatsArray;
 
-    private void Start(){
+    public void ResetValues(){
         arrowImage.SetActive(false);
         NextLevel.text = "";
         DamageUpgrade.text = "";
@@ -45,6 +48,12 @@ public class UpgradeMenu : MonoBehaviour
     private void SetUpgradePreview()
     {
         float[] UpgradePreviewArray = TowerStats.GetLevelStatus(TowerStats.CurrentLevel + 1);
+        if (UpgradePreviewArray == null)
+        {
+            UpgradeBtn.interactable = false;
+            ResetValues();
+            return;
+        }
         for (int i = 0; i < UpgradePreviewArray.Length; i++)
         {
             UpgradePreviewArray[i] -= CurrentStatsArray[i];

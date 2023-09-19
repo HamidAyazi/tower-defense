@@ -31,8 +31,10 @@ public class Tile : MonoBehaviour, IPointerClickHandler
         if (Tower != null){
             shop.CloseShopWindow();
             upgrade.OpenUpgradeWindow();
+            upgrade.ResetValues();
             return;
         } else {
+            upgrade.CloseUpgradeWindow();
             shop.OpenShopWindow();
         }
     }
