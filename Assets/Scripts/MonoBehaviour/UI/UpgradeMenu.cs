@@ -18,6 +18,7 @@ public class UpgradeMenu : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI UpgradePrice;
     // Icons
     [SerializeField] private GameObject arrowImage;
+    [SerializeField] private GameObject Coin;
     
     [SerializeField] private Button UpgradeBtn;
 
@@ -76,14 +77,17 @@ public class UpgradeMenu : MonoBehaviour
     /// 
     /// </summary>
     public void UpgradeTower(){
-        if(!UpgradeConfirm){
-            UpgradeConfirm = true;
-            SetUpgradePreviewText();
-            arrowImage.SetActive(true);
-        } else {
-            TowerStats.Upgrade();
-            SetStatsText();
-            SetUpgradePreviewText();
+        if( GameStats.Money >= CurrentStatsArray[4]){
+            if(!UpgradeConfirm){
+                UpgradeConfirm = true;
+                SetUpgradePreviewText();
+                arrowImage.SetActive(true);
+            } else {
+                GameStats.Money -= (int)CurrentStatsArray[4];
+                TowerStats.Upgrade();
+                SetStatsText();
+                SetUpgradePreviewText();
+            }
         }
     }
     /// <summary>
