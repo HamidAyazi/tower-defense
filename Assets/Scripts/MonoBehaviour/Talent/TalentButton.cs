@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 public class TalentButton : MonoBehaviour
 {
-    [SerializeField] private int id;
+    [SerializeField] public int id;
     [SerializeField] private Button btn;
     [SerializeField] private string nodeName;
-    [SerializeField] private int Level;
+    [SerializeField] public int Level;
     [SerializeField] private int MaxLevel;
     [SerializeField] private bool isUnlocked = false;
     [SerializeField] private int MinReqLevel;
@@ -20,42 +20,24 @@ public class TalentButton : MonoBehaviour
     public List<TalentButton> ChildNodes = new List<TalentButton>();
 
 
-
-
-
-    void Start()
-    {
-        loadTalent();
-        UnlockNode();
-    }
-
-     public void UnlockNode() {
+    public void UnlockChildNodes() {
         foreach(TalentButton talent in ChildNodes){
             if (!talent.isUnlocked) {
                 if(talent.MinReqLevel <= Level) {
                     talent.isUnlocked = true;
                     talent.updateButton();
+                    talent.UnlockChildNodes();
                 }
             }
         }
     }
 
-    private void CheckChildUnlock(){
-        foreach(TalentButton talent in ChildNodes){
-            if(!talent.isUnlocked) {
-                talent.UnlockNode();
-            }
-        }
-    }
 
     public void getTalent(){
+        Debug.Log("===================");
         Level +=1;
-        UnlockNode();
-        CheckChildUnlock();
+        UnlockChildNodes();
         updateButton();
-        if(id == 5){
-            // Debug.Log(isUnlocked);
-        }
         updateTalent();
     }
 
@@ -67,12 +49,13 @@ public class TalentButton : MonoBehaviour
             btn.interactable = false;
             btn.targetGraphic.color = ColorUnavailable;
         } else {
+            btn.interactable = true;
             btn.targetGraphic.color = ColorAvailable;
         }
     }
 
 
-    private void loadTalent(){
+    public void loadTalent(){
         TalentData talent = SaveManager.Instance.Data.playerStats.PlayerTalentTree.Talents.Find(talent => talent.id == id);
         if(talent == null) {
             TalentData talentData = new TalentData
@@ -83,12 +66,8 @@ public class TalentButton : MonoBehaviour
             };
             SaveManager.Instance.Data.playerStats.PlayerTalentTree.Talents.Add(talentData);
         } else {
-            if(id == 5){
-            // Debug.Log(talent.isUnlocked);
-            }
             Level = talent.Level;
-            isUnlocked = talent.isUnlocked;
-            updateButton();
+            // isUnlocked = talent.isUnlocked;
         }
     }
 
