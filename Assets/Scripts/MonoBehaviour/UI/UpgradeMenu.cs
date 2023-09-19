@@ -15,6 +15,8 @@ public class UpgradeMenu : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI RotationSpeedUpgrade;
     [SerializeField] private TMPro.TextMeshProUGUI NextLevel;
 
+    private bool UpgradeConfirm = false;
+
     private AttackerTowerStats TowerStats;
     private float[] CurrentStatsArray;
 
@@ -44,6 +46,15 @@ public class UpgradeMenu : MonoBehaviour
         RotationSpeedUpgrade.text = "+" + UpgradePreviewArray[3].ToString();
     }
 
+
+    public void UpgradeTower(){
+        if(!UpgradeConfirm){
+            UpgradeConfirm = true;
+            SetUpgradePreview();
+        } else {
+            // upgrade tower
+        }
+    }
     /// <summary>
     /// Open Upgrade Menu UI.
     /// </summary>
