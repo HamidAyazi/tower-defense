@@ -14,12 +14,23 @@ public class UpgradeMenu : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI RangeUpgrade;
     [SerializeField] private TMPro.TextMeshProUGUI RotationSpeedUpgrade;
     [SerializeField] private TMPro.TextMeshProUGUI NextLevel;
+    [SerializeField] private GameObject arrowImage;
+
+
 
     private bool UpgradeConfirm = false;
 
     private AttackerTowerStats TowerStats;
     private float[] CurrentStatsArray;
 
+    private void Start(){
+        arrowImage.SetActive(false);
+        NextLevel.text = "";
+        DamageUpgrade.text = "";
+        AttackSpeedUpgrade.text = "";
+        RangeUpgrade.text = "";
+        RotationSpeedUpgrade.text = "";
+    }
     // Set Upgrade Panel Current Status Text numbers
     private void SetStatusText()
     {
@@ -51,8 +62,11 @@ public class UpgradeMenu : MonoBehaviour
         if(!UpgradeConfirm){
             UpgradeConfirm = true;
             SetUpgradePreview();
+            arrowImage.SetActive(true);
         } else {
-            // upgrade tower
+            TowerStats.Upgrade();
+            SetStatusText();
+            SetUpgradePreview();
         }
     }
     /// <summary>
