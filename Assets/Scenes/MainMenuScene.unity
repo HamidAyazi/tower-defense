@@ -1446,7 +1446,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1613949962}
         m_TargetAssemblyTypeName: Mainmenu, Assembly-CSharp
-        m_MethodName: CloseSetting
+        m_MethodName: CloseTalents
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2581,7 +2581,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 100302550}
+      - m_Target: {fileID: 627336302}
         m_TargetAssemblyTypeName: TalentButton, Assembly-CSharp
         m_MethodName: getTalent
         m_Mode: 1
@@ -6453,6 +6453,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MenuPanel: {fileID: 1613949960}
   SettingPanel: {fileID: 1796396965}
+  TalentPanel: {fileID: 669776037}
 --- !u!1 &1632370984
 GameObject:
   m_ObjectHideFlags: 0

@@ -34,7 +34,7 @@ public class TalentButton : MonoBehaviour
 
 
     public void getTalent(){
-        Debug.Log("===================");
+        SoundManager.PlaySound(Sound.ButtonClick);
         Level +=1;
         UnlockChildNodes();
         updateButton();
