@@ -26,15 +26,29 @@ public class UpgradeMenu : MonoBehaviour
     private AttackerTowerStats TowerStats;
     private float[] CurrentStatsArray;
 
-    public void ResetValues(){
+    /// <summary>
+    /// Open Upgrade Menu UI.
+    /// </summary>
+    public void OpenUpgradeWindow()
+    {
+        ResetValues();
+        TowerStats = TileManager.Instance.SelectedTile.GetTower().GetComponent<AttackerTowerStats>();
+        transform.GetChild(0).gameObject.SetActive(true);
+        UpgradeConfirm = false;
+        SetStatsText();
+    }
+    /// <summary>
+    /// Reset upgrade UI values
+    /// </summary>
+    private void ResetValues(){
         arrowImage.SetActive(false);
         UpgradeConfirm = false;
         NextLevel.text = "";
+        UpgradePrice.text = "";
         DamageUpgrade.text = "";
         AttackSpeedUpgrade.text = "";
         RangeUpgrade.text = "";
         RotationSpeedUpgrade.text = "";
-        UpgradePrice.text = "";
     }
     /// <summary>
     /// Set Upgrade Panel Current Status Text numbers
@@ -54,7 +68,8 @@ public class UpgradeMenu : MonoBehaviour
     /// </summary>
     private void SetUpgradePreviewText()
     {
-        float[] UpgradePreviewArray = TowerStats.GetLevelStatus(TowerStats.CurrentLevel + 1);
+        int nextLevel = TowerStats.CurrentLevel + 1;
+        float[] UpgradePreviewArray = TowerStats.GetLevelStatus(nextLevel);
         if (UpgradePreviewArray == null)
         {
             UpgradeBtn.interactable = false;
@@ -66,22 +81,23 @@ public class UpgradeMenu : MonoBehaviour
             UpgradePreviewArray[i] -= CurrentStatsArray[i];
             UpgradePreviewArray[i] = Mathf.Round(UpgradePreviewArray[i] * 100f) / 100f;
         }
-        NextLevel.text = (TowerStats.CurrentLevel + 1).ToString();
+        NextLevel.text = nextLevel.ToString();
         DamageUpgrade.text = "+" + UpgradePreviewArray[0].ToString();
         AttackSpeedUpgrade.text = "+" + UpgradePreviewArray[1].ToString();
         RangeUpgrade.text = "+" + UpgradePreviewArray[2].ToString();
         RotationSpeedUpgrade.text = "+" + UpgradePreviewArray[3].ToString();
+        arrowImage.SetActive(true);
     }
 
     /// <summary>
-    /// 
+    /// On upgrade click.
+    /// if confirmed upgrade else confirm and show preview
     /// </summary>
     public void UpgradeTower(){
-        if( GameStats.Money >= CurrentStatsArray[4]){
+        if(GameStats.Money >= CurrentStatsArray[4]){
             if(!UpgradeConfirm){
                 UpgradeConfirm = true;
                 SetUpgradePreviewText();
-                arrowImage.SetActive(true);
             } else {
                 GameStats.Money -= (int)CurrentStatsArray[4];
                 TowerStats.Upgrade();
@@ -90,16 +106,7 @@ public class UpgradeMenu : MonoBehaviour
             }
         }
     }
-    /// <summary>
-    /// Open Upgrade Menu UI.
-    /// </summary>
-    public void OpenUpgradeWindow()
-    {
-        TowerStats = TileManager.Instance.SelectedTile.GetTower().GetComponent<AttackerTowerStats>();
-        transform.GetChild(0).gameObject.SetActive(true);
-        UpgradeConfirm = false;
-        SetStatsText();
-    }
+    
 
     /// <summary>
     /// Close Upgrade Menu UI.
