@@ -10,8 +10,6 @@ public class TalentTree
     public TalentTree()
     {
         Talents = new List<TalentData>();
-        StartMoney = 100;
-        StartHealthPoint = 100;
     }
     // public static setTalent(TalentButton talent){
     //     return Maps.Find(Map => Map.MapID == MapID);
