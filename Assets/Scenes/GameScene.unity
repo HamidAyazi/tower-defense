@@ -6079,7 +6079,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1001275028}
-  - component: {fileID: 1001275032}
   - component: {fileID: 1001275027}
   - component: {fileID: 1001275030}
   - component: {fileID: 1001275031}
@@ -6149,18 +6148,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PausePanel: {fileID: 483143132}
---- !u!114 &1001275032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1001275026}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cc0f529395439a47a1ea2310f36452e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1001275033
 MonoBehaviour:
   m_ObjectHideFlags: 0

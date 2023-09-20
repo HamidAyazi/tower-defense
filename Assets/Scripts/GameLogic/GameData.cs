@@ -26,7 +26,6 @@ public class GameData
     {
         public string PlayerName;
         public int PlayerLevel;
-        public Settings PlayerSettings;
         public TalentTree PlayerTalentTree;
 
         /// <summary>
@@ -38,7 +37,6 @@ public class GameData
         {
             PlayerName = "New Player";
             PlayerLevel = 1;
-            PlayerSettings = new Settings();
             PlayerTalentTree = new TalentTree();
         }
     }

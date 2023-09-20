@@ -50,7 +50,7 @@ public class AttackerTowerStats : MonoBehaviour
     /// <returns>An array of <c>AttackerTower</c> status.</returns>
     public float[] GetLevelStatus(int Level)
     {
-        if (Level == MaxLevel)
+        if (Level > MaxLevel)
         {
             return null;
         }

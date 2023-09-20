@@ -10,6 +10,12 @@ public class SpeedManager : MonoBehaviour
     [SerializeField] private Sprite speed1xImage;
     [SerializeField] private Sprite speed2xImage;
     [SerializeField] private Sprite speed3xImage;
+    
+    // Start is called before the first frame update
+    private void Start()
+    {
+        Time.timeScale = Speed;
+    }
 
     private void X2Speed() {
         Speed = 2;
