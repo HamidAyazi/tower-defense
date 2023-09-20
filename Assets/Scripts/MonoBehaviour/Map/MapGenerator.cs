@@ -6,6 +6,7 @@ public class MapGenerator : MonoBehaviour
 {
     public GameObject[] tilePrefabs; // Prefabs for different tile types
     private Map mapData; // Your Map data
+    
     private int tileSize = 1; // Size of each tile
 
     // loading screen
@@ -15,7 +16,8 @@ public class MapGenerator : MonoBehaviour
 
     private void Start()
     {   
-        mapData = SaveManager.Instance.Data.map;
+        mapData = SaveManager.Instance.Data.mapList[LoadingScreen.MapId-1];
+        SaveManager.Instance.Data.map = mapData;
         GenerateMap();
     }
 

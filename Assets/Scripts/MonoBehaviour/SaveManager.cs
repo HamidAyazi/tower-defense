@@ -52,9 +52,7 @@ public class SaveManager : MonoBehaviour
 
     private void LoadAllMaps()
     {
-        List<GameData.Map> MapLoaded = FileHandler.LoadData<List<GameData.Map>>(MapsFileName);
-
-        Data.map = MapLoaded[0];
+        Data.mapList = FileHandler.LoadData<List<GameData.Map>>(MapsFileName);
     }
 
 

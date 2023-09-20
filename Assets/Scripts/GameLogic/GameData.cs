@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using System.Collections.Generic;
 
 [System.Serializable]
 public class GameData
@@ -7,6 +8,7 @@ public class GameData
     public PlayerStats playerStats;
     public LastPlayedLevel lastPlayedLevel;
     public Map map;
+    public List<Map> mapList;
 
     /// <summary>
     /// Constructor for <c>GameData</c> class. Loads new <c>Map</c> and new <c>PlayerStats</c>
@@ -15,6 +17,7 @@ public class GameData
     {
         playerStats = new PlayerStats();
         map = new Map();
+        mapList = new List<Map>();
         lastPlayedLevel = new LastPlayedLevel();
     }
 
@@ -73,5 +76,25 @@ public class GameData
         public int XSize;
         public int[] TileMap;
         [NonSerialized] public Vector3 SpawnPointPosition;
+
+        /// <summary>
+        /// Constructor for <c>Map</c> class.
+        /// It set default <c>MapID</c> tp 0, <c>XSize</c> to 10 and contains default map array.
+        /// </summary>
+        public Map()
+        {
+            MapID = 0;
+            XSize = 10;
+            TileMap = new int[] {0 ,0 ,0 ,0 ,0 ,1 ,0 ,0 ,0 ,0 ,
+                                 0 ,0 ,0 ,0, 4, 3 ,3 ,3 ,4 ,0 ,
+                                 0 ,0 ,0 ,0 ,0 ,0 ,4 ,3 ,0 ,0 ,
+                                 0 ,0 ,0 ,0 ,0 ,0 ,0 ,3 ,0 ,0 ,
+                                 0 ,0 ,0 ,0 ,0 ,0 ,4 ,3 ,0 ,0 ,
+                                 0 ,0 ,0 ,0 ,0 ,0 ,4 ,3 ,0 ,0 ,
+                                 0 ,0 ,3 ,3 ,3 ,3 ,3 ,3 ,0 ,0 ,
+                                 0 ,0 ,3 ,4 ,0 ,4 ,0 ,4 ,0 ,0 ,
+                                 0 ,0 ,3 ,3 ,3 ,3 ,0 ,0 ,0 ,0 ,
+                                 0 ,0 ,0 ,0 ,4 ,2 ,0 ,0 ,0 ,0};
+        }
     }
 }

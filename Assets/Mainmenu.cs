@@ -6,8 +6,24 @@ public class Mainmenu : MonoBehaviour
     [SerializeField] private GameObject MenuPanel;
     [SerializeField] private GameObject SettingPanel;
     [SerializeField] private GameObject TalentPanel;
+    [SerializeField] private GameObject LevelsPanel;
+
+    /// <summary>
+    /// Open levels Menu.
+    /// </summary>
     public void OpenLevels(){
-        SceneManager.LoadScene(1);
+        SoundManager.PlaySound(Sound.ButtonClick);
+        MenuPanel.SetActive(false);
+        LevelsPanel.SetActive(true);
+    }
+
+    /// <summary>
+    /// close levels Menu.
+    /// </summary>
+    public void CloseLevels(){
+        SoundManager.PlaySound(Sound.ButtonClick);
+        LevelsPanel.SetActive(false);
+        MenuPanel.SetActive(true);
     }
     
     

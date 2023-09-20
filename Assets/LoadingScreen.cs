@@ -7,6 +7,7 @@ public class LoadingScreen : MonoBehaviour
 {
     public GameObject loadingScreen;
     public Slider slider;
+    public static int MapId;
 
     private IEnumerator LoadAsynchronously(int SceneIndex){
 
@@ -20,10 +21,12 @@ public class LoadingScreen : MonoBehaviour
     /// <summary>
     /// Open loading screen and change scene.
     /// </summary>
-    /// <param name="SceneIndex">Index of the Scene.</param>
-    public void LoadLevel(int SceneIndex)
+    /// <param name="id">Id of map</param>
+    public void LoadLevel(int id)
     {
+        SoundManager.PlaySound(Sound.ButtonClick);
+        MapId = id;
         loadingScreen.SetActive(true);
-        StartCoroutine(LoadAsynchronously(SceneIndex));
+        StartCoroutine(LoadAsynchronously(1));
     }
 }
