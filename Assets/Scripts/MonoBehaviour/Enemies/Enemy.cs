@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
 
     private void EnemyHealthSystem_OnEnemyDied(object sender, System.EventArgs e)
     {
-        //SoundManager.PlaySound(Sound.EnemyDie, transform.position, EnemySO.Name + "Die Sound");
+        SoundManager.PlaySound(Sound.EnemyDie, transform.position, EnemySO.Name + "Die Sound");
         Destroy(gameObject);
     }
 

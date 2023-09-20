@@ -19,7 +19,7 @@ public class UpgradeMenu : MonoBehaviour
     // Icons
     [SerializeField] private GameObject arrowImage;
     [SerializeField] private GameObject Coin;
-    
+    // UI elements
     [SerializeField] private Button UpgradeBtn;
 
     private bool UpgradeConfirm;

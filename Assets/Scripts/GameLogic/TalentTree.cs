@@ -6,14 +6,14 @@ public class TalentTree
 {
     public int StartMoney;
     public int StartHealthPoint;
+    public int Cash;
+
     public List<TalentData> Talents;
     public TalentTree()
     {
         Talents = new List<TalentData>();
         StartMoney = 100;
         StartHealthPoint = 100;
+        Cash = 0;
     }
-    // public static setTalent(TalentButton talent){
-    //     return Maps.Find(Map => Map.MapID == MapID);
-    // }
 }

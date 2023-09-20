@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5078530738064703804}
   - component: {fileID: 6563399721716335585}
   - component: {fileID: -7537295423830419133}
+  - component: {fileID: -2101858607756371952}
   m_Layer: 0
   m_Name: Enemy2Prefab
   m_TagString: Untagged
@@ -173,3 +174,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 450a195bf93d0e648a809bb318f4766d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-2101858607756371952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739052906379284456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0335401aea297154e9c632456c96b52c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoinDropChance: 0.4
+  MaxCoinDrop: 5
+  CashDropChance: 0.05
+  MaxCashDrop: 1

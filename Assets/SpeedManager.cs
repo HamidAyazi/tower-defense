@@ -14,7 +14,7 @@ public class SpeedManager : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        Time.timeScale = 1;
+        Time.timeScale = Speed;
     }
 
     private void X2Speed() {

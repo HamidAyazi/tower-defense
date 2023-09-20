@@ -1,21 +1,22 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GameStats : MonoBehaviour
 {
-    public static int Money;
-    private int StartingMoney = 250;
+    // UI elements
     public TMPro.TextMeshProUGUI HudMoney;
-
-
-    public static int HealthPoint;
-    private int StartingHealth = 3;
     public TMPro.TextMeshProUGUI HudHealth;
-
-
-    public static int Wave;
     public TMPro.TextMeshProUGUI HudWave;
+    
+    // Logic elements
+    [NonSerialized] public static int Money;
+    [NonSerialized] public static int HealthPoint;
+    [NonSerialized] public static int Wave;
+
+    private int StartingMoney = 250;
+    private int StartingHealth = 3;
 
     private void Start()
     {
