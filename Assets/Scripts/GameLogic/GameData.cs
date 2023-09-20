@@ -77,6 +77,11 @@ public class GameData
         /// <summary>
         /// Constructor for <c>Map</c> class.
         /// It set default <c>MapID</c> tp 0, <c>XSize</c> to 10 and contains default map array.
+        /// 0: empty tile
+        /// 1: spawn point
+        /// 2: base
+        /// 3: enemy path
+        /// 4: tower tile
         /// </summary>
         public Map()
         {
