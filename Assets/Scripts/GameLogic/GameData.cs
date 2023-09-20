@@ -67,7 +67,7 @@ public class GameData
     {
         /*
          * 0 - Empty
-         * 1 - Home Tile
+         * 1 - Spawn Tile
          * 2 - Goal Tile
          * 3 - Enemy path tile
          * 4 - Tower Tile
