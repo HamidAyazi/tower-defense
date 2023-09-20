@@ -11,7 +11,4 @@ public class TalentTree
     {
         Talents = new List<TalentData>();
     }
-    // public static setTalent(TalentButton talent){
-    //     return Maps.Find(Map => Map.MapID == MapID);
-    // }
 }
