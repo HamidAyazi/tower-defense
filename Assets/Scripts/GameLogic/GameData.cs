@@ -73,30 +73,5 @@ public class GameData
         public int XSize;
         public int[] TileMap;
         [NonSerialized] public Vector3 SpawnPointPosition;
-
-        /// <summary>
-        /// Constructor for <c>Map</c> class.
-        /// It set default <c>MapID</c> tp 0, <c>XSize</c> to 10 and contains default map array.
-        /// 0: empty tile
-        /// 1: spawn point
-        /// 2: base
-        /// 3: enemy path
-        /// 4: tower tile
-        /// </summary>
-        public Map()
-        {
-            MapID = 0;
-            XSize = 10;
-            TileMap = new int[] {0 ,0 ,0 ,0 ,0 ,1 ,0 ,0 ,0 ,0 ,
-                                 0 ,0 ,0 ,0, 4, 3 ,3 ,3 ,4 ,0 ,
-                                 0 ,0 ,0 ,0 ,0 ,0 ,4 ,3 ,0 ,0 ,
-                                 0 ,0 ,0 ,0 ,0 ,0 ,0 ,3 ,0 ,0 ,
-                                 0 ,0 ,0 ,0 ,0 ,0 ,4 ,3 ,0 ,0 ,
-                                 0 ,0 ,0 ,0 ,0 ,0 ,4 ,3 ,0 ,0 ,
-                                 0 ,0 ,3 ,3 ,3 ,3 ,3 ,3 ,0 ,0 ,
-                                 0 ,0 ,3 ,4 ,0 ,4 ,0 ,4 ,0 ,0 ,
-                                 0 ,0 ,3 ,3 ,3 ,3 ,0 ,0 ,0 ,0 ,
-                                 0 ,0 ,0 ,0 ,4 ,2 ,0 ,0 ,0 ,0};
-        }
     }
 }

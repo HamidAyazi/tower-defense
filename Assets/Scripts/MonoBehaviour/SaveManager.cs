@@ -52,7 +52,9 @@ public class SaveManager : MonoBehaviour
 
     private void LoadAllMaps()
     {
-        Maps = FileHandler.LoadData<List<GameData.Map>>(MapsFileName);
+        List<GameData.Map> MapLoaded = FileHandler.LoadData<List<GameData.Map>>(MapsFileName);
+
+        Data.map = MapLoaded[0];
     }
 
 
@@ -70,10 +72,10 @@ public class SaveManager : MonoBehaviour
     private void SaveAllMaps()
     {
         // Save map list to the file
-        FileHandler.SaveData<List<GameData.Map>>(Maps, MapsFileName);
+        // FileHandler.SaveData<List<GameData.Map>>(Maps, MapsFileName);
     }
     private void SaveLastPlayedMap()
-    {
+    {        
         FileHandler.SaveData(Data.lastPlayedLevel, LastPlayedLevelFileName);
     }
 

@@ -14,7 +14,7 @@ public class MapGenerator : MonoBehaviour
     // loading screen
 
     private void Start()
-    {
+    {   
         mapData = SaveManager.Instance.Data.map;
         GenerateMap();
     }
