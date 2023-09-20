@@ -37,19 +37,7 @@ public class UpgradeMenu : MonoBehaviour
         UpgradeConfirm = false;
         SetStatsText();
     }
-    /// <summary>
-    /// Reset upgrade UI values
-    /// </summary>
-    private void ResetValues(){
-        arrowImage.SetActive(false);
-        UpgradeConfirm = false;
-        NextLevel.text = "";
-        UpgradePrice.text = "";
-        DamageUpgrade.text = "";
-        AttackSpeedUpgrade.text = "";
-        RangeUpgrade.text = "";
-        RotationSpeedUpgrade.text = "";
-    }
+    
     /// <summary>
     /// Set Upgrade Panel Current Status Text numbers
     /// </summary>
@@ -61,8 +49,8 @@ public class UpgradeMenu : MonoBehaviour
         AttackSpeed.text = CurrentStatsArray[1].ToString();
         Range.text = CurrentStatsArray[2].ToString();
         RotationSpeed.text = CurrentStatsArray[3].ToString();
-        UpgradePrice.text = CurrentStatsArray[4].ToString();
     }
+
     /// <summary>
     /// Set Upgrade Panel Upgrade Preview Text numbers
     /// </summary>
@@ -86,6 +74,7 @@ public class UpgradeMenu : MonoBehaviour
         AttackSpeedUpgrade.text = "+" + UpgradePreviewArray[1].ToString();
         RangeUpgrade.text = "+" + UpgradePreviewArray[2].ToString();
         RotationSpeedUpgrade.text = "+" + UpgradePreviewArray[3].ToString();
+        UpgradePrice.text = CurrentStatsArray[4].ToString();
         arrowImage.SetActive(true);
     }
 
@@ -106,7 +95,22 @@ public class UpgradeMenu : MonoBehaviour
             }
         }
     }
-    
+
+    /// <summary>
+    /// Reset upgrade UI values
+    /// </summary>
+    private void ResetValues()
+    {
+        arrowImage.SetActive(false);
+        UpgradeConfirm = false;
+        UpgradeBtn.interactable = true;
+        NextLevel.text = "";
+        UpgradePrice.text = "";
+        DamageUpgrade.text = "";
+        AttackSpeedUpgrade.text = "";
+        RangeUpgrade.text = "";
+        RotationSpeedUpgrade.text = "";
+    }
 
     /// <summary>
     /// Close Upgrade Menu UI.

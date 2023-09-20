@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameStats : MonoBehaviour
 {
     public static int Money;
-    private int StartingMoney = 150;
+    private int StartingMoney = 250;
     public TMPro.TextMeshProUGUI HudMoney;
 
 
