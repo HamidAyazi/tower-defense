@@ -1,10 +1,14 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public static class SoundManager
 {
-    public static SoundAudio[] SoundAudioArr;
+    public static SoundAudio[] SFXArr;
+    public static SoundAudio[] MusicArr;
     private static GameObject SoundGameObject;
     private static AudioSource GlobalAudioSource;
+    private static float SFXVolume = 1f;
+    private static float MusicVolume = 1f;
 
     [System.Serializable]
     public class SoundAudio
@@ -14,8 +18,7 @@ public static class SoundManager
     }
     private static AudioClip GetSound(Sound sound)
     {
-
-        foreach (var soundAudio in SoundAudioArr)
+        foreach (var soundAudio in SFXArr)
         {
             if (soundAudio.sound == sound) return soundAudio.clip;
         }
@@ -34,7 +37,7 @@ public static class SoundManager
             SoundGameObject = new GameObject("OneShotSound");
             GlobalAudioSource = SoundGameObject.AddComponent<AudioSource>();
         }
-        GlobalAudioSource.volume = 1f;
+        GlobalAudioSource.volume = SFXVolume;
         GlobalAudioSource.PlayOneShot(GetSound(sound));
     }
 
@@ -52,9 +55,18 @@ public static class SoundManager
         audioSource.clip = GetSound(sound);
         audioSource.rolloffMode = AudioRolloffMode.Linear;
         audioSource.maxDistance = 5f;
+        audioSource.volume = MusicVolume;
         audioSource.Play();
 
         Object.Destroy(PositionedSoundGameObject, audioSource.clip.length);
+    }
+    public static void SetSFXVolume(float volume)
+    {
+        SFXVolume = volume;
+    }
+    public static void SetAudioVolume(float volume)
+    {
+        MusicVolume = volume;
     }
 
 }
