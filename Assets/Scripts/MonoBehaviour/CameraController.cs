@@ -1,4 +1,4 @@
-using TMPro;
+using System.Collections;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -9,6 +9,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] private Vector2 panLimit ; // Set the limit for camera panning.
 
     private Vector3 targetPosition;
+    private bool isTouching = false;
 
     private void Start()
     {
@@ -20,15 +21,23 @@ public class CameraController : MonoBehaviour
     }
     private void Update()
     {
-        HandleTouchInput();
+        if (Input.touchCount != 0)
+        {
+            HandleTouchInput();
+        }
     }
 
     private void HandleTouchInput()
     {
-        if (Input.touchCount == 0) return;
-
         Touch touch = Input.GetTouch(0);
-        if (touch.phase == TouchPhase.Moved)
+
+        if (touch.phase == TouchPhase.Began)
+        {
+            // Set the isTouching flag when a new touch begins.
+            isTouching = true;
+        }
+
+        if (isTouching && touch.phase == TouchPhase.Moved)
         {
             Vector3 touchDeltaPosition = touch.deltaPosition;
             Vector3 panDirection = new Vector3(-touchDeltaPosition.x, -touchDeltaPosition.y, 0) * panSpeed * Time.deltaTime;
@@ -39,9 +48,10 @@ public class CameraController : MonoBehaviour
             targetPosition.y = Mathf.Clamp(targetPosition.y, -panLimit.y, panLimit.y);
         }
     }
+
     private void LateUpdate()
     {
-        // Smoothly move the camera towards the target position.
+        // Smoothly move the camera towards the target position only if there's touch input.
         transform.position = Vector3.Lerp(transform.position, targetPosition, smoothness * Time.deltaTime);
     }
 }
