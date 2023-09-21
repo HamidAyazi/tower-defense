@@ -5316,14 +5316,14 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 26352b8e9ae8c4c4ba569b770b31cf8b, type: 3}
   - sound: 1
     clip: {fileID: 8300000, guid: 86945e31c890852439c6be329fbb2151, type: 3}
-  - sound: 2
-    clip: {fileID: 0}
   - sound: 3
     clip: {fileID: 8300000, guid: 2d1ef3caa68f9cb40af2d9a99e2234fa, type: 3}
   - sound: 4
     clip: {fileID: 8300000, guid: b61f44ab97a6da04aafaa91ead63f619, type: 3}
   - sound: 5
     clip: {fileID: 8300000, guid: 267f5c1b00a0d064691839b4395df7ae, type: 3}
+  - sound: 2
+    clip: {fileID: 0}
   MusicArr: []
 --- !u!1 &700803466
 GameObject:
