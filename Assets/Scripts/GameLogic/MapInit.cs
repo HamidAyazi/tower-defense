@@ -9,7 +9,7 @@ public static class MapInit
         List<GameData.Map> MapsToLoad = new List<GameData.Map>();
         MapsToLoad.Add(new GameData.Map()
         {
-            MapID = 0,
+            MapID = 1,
             XSize = 10,
             TileMap = new int[]
             {
@@ -27,7 +27,7 @@ public static class MapInit
         });
         MapsToLoad.Add(new GameData.Map()
         {
-            MapID = 1,
+            MapID = 2,
             XSize = 10,
             TileMap = new int[]
             {
@@ -45,7 +45,7 @@ public static class MapInit
         });
         MapsToLoad.Add(new GameData.Map()
         {
-            MapID = 2,
+            MapID = 3,
             XSize = 10,
             TileMap = new int[]
             {
@@ -63,7 +63,7 @@ public static class MapInit
         });
         MapsToLoad.Add(new GameData.Map()
         {
-            MapID = 3,
+            MapID = 4,
             XSize = 10,
             TileMap = new int[]
             {
@@ -82,7 +82,7 @@ public static class MapInit
         });
         MapsToLoad.Add(new GameData.Map()
         {
-            MapID = 4,
+            MapID = 5,
             XSize = 10,
             TileMap = new int[]
             {
@@ -100,7 +100,7 @@ public static class MapInit
         });
         MapsToLoad.Add(new GameData.Map()
         {
-            MapID = 5,
+            MapID = 6,
             XSize = 10,
             TileMap = new int[]
             {
@@ -118,7 +118,7 @@ public static class MapInit
         });
         MapsToLoad.Add(new GameData.Map()
         {
-            MapID = 6,
+            MapID = 7,
             XSize = 10,
             TileMap = new int[]
             {
@@ -136,7 +136,7 @@ public static class MapInit
         });
         MapsToLoad.Add(new GameData.Map()
         {
-            MapID = 7,
+            MapID = 8,
             XSize = 10,
             TileMap = new int[]
             {
@@ -154,7 +154,7 @@ public static class MapInit
         });
         MapsToLoad.Add(new GameData.Map()
         {
-            MapID = 8,
+            MapID = 9,
             XSize = 10,
             TileMap = new int[]
             {
@@ -172,7 +172,7 @@ public static class MapInit
         });
         MapsToLoad.Add(new GameData.Map()
         {
-            MapID = 9,
+            MapID = 10,
             XSize = 10,
             TileMap = new int[]
             {
@@ -190,7 +190,7 @@ public static class MapInit
         });
         MapsToLoad.Add(new GameData.Map()
         {
-            MapID = 10,
+            MapID = 11,
             XSize = 10,
             TileMap = new int[]
             {
@@ -208,7 +208,7 @@ public static class MapInit
         });
         MapsToLoad.Add(new GameData.Map()
         {
-            MapID = 11,
+            MapID = 12,
             XSize = 10,
             TileMap = new int[]
             {
@@ -226,7 +226,7 @@ public static class MapInit
         });
         MapsToLoad.Add(new GameData.Map()
         {
-            MapID = 12,
+            MapID = 13,
             XSize = 10,
             TileMap = new int[]
             {
@@ -244,7 +244,7 @@ public static class MapInit
         });
         MapsToLoad.Add(new GameData.Map()
         {
-            MapID = 13,
+            MapID = 14,
             XSize = 10,
             TileMap = new int[]
             {
@@ -262,7 +262,7 @@ public static class MapInit
         });
         MapsToLoad.Add(new GameData.Map()
         {
-            MapID = 14,
+            MapID = 15,
             XSize = 10,
             TileMap = new int[]
             {
@@ -280,7 +280,7 @@ public static class MapInit
         });
         MapsToLoad.Add(new GameData.Map()
         {
-            MapID = 15,
+            MapID = 16,
             XSize = 10,
             TileMap = new int[]
             {

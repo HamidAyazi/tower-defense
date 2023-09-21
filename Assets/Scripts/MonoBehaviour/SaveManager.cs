@@ -41,19 +41,30 @@ public class SaveManager : MonoBehaviour
     private void LoadPlayerStats()
     {
         GameData.PlayerStats LoadedStats = FileHandler.LoadData<GameData.PlayerStats>(PlayerStatsFileName);
-        if (LoadedStats != null)
-        {
-            Data.playerStats = LoadedStats;
-        }
-        else
+        if (LoadedStats == null)
         {
             Debug.LogError("Can not find any saved player stats. Loading default player.");
+            return;
         }
+        Data.playerStats = LoadedStats;
     }
 
     private void LoadAllMaps()
     {
-        Maps = FileHandler.LoadData<List<GameData.Map>>(MapsFileName);
+        List <GameData.Map> MapsToLoad = FileHandler.LoadData<List<GameData.Map>>(MapsFileName);
+        if (MapsToLoad == null)
+        {
+            Debug.LogError("Can not find Maps file. Loading default maps.");
+            return;
+        }
+        foreach (GameData.Map map in MapsToLoad)
+        {
+            if (Maps.Find(Map => Map.MapID == map.MapID) == null)
+            {
+                Debug.Log("HERE");
+                Maps.Add(map);
+            }
+        }
     }
 
 
