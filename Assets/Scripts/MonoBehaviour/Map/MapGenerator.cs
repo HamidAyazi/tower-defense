@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 using static GameData;
 
 public class MapGenerator : MonoBehaviour
@@ -8,6 +9,7 @@ public class MapGenerator : MonoBehaviour
     private Map mapData; // Your Map data
     
     private int tileSize = 1; // Size of each tile
+    public NavMeshSurface Surface2D;
 
     // loading screen
     [SerializeField] private GameObject loadingScreen;
@@ -64,5 +66,6 @@ public class MapGenerator : MonoBehaviour
             slider.value = (result / 2f + 0.5f); // update loading screen slider
         }
         loadingScreen.SetActive(false); // disable loading screen
+        Surface2D.BuildNavMeshAsync();
     }
 }
