@@ -20,6 +20,7 @@ public class SaveManager : MonoBehaviour
             return;
         }
         Instance = this;
+        Maps = MapInit.GetMaps();
         Data = new GameData();
 
         DontDestroyOnLoad(gameObject);
@@ -52,7 +53,7 @@ public class SaveManager : MonoBehaviour
 
     private void LoadAllMaps()
     {
-        Data.mapList = FileHandler.LoadData<List<GameData.Map>>(MapsFileName);
+        Maps = FileHandler.LoadData<List<GameData.Map>>(MapsFileName);
     }
 
 
@@ -70,7 +71,7 @@ public class SaveManager : MonoBehaviour
     private void SaveAllMaps()
     {
         // Save map list to the file
-        // FileHandler.SaveData<List<GameData.Map>>(Maps, MapsFileName);
+        FileHandler.SaveData<List<GameData.Map>>(Maps, MapsFileName);
     }
     private void SaveLastPlayedMap()
     {        
