@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.AI;
+using NavMeshPlus.Components;
 using static GameData;
 
 public class MapGenerator : MonoBehaviour
@@ -53,12 +53,13 @@ public class MapGenerator : MonoBehaviour
 
                     NewTile = Instantiate(tilePrefab, spawnPosition, Quaternion.identity);
                     if(tileType == 1)
-                    {
+                    {   
+                        NewTile = Instantiate(tilePrefabs[3], spawnPosition, Quaternion.identity);
                         SaveManager.Instance.Data.map.SpawnPointPosition = NewTile.transform.position;
                     }
-                    if(tileType == 3)
-                    {
-                        WaypointsScript.AddPoint(NewTile.transform.position);
+                    if(tileType == 2)
+                    {   
+                        SaveManager.Instance.Data.map.GoalPointPosition = NewTile.transform.position;
                     }
                 }
             }

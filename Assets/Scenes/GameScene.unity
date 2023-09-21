@@ -4469,8 +4469,8 @@ MonoBehaviour:
   m_DefaultArea: 0
   m_IgnoreNavMeshAgent: 1
   m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
+  m_OverrideTileSize: 1
+  m_TileSize: 16
   m_OverrideVoxelSize: 1
   m_VoxelSize: 0.1
   m_BuildHeightMesh: 0
@@ -4483,14 +4483,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 686323959}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 342.10422, y: 235.95512, z: -11.269482}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &695532873
 GameObject:
   m_ObjectHideFlags: 0
@@ -6276,6 +6276,7 @@ MonoBehaviour:
   - {fileID: 3023828909466051261, guid: 56b06fa2e7ce3e145bf6911146d97fda, type: 3}
   - {fileID: 4786608066975801470, guid: 84faf7a34db8d7e45add19f0714ffd2c, type: 3}
   - {fileID: 4219224208676921935, guid: eed234792808ddd4a85663a4c01890ca, type: 3}
+  Surface2D: {fileID: 686323961}
   loadingScreen: {fileID: 1595963964}
   slider: {fileID: 876792310}
 --- !u!1 &1030413436

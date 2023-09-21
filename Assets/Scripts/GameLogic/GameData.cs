@@ -74,6 +74,7 @@ public class GameData
         public int XSize;
         public int[] TileMap;
         [NonSerialized] public Vector3 SpawnPointPosition;
+        [NonSerialized] public Vector3 GoalPointPosition;
 
         /// <summary>
         /// Constructor for <c>Map</c> class.
