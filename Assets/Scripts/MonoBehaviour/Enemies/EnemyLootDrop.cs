@@ -22,13 +22,12 @@ public class EnemyLootDrop : MonoBehaviour
     {
         if (Random.value <= CoinDropChance)
         {
-            int DroppedCoin = (int) Random.value * MaxCoinDrop;
-            GameStats.Money += DroppedCoin;
+            GameStats.Money += Mathf.RoundToInt(Random.value * MaxCoinDrop);
         }
         if (Random.value <= CashDropChance)
         {
-            int DroppedCash = (int)Random.value * MaxCashDrop;
-            SaveManager.Instance.Data.playerStats.PlayerTalentTree.Cash += DroppedCash;
+            SaveManager.Instance.Data.playerStats.PlayerTalentTree.Cash +=
+                Mathf.RoundToInt(Random.value * MaxCashDrop);
         }
     }
 }

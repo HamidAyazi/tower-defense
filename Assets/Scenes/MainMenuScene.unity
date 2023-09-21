@@ -3231,7 +3231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7aed3d343d033142943c65207ded840, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SoundAudioArr:
+  SFXArr:
   - sound: 0
     clip: {fileID: 8300000, guid: 26352b8e9ae8c4c4ba569b770b31cf8b, type: 3}
   - sound: 1
@@ -3244,6 +3244,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: b61f44ab97a6da04aafaa91ead63f619, type: 3}
   - sound: 5
     clip: {fileID: 8300000, guid: 267f5c1b00a0d064691839b4395df7ae, type: 3}
+  MusicArr: []
 --- !u!1 &700803466
 GameObject:
   m_ObjectHideFlags: 0

@@ -64,7 +64,7 @@ public static class SoundManager
     {
         SFXVolume = volume;
     }
-    public static void SetAudioVolume(float volume)
+    public static void SetMusicVolume(float volume)
     {
         MusicVolume = volume;
     }
