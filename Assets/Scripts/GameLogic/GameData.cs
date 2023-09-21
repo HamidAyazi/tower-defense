@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using System.Collections.Generic;
 
 [System.Serializable]
 public class GameData
@@ -7,6 +8,7 @@ public class GameData
     public PlayerStats playerStats;
     public LastPlayedLevel lastPlayedLevel;
     public Map map;
+    public List<Map> mapList;
 
     /// <summary>
     /// Constructor for <c>GameData</c> class. Loads new <c>Map</c> and new <c>PlayerStats</c>
@@ -15,6 +17,7 @@ public class GameData
     {
         playerStats = new PlayerStats();
         map = new Map();
+        mapList = new List<Map>();
         lastPlayedLevel = new LastPlayedLevel();
     }
 
@@ -62,7 +65,7 @@ public class GameData
     {
         /*
          * 0 - Empty
-         * 1 - Home Tile
+         * 1 - Spawn Tile
          * 2 - Goal Tile
          * 3 - Enemy path tile
          * 4 - Tower Tile
