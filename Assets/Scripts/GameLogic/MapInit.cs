@@ -64,7 +64,7 @@ public static class MapInit
         MapsToLoad.Add(new GameData.Map()
         {
             MapID = 4,
-            XSize = 10,
+            XSize = 11,
             TileMap = new int[]
             {
                 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0,
@@ -281,7 +281,7 @@ public static class MapInit
         MapsToLoad.Add(new GameData.Map()
         {
             MapID = 16,
-            XSize = 10,
+            XSize = 11,
             TileMap = new int[]
             {
                 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0,
