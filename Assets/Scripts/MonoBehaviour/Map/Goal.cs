@@ -4,7 +4,7 @@ using UnityEngine.UIElements;
 
 public class Goal : MonoBehaviour
 {
-    public event EventHandler OnGoalDied;
+    public static event EventHandler OnGoalDied;
 
     /// <summary>
     /// Damage the <c>Goal</c>. if <c>HealthPoint</c> reaches 0, it invokes game over.
@@ -13,7 +13,7 @@ public class Goal : MonoBehaviour
     public void Damage(int DamageReceived)
     {
         GameStats.HealthPoint -= DamageReceived;
-        if (GameStats.HealthPoint == 0)
+        if (GameStats.HealthPoint <= 0)
         {
             OnGoalDied?.Invoke(this, EventArgs.Empty);
         }
