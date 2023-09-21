@@ -61,7 +61,6 @@ public class SaveManager : MonoBehaviour
         {
             if (Maps.Find(Map => Map.MapID == map.MapID) == null)
             {
-                Debug.Log("HERE");
                 Maps.Add(map);
             }
         }
