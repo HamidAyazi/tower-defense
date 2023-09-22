@@ -6623,6 +6623,7 @@ GameObject:
   - component: {fileID: 1001275033}
   - component: {fileID: 1001275034}
   - component: {fileID: 1001275035}
+  - component: {fileID: 1001275036}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -6738,6 +6739,21 @@ MonoBehaviour:
   Surface2D: {fileID: 686323961}
   loadingScreen: {fileID: 1595963964}
   slider: {fileID: 876792310}
+--- !u!114 &1001275036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001275026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67d6ccc4a6848ad408b3a0b9948a6ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextLevelBtn: {fileID: 1282286715}
+  PassedWaves: {fileID: 1749902827}
+  Level: {fileID: 1905922145}
 --- !u!1 &1030413436
 GameObject:
   m_ObjectHideFlags: 0
