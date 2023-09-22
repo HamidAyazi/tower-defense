@@ -16,7 +16,7 @@ public class GameStats : MonoBehaviour
     [NonSerialized] public static int Wave;
 
     private int StartingMoney = 250;
-    private int StartingHealth = 3;
+    private int StartingHealth = 30;
 
     private void Start()
     {
