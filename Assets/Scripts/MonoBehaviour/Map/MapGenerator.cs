@@ -33,9 +33,9 @@ public class MapGenerator : MonoBehaviour
         int tileType;
 
         // Calculate the starting position for the map based on the camera's position and the map's size
-        float mapWidth = mapData.XSize * tileSize;
+        float mapWidth = (mapData.XSize * tileSize) - 2;
         float mapHeight = (mapData.TileMap.Length / mapData.XSize) * tileSize;
-        Vector3 mapStartPosition = cameraCenter - new Vector3(mapWidth / 2f, 0f, mapHeight / 2f);
+        Vector3 mapStartPosition = cameraCenter - new Vector3(mapWidth / 2f, -mapHeight / 2f, 0f);
         spawnPosition.z = 0;
 
         for (int y = 0; y < mapData.TileMap.Length / mapData.XSize; y++)
