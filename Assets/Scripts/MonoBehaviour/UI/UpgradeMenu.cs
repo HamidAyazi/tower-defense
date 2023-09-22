@@ -21,6 +21,8 @@ public class UpgradeMenu : MonoBehaviour
     [SerializeField] private GameObject Coin;
     // UI elements
     [SerializeField] private Button UpgradeBtn;
+    [SerializeField] public GameObject SellConfirmPanel;
+    [SerializeField] public TMPro.TextMeshProUGUI SellPriceText;
 
     private bool UpgradeConfirm;
     private AttackerTowerStats TowerStats;
@@ -118,5 +120,20 @@ public class UpgradeMenu : MonoBehaviour
     public void CloseUpgradeWindow()
     {
         transform.GetChild(0).gameObject.SetActive(false);
+    }
+
+    public void OpenSellConfirmPanel() {
+        int sellPrice = Mathf.FloorToInt(TowerStats.MoneySpent / 2);
+        SellPriceText.text = sellPrice.ToString();
+        SellConfirmPanel.SetActive(true);
+    }
+    public void CloseSellConfirmPanel() {
+        SellConfirmPanel.SetActive(false);
+    }
+    public void AddSellTower(){
+        int sellPrice = Mathf.FloorToInt(TowerStats.MoneySpent / 2);
+        GameStats.Money += sellPrice;
+        CloseSellConfirmPanel();
+        CloseUpgradeWindow();
     }
 }
