@@ -11,7 +11,7 @@ public class SpeedManager : MonoBehaviour
     [SerializeField] private Sprite speed2xImage;
     [SerializeField] private Sprite speed3xImage;
     
-    [NonSerialized] public static int Speed = 1;
+    public static int Speed = 1;
 
     // Start is called before the first frame update
     private void Start()
