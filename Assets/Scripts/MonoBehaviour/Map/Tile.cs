@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class Tile : MonoBehaviour, IPointerClickHandler
@@ -8,6 +9,8 @@ public class Tile : MonoBehaviour, IPointerClickHandler
     private GameObject Tower;
     private Shop shop;
     private UpgradeMenu upgrade;
+
+    public AttackerTowerScriptableObject AttackerTowerSO;
 
     private void Start(){
         try
@@ -34,9 +37,18 @@ public class Tile : MonoBehaviour, IPointerClickHandler
             return;
         } else {
             upgrade.CloseUpgradeWindow();
+            upgrade.CloseSellConfirmPanel();
             shop.OpenShopWindow();
         }
     }
+
+    public void DestroyTower(){
+    if (Tower != null)
+    {
+        Destroy(Tower);
+        Tower = null;
+    }
+}
 
     /// <summary>
     /// Set a <c>Tower</c> to the <c>Tile</c>.

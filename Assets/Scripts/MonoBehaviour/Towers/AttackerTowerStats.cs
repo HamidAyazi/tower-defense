@@ -18,6 +18,7 @@ public class AttackerTowerStats : MonoBehaviour
     [NonSerialized] public float AttackSpeed;
     [NonSerialized] public float Range;
     [NonSerialized] public float RotationSpeed;
+    [NonSerialized] public float MoneySpent;
 
     /// <summary>
     /// First init when a tower is placed
@@ -29,6 +30,7 @@ public class AttackerTowerStats : MonoBehaviour
         AttackSpeed = AttackerTowerSO.BaseAttackSpeed;
         Range = AttackerTowerSO.BaseRange;
         RotationSpeed = AttackerTowerSO.BaseRotationSpeed;
+        MoneySpent = AttackerTowerSO.BasePrice;
     }
 
     /// <summary>
@@ -41,6 +43,7 @@ public class AttackerTowerStats : MonoBehaviour
         AttackSpeed = NewStatus[1];
         Range = NewStatus[2];
         RotationSpeed = NewStatus[3];
+        MoneySpent += AttackerTowerSO.BasePrice + PriceMp * (CurrentLevel - 3);
     }
 
     /// <summary>

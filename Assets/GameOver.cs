@@ -3,12 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
-    public Goal goal;
     [SerializeField] private GameObject GameOverPanel;
 
     private void Start()
     {
-        goal.OnGoalDied += GameOverProcess;
+        Goal.OnGoalDied += GameOverProcess;
     }
 
     private void GameOverProcess(object sender, System.EventArgs e)

@@ -17,4 +17,8 @@ public class TileManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void SellTower(){
+        SelectedTile.DestroyTower();
+    }
 }
