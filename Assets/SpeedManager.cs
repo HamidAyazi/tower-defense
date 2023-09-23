@@ -5,12 +5,13 @@ using UnityEngine.UI;
 
 public class SpeedManager : MonoBehaviour
 {
-    private int Speed = 1;
     [SerializeField] private Button speedButton;
     [SerializeField] private Sprite speed1xImage;
     [SerializeField] private Sprite speed2xImage;
     [SerializeField] private Sprite speed3xImage;
     
+    public static int Speed = 1;
+
     // Start is called before the first frame update
     private void Start()
     {

@@ -5,6 +5,7 @@ public class GameOver : MonoBehaviour
 {
     public Goal goal;
     [SerializeField] private GameObject GameOverPanel;
+
     private void Start()
     {
         goal.OnGoalDied += GameOverProcess;
@@ -12,9 +13,13 @@ public class GameOver : MonoBehaviour
 
     private void GameOverProcess(object sender, System.EventArgs e)
     {
-        SoundManager.PlaySound(Sound.GameOver);
-        GameOverPanel.SetActive(true);
+        Debug.Log(GameOverPanel);
+        // Stop the game
         Time.timeScale = 0;
+        // Open game over panel
+        GameOverPanel.SetActive(true);
+        // Play game over sound
+        SoundManager.PlaySound(Sound.GameOver);
     }
 
     /// <summary>

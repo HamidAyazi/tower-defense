@@ -6133,7 +6133,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc9b40b811365d34ab71d60cb710afe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goal: {fileID: 3373489434064755557, guid: 56b06fa2e7ce3e145bf6911146d97fda, type: 3}
   GameOverPanel: {fileID: 1688336365}
 --- !u!114 &1001275031
 MonoBehaviour:
