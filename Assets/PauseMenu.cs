@@ -20,7 +20,7 @@ public class PauseMenu : MonoBehaviour
     public void ContinueGame() {
         SoundManager.PlaySound(Sound.ButtonClick);
         PausePanel.SetActive(false);
-        Time.timeScale = 1;
+        Time.timeScale = SpeedManager.Speed;
     }
 
     /// <summary>
