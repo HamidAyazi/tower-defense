@@ -4,14 +4,12 @@ using UnityEngine.UI;
 
 public class Victory : MonoBehaviour
 {
+    [SerializeField] private GameObject VicotryPanel;
     [SerializeField] private Button nextLevelBtn;
     [SerializeField] private TMPro.TextMeshProUGUI PassedWaves;
     [SerializeField] private TMPro.TextMeshProUGUI Level;
-    /// <summary>
-    /// Restart a played map and set everything on the map to it's default.
-    /// </summary>
     
-    private void Start()
+    private void OnEnable()
     {
         PassedWaves.text = GameStats.Wave.ToString();
         Level.text = LoadingScreen.MapId.ToString();
@@ -29,5 +27,11 @@ public class Victory : MonoBehaviour
     /// </summary>
     public void MenuClick(){
         SceneManager.LoadScene(0);
+    }
+    public void ShowVictoryPanel()
+    {
+        Time.timeScale = 0;
+        VicotryPanel.SetActive(true);
+        SoundManager.PlaySound(Sound.Victory);
     }
 }

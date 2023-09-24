@@ -9,5 +9,6 @@ public enum Sound
     TowerDespawn,
     TankShot,
     EnemyDie,
-    GameOver
+    GameOver,
+    Victory
 };

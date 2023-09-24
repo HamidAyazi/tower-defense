@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
@@ -12,6 +11,8 @@ public class WaveSpawner : MonoBehaviour
     private bool waveToggle = false;
     private float TimeToSpawnNewWave;
     private int currentWaveIndex = 0; // Current wave index
+    private int totalEnemiesToSpawn = 0; // Total enemies to spawn in the current wave
+    private int enemiesDefeated = 0; // Number of defeated enemies
 
     private void Start()
     {
@@ -45,9 +46,10 @@ public class WaveSpawner : MonoBehaviour
     private void SpawnWave(int waveIndex)
     {
         Wave waveToSpawn = Map.Waves[waveIndex];
-
-        // Start spawning enemies with a delay of 0.2 seconds and repeat every 0.2 seconds
+        GameStats.Wave = waveIndex + 1;
+        // Start spawning enemies with a delay
         int enemiesToSpawn = waveToSpawn.EnemyNumber;
+        totalEnemiesToSpawn += enemiesToSpawn; // Add to the total enemies to spawn
 
         StartCoroutine(SpawnEnemiesWithDelay(waveToSpawn.EnemyID, waveToSpawn.EnemyLevel, spawnDelay, enemiesToSpawn));
     }
@@ -69,10 +71,22 @@ public class WaveSpawner : MonoBehaviour
         {
             Transform enemy = Instantiate(enemyPrefab, Map.SpawnPointPosition, Quaternion.identity);
             enemy.GetComponent<Enemy>().Level = enemyLevel;
+            enemy.GetComponent<EnemyHealthSystem>().OnEnemyDied += HandleEnemyDeath; // Subscribe to the enemy's death event
         }
         else
         {
             Debug.LogError("Enemy prefab with ID " + enemyID + " not found!");
+        }
+    }
+
+    // Event handler for enemy death
+    private void HandleEnemyDeath(object sender, System.EventArgs e)
+    {
+        enemiesDefeated++;
+        // Check if all enemies are defeated to trigger the Victory Panel
+        if (enemiesDefeated == totalEnemiesToSpawn)
+        {
+            GetComponent<Victory>().ShowVictoryPanel();
         }
     }
 
@@ -82,7 +96,6 @@ public class WaveSpawner : MonoBehaviour
     public void ToggleWave()
     {
         waveToggle = !waveToggle;
-
         if (waveToggle)
         {
             TimeToSpawnNewWave = Time.time; // Start spawning immediately
