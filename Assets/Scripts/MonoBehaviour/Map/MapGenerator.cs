@@ -16,10 +16,14 @@ public class MapGenerator : MonoBehaviour
     [SerializeField] private Slider slider;
     // loading screen
 
-    private void Start()
+
+    private void Awake()
     {
         mapData = SaveManager.Instance.FindMap(LoadingScreen.MapId);
         SaveManager.Instance.Data.map = mapData;
+    }
+    private void Start()
+    {
         GenerateMap();
     }
 

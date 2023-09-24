@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemySO: {fileID: 11400000, guid: 8e7114ef0e46fc4449271806fc41a9d2, type: 2}
+  Level: 1
 --- !u!114 &6563399721716335585
 MonoBehaviour:
   m_ObjectHideFlags: 0

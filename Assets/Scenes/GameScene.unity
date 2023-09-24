@@ -6645,8 +6645,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c864637dee1625e4fabcb5a2ded0aefa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 584016449469908458, guid: 91c1a103cb242f8439cbf0e8d6bc9949, type: 3}
-  waveInterval: 5
+  EnemyPrefabs:
+  - {fileID: 578425093426379370, guid: 1e724c7608152bc46b9fe892a9daa0b3, type: 3}
+  - {fileID: 584016449469908458, guid: 91c1a103cb242f8439cbf0e8d6bc9949, type: 3}
+  spawnDelay: 0.2
 --- !u!4 &1001275028
 Transform:
   m_ObjectHideFlags: 0
@@ -6674,7 +6676,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc9b40b811365d34ab71d60cb710afe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goal: {fileID: 3373489434064755557, guid: 56b06fa2e7ce3e145bf6911146d97fda, type: 3}
   GameOverPanel: {fileID: 1688336365}
 --- !u!114 &1001275031
 MonoBehaviour:

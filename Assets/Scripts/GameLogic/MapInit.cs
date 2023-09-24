@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class MapInit
 {
-    public static List<GameData.Map> GetMaps()
+    public static List<GameData.Map> GetDefaultMaps()
     {
         List<GameData.Map> MapsToLoad = new List<GameData.Map>();
         MapsToLoad.Add(new GameData.Map()
@@ -23,6 +23,23 @@ public static class MapInit
                 0, 0, 4, 0, 0, 3, 3, 3, 0, 0,
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                 0, 0, 0, 0, 0, 0, 0, 4, 4, 0
+            },
+            Waves = new Wave[]
+            {
+                new Wave
+                {
+                    EnemyID = 1,
+                    EnemyNumber = 5,
+                    EnemyLevel = 1,
+                    TimeToSpawn = 5f,
+                },
+                new Wave
+                {
+                    EnemyID = 2,
+                    EnemyNumber = 10,
+                    EnemyLevel = 2,
+                    TimeToSpawn = 5f,
+                }
             }
         });
         MapsToLoad.Add(new GameData.Map()
@@ -41,6 +58,23 @@ public static class MapInit
                 0, 0, 3, 4, 0, 4, 0, 4, 0, 0,
                 0, 0, 3, 3, 3, 3, 0, 0, 0, 0,
                 0, 0, 0, 0, 4, 2, 0, 0, 0, 0
+            },
+            Waves = new Wave[]
+            {
+                new Wave
+                {
+                    EnemyID = 1,
+                    EnemyNumber = 5,
+                    EnemyLevel = 1,
+                    TimeToSpawn = 5f,
+                },
+                new Wave
+                {
+                    EnemyID = 2,
+                    EnemyNumber = 10,
+                    EnemyLevel = 2,
+                    TimeToSpawn = 5f,
+                }
             }
         });
         MapsToLoad.Add(new GameData.Map()
@@ -59,6 +93,23 @@ public static class MapInit
                 4, 0, 0, 0, 0, 4, 3, 4, 0, 0, 
                 0, 4, 4, 0, 1, 3, 3, 0, 0, 4, 
                 0, 0, 0, 0, 0, 0, 0, 0, 4, 0
+            },
+            Waves = new Wave[]
+            {
+                new Wave
+                {
+                    EnemyID = 1,
+                    EnemyNumber = 5,
+                    EnemyLevel = 1,
+                    TimeToSpawn = 5f,
+                },
+                new Wave
+                {
+                    EnemyID = 2,
+                    EnemyNumber = 10,
+                    EnemyLevel = 2,
+                    TimeToSpawn = 5f,
+                }
             }
         });
         MapsToLoad.Add(new GameData.Map()
@@ -78,6 +129,23 @@ public static class MapInit
                 0, 0, 0, 4, 4, 0, 4, 4, 0, 0, 0,
                 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0,
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            },
+            Waves = new Wave[]
+            {
+                new Wave
+                {
+                    EnemyID = 1,
+                    EnemyNumber = 5,
+                    EnemyLevel = 1,
+                    TimeToSpawn = 5f,
+                },
+                new Wave
+                {
+                    EnemyID = 2,
+                    EnemyNumber = 10,
+                    EnemyLevel = 2,
+                    TimeToSpawn = 5f,
+                }
             }
         });
         MapsToLoad.Add(new GameData.Map()
@@ -96,6 +164,23 @@ public static class MapInit
                 0, 3, 4, 4, 0, 4, 3, 0, 0, 0,
                 4, 3, 3, 3, 3, 3, 3, 0, 0, 0,
                 0, 0, 0, 4, 4, 0, 0, 4, 0, 0
+            },
+            Waves = new Wave[]
+            {
+                new Wave
+                {
+                    EnemyID = 1,
+                    EnemyNumber = 5,
+                    EnemyLevel = 1,
+                    TimeToSpawn = 5f,
+                },
+                new Wave
+                {
+                    EnemyID = 2,
+                    EnemyNumber = 10,
+                    EnemyLevel = 2,
+                    TimeToSpawn = 5f,
+                }
             }
         });
         MapsToLoad.Add(new GameData.Map()
@@ -114,6 +199,23 @@ public static class MapInit
                 0, 4, 4, 4, 0, 4, 4, 3, 0, 0,
                 2, 3, 3, 3, 3, 3, 3, 3, 0, 0,
                 0, 4, 4, 0, 0, 0, 0, 0, 0, 0
+            },
+            Waves = new Wave[]
+            {
+                new Wave
+                {
+                    EnemyID = 1,
+                    EnemyNumber = 5,
+                    EnemyLevel = 1,
+                    TimeToSpawn = 5f,
+                },
+                new Wave
+                {
+                    EnemyID = 2,
+                    EnemyNumber = 10,
+                    EnemyLevel = 2,
+                    TimeToSpawn = 5f,
+                }
             }
         });
         MapsToLoad.Add(new GameData.Map()
@@ -132,6 +234,23 @@ public static class MapInit
                 0, 0, 0, 0, 4, 3, 4, 3, 0, 0,
                 0, 0, 0, 0, 0, 3, 3, 3, 0, 0,
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            },
+            Waves = new Wave[]
+            {
+                new Wave
+                {
+                    EnemyID = 1,
+                    EnemyNumber = 5,
+                    EnemyLevel = 1,
+                    TimeToSpawn = 5f,
+                },
+                new Wave
+                {
+                    EnemyID = 2,
+                    EnemyNumber = 10,
+                    EnemyLevel = 2,
+                    TimeToSpawn = 5f,
+                }
             }
         });
         MapsToLoad.Add(new GameData.Map()
@@ -150,6 +269,23 @@ public static class MapInit
                 0, 4, 3, 4, 4, 4, 3, 4, 0, 0,
                 0, 0, 3, 3, 3, 3, 3, 0, 0, 0,
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            },
+            Waves = new Wave[]
+            {
+                new Wave
+                {
+                    EnemyID = 1,
+                    EnemyNumber = 5,
+                    EnemyLevel = 1,
+                    TimeToSpawn = 5f,
+                },
+                new Wave
+                {
+                    EnemyID = 2,
+                    EnemyNumber = 10,
+                    EnemyLevel = 2,
+                    TimeToSpawn = 5f,
+                }
             }
         });
         MapsToLoad.Add(new GameData.Map()
@@ -168,6 +304,23 @@ public static class MapInit
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            },
+            Waves = new Wave[]
+            {
+                new Wave
+                {
+                    EnemyID = 1,
+                    EnemyNumber = 5,
+                    EnemyLevel = 1,
+                    TimeToSpawn = 5f,
+                },
+                new Wave
+                {
+                    EnemyID = 2,
+                    EnemyNumber = 10,
+                    EnemyLevel = 2,
+                    TimeToSpawn = 5f,
+                }
             }
         });
         MapsToLoad.Add(new GameData.Map()
@@ -186,6 +339,23 @@ public static class MapInit
                 0, 0, 4, 3, 0, 0, 4, 0, 0, 0,
                 2, 3, 3, 3, 0, 0, 0, 0, 0, 0,
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            },
+            Waves = new Wave[]
+            {
+                new Wave
+                {
+                    EnemyID = 1,
+                    EnemyNumber = 5,
+                    EnemyLevel = 1,
+                    TimeToSpawn = 5f,
+                },
+                new Wave
+                {
+                    EnemyID = 2,
+                    EnemyNumber = 10,
+                    EnemyLevel = 2,
+                    TimeToSpawn = 5f,
+                }
             }
         });
         MapsToLoad.Add(new GameData.Map()
@@ -204,6 +374,23 @@ public static class MapInit
                 0, 3, 3, 3, 0, 1, 4, 4, 0, 0,
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            },
+            Waves = new Wave[]
+            {
+                new Wave
+                {
+                    EnemyID = 1,
+                    EnemyNumber = 5,
+                    EnemyLevel = 1,
+                    TimeToSpawn = 5f,
+                },
+                new Wave
+                {
+                    EnemyID = 2,
+                    EnemyNumber = 10,
+                    EnemyLevel = 2,
+                    TimeToSpawn = 5f,
+                }
             }
         });
         MapsToLoad.Add(new GameData.Map()
@@ -222,6 +409,23 @@ public static class MapInit
                 3, 3, 1, 0, 3, 3, 3, 3, 0, 0,
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            },
+            Waves = new Wave[]
+            {
+                new Wave
+                {
+                    EnemyID = 1,
+                    EnemyNumber = 5,
+                    EnemyLevel = 1,
+                    TimeToSpawn = 5f,
+                },
+                new Wave
+                {
+                    EnemyID = 2,
+                    EnemyNumber = 10,
+                    EnemyLevel = 2,
+                    TimeToSpawn = 5f,
+                }
             }
         });
         MapsToLoad.Add(new GameData.Map()
@@ -240,6 +444,23 @@ public static class MapInit
                 4, 3, 3, 3, 3, 4, 0, 4, 3, 0,
                 0, 4, 4, 0, 1, 0, 4, 3, 3, 3,
                 0, 0, 0, 0, 0, 0, 0, 2, 4, 0
+            },
+            Waves = new Wave[]
+            {
+                new Wave
+                {
+                    EnemyID = 1,
+                    EnemyNumber = 5,
+                    EnemyLevel = 1,
+                    TimeToSpawn = 5f,
+                },
+                new Wave
+                {
+                    EnemyID = 2,
+                    EnemyNumber = 10,
+                    EnemyLevel = 2,
+                    TimeToSpawn = 5f,
+                }
             }
         });
         MapsToLoad.Add(new GameData.Map()
@@ -258,6 +479,23 @@ public static class MapInit
                 3, 3, 3, 3, 0, 4, 3, 0, 0, 0,
                 0, 4, 4, 0, 4, 0, 3, 0, 0, 0,
                 2, 3, 3, 3, 3, 3, 3, 0, 0, 0
+            },
+            Waves = new Wave[]
+            {
+                new Wave
+                {
+                    EnemyID = 1,
+                    EnemyNumber = 5,
+                    EnemyLevel = 1,
+                    TimeToSpawn = 5f,
+                },
+                new Wave
+                {
+                    EnemyID = 2,
+                    EnemyNumber = 10,
+                    EnemyLevel = 2,
+                    TimeToSpawn = 5f,
+                }
             }
         });
         MapsToLoad.Add(new GameData.Map()
@@ -276,6 +514,23 @@ public static class MapInit
                 0, 0, 3, 4, 4, 4, 0, 4, 3, 4,
                 0, 0, 1, 3, 3, 3, 3, 3, 3, 0,
                 0, 0, 0, 4, 4, 0, 0, 0, 0, 0
+            },
+            Waves = new Wave[]
+            {
+                new Wave
+                {
+                    EnemyID = 1,
+                    EnemyNumber = 5,
+                    EnemyLevel = 1,
+                    TimeToSpawn = 5f,
+                },
+                new Wave
+                {
+                    EnemyID = 2,
+                    EnemyNumber = 10,
+                    EnemyLevel = 2,
+                    TimeToSpawn = 5f,
+                }
             }
         });
         MapsToLoad.Add(new GameData.Map()
@@ -295,6 +550,23 @@ public static class MapInit
                 0, 0, 4, 3, 3, 0, 3, 3, 4, 0, 0,
                 0, 0, 0, 0, 3, 3, 3, 0, 0, 0, 0,
                 0, 0, 0, 0, 0, 4, 0, 0, 0, 0 ,0
+            },
+            Waves = new Wave[]
+            {
+                new Wave
+                {
+                    EnemyID = 1,
+                    EnemyNumber = 5,
+                    EnemyLevel = 1,
+                    TimeToSpawn = 5f,
+                },
+                new Wave
+                {
+                    EnemyID = 2,
+                    EnemyNumber = 10,
+                    EnemyLevel = 2,
+                    TimeToSpawn = 5f,
+                }
             }
         });
 

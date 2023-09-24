@@ -66,9 +66,10 @@ public class GameData
          * 3 - Enemy path tile
          * 4 - Tower Tile
          */
+        public int[] TileMap;
+        public Wave[] Waves;
         public int MapID;
         public int XSize;
-        public int[] TileMap;
         [NonSerialized] public Vector3 SpawnPointPosition;
         [NonSerialized] public Vector3 GoalPointPosition;
     }

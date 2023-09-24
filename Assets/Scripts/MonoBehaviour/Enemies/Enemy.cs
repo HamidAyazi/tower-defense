@@ -5,14 +5,15 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public EnemyScriptableObject EnemySO;
-    private EnemyHealthSystem EnemyHealthSystem;
+    public int Level;
     private int Damage;
+    private EnemyHealthSystem EnemyHealthSystem;
 
     // Start is called before the first frame update
     private void Start()
     {
         // Here calculates "Damage" based on "Level"
-        Damage = EnemySO.BaseDamage;
+        Damage = EnemySO.BaseDamage * Level;
 
         EnemyHealthSystem = GetComponent<EnemyHealthSystem>();
         EnemyHealthSystem.OnEnemyDied += EnemyHealthSystem_OnEnemyDied;
