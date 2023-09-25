@@ -26,9 +26,13 @@ public class SpeedManager : MonoBehaviour
     }
 
       private void X3Speed() {
-        Speed = 3;
-        Time.timeScale = 3;
-        speedButton.image.sprite = speed3xImage;
+        if(GameStats.speed3x){
+            Speed = 3;
+            Time.timeScale = 3;
+            speedButton.image.sprite = speed3xImage;
+        } else {
+            X1Speed();
+        }
     }
 
       private void X1Speed() {
