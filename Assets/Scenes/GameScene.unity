@@ -649,7 +649,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1001275037}
         m_TargetAssemblyTypeName: GameOver, Assembly-CSharp
         m_MethodName: MenuClick
         m_Mode: 1
@@ -9887,7 +9887,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1001275037}
         m_TargetAssemblyTypeName: GameOver, Assembly-CSharp
         m_MethodName: RetryClick
         m_Mode: 1
