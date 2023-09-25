@@ -16,6 +16,8 @@ public class GameOver : MonoBehaviour
         Time.timeScale = 0;
     }
 
+
+
     /// <summary>
     /// Restart a played map and set everything on the map to it's default.
     /// </summary>
