@@ -14,6 +14,10 @@ public class Victory : MonoBehaviour
         PassedWaves.text = GameStats.Wave.ToString();
         Level.text = LoadingScreen.MapId.ToString();
     }
+
+    /// <summary>
+    /// Restart Scene with next level ID
+    /// </summary>
     public void LoadNextLevel(){
         if(LoadingScreen.MapId > 16){
             LoadingScreen.MapId += 1;
@@ -22,12 +26,17 @@ public class Victory : MonoBehaviour
             nextLevelBtn.interactable = false;
         }
     }
+
     /// <summary>
-    /// Close <c>PlayScene</c> and switch to <c>MainMenuScene</c>.
+    /// Close <c>GameScene</c> and switch to <c>MainMenuScene</c>.
     /// </summary>
     public void MenuClick(){
         SceneManager.LoadScene(0);
     }
+
+    /// <summary>
+    /// Pause game and show Victory UI
+    /// </summary>
     public void ShowVictoryPanel()
     {
         Time.timeScale = 0;
