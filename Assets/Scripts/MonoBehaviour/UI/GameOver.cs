@@ -25,6 +25,7 @@ public class GameOver : MonoBehaviour
     /// Restart a played map and set everything on the map to it's default.
     /// </summary>
     public void RetryClick(){
+        SpeedManager.Speed = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
