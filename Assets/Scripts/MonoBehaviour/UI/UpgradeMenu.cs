@@ -76,7 +76,7 @@ public class UpgradeMenu : MonoBehaviour
         AttackSpeedUpgrade.text = "+" + UpgradePreviewArray[1].ToString();
         RangeUpgrade.text = "+" + UpgradePreviewArray[2].ToString();
         RotationSpeedUpgrade.text = "+" + UpgradePreviewArray[3].ToString();
-        UpgradePrice.text = CurrentStatsArray[4].ToString();
+        UpgradePrice.text = Mathf.FloorToInt(CurrentStatsArray[4] - (CurrentStatsArray[4] * (GameStats.Discount / 100))).ToString();
         arrowImage.SetActive(true);
     }
 
@@ -85,12 +85,12 @@ public class UpgradeMenu : MonoBehaviour
     /// if confirmed upgrade else confirm and show preview
     /// </summary>
     public void UpgradeTower(){
-        if(GameStats.Money >= CurrentStatsArray[4]){
+        if(GameStats.Money >= Mathf.FloorToInt(CurrentStatsArray[4] - (CurrentStatsArray[4] * (GameStats.Discount / 100)))){
             if(!UpgradeConfirm){
                 UpgradeConfirm = true;
                 SetUpgradePreviewText();
             } else {
-                GameStats.Money -= (int)CurrentStatsArray[4];
+                GameStats.Money -= (int)Mathf.FloorToInt(CurrentStatsArray[4] - (CurrentStatsArray[4] * (GameStats.Discount / 100)));
                 TowerStats.Upgrade();
                 SetStatsText();
                 SetUpgradePreviewText();
@@ -123,7 +123,7 @@ public class UpgradeMenu : MonoBehaviour
     }
 
     public void OpenSellConfirmPanel() {
-        int sellPrice = Mathf.FloorToInt(TowerStats.MoneySpent / 2);
+        int sellPrice = Mathf.FloorToInt((TowerStats.MoneySpent / 2) * ((GameStats.TowerRefund + 100) / 100));
         SellPriceText.text = sellPrice.ToString();
         SellConfirmPanel.SetActive(true);
     }
@@ -131,7 +131,7 @@ public class UpgradeMenu : MonoBehaviour
         SellConfirmPanel.SetActive(false);
     }
     public void AddSellTower(){
-        int sellPrice = Mathf.FloorToInt(TowerStats.MoneySpent / 2);
+        int sellPrice = Mathf.FloorToInt((TowerStats.MoneySpent / 2) * ((GameStats.TowerRefund + 100) / 100));
         GameStats.Money += sellPrice;
         CloseSellConfirmPanel();
         CloseUpgradeWindow();
