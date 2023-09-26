@@ -11,12 +11,17 @@ public class WaveSpawner : MonoBehaviour
     private bool waveToggle = false;
     private float TimeToSpawnNewWave;
     private int currentWaveIndex = 0; // Current wave index
-    private int totalEnemiesToSpawn = 0; // Total enemies to spawn in the current wave
+    private int totalEnemiesToSpawn; // Total enemies to spawn in the current wave
     private int enemiesDefeated = 0; // Number of defeated enemies
 
     private void Start()
     {
         Map = SaveManager.Instance.Data.map;
+        foreach (Wave wave in Map.Waves)
+        {
+            // Add to the total enemies to spawn
+            totalEnemiesToSpawn += wave.EnemyNumber;
+        } 
     }
 
     private void Update()
@@ -49,7 +54,6 @@ public class WaveSpawner : MonoBehaviour
         GameStats.Wave = waveIndex + 1;
         // Start spawning enemies with a delay
         int enemiesToSpawn = waveToSpawn.EnemyNumber;
-        totalEnemiesToSpawn += enemiesToSpawn; // Add to the total enemies to spawn
 
         StartCoroutine(SpawnEnemiesWithDelay(waveToSpawn.EnemyID, waveToSpawn.EnemyLevel, spawnDelay, enemiesToSpawn));
     }
@@ -79,7 +83,11 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
-    // Event handler for enemy death
+    /// <summary>
+    /// Event handler for enemy death
+    /// </summary>
+    /// <param name="sender">Enemy which invoke the event.</param>
+    /// <param name="e">Passed parameters.</param>
     private void HandleEnemyDeath(object sender, System.EventArgs e)
     {
         enemiesDefeated++;
