@@ -4,7 +4,23 @@ using UnityEngine;
 
 public static class MapInit
 {
-    public static List<GameData.Map> GetMaps()
+    private static Wave[] GetWaves(int MapID)
+    {
+        Wave[] waves = new Wave[20];
+        for (int i = 0; i < waves.Length; i++)
+        {
+            waves[i] = new Wave()
+            {
+                EnemyID = 1,
+                EnemyNumber = i + 5,
+                EnemyLevel = 1 + (int) Random.value * 2,
+                TimeToSpawn = 5f,
+            };
+        }
+        return waves;
+    }
+
+    public static List<GameData.Map> GetDefaultMaps()
     {
         List<GameData.Map> MapsToLoad = new List<GameData.Map>();
         MapsToLoad.Add(new GameData.Map()
@@ -23,8 +39,10 @@ public static class MapInit
                 0, 0, 4, 0, 0, 3, 3, 3, 0, 0,
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                 0, 0, 0, 0, 0, 0, 0, 4, 4, 0
-            }
+            },
+            Waves = GetWaves(1)
         });
+
         MapsToLoad.Add(new GameData.Map()
         {
             MapID = 2,
@@ -41,7 +59,8 @@ public static class MapInit
                 0, 0, 3, 4, 0, 4, 0, 4, 0, 0,
                 0, 0, 3, 3, 3, 3, 0, 0, 0, 0,
                 0, 0, 0, 0, 4, 2, 0, 0, 0, 0
-            }
+            },
+            Waves = GetWaves(2)
         });
         MapsToLoad.Add(new GameData.Map()
         {
@@ -59,7 +78,8 @@ public static class MapInit
                 4, 0, 0, 0, 0, 4, 3, 4, 0, 0, 
                 0, 4, 4, 0, 1, 3, 3, 0, 0, 4, 
                 0, 0, 0, 0, 0, 0, 0, 0, 4, 0
-            }
+            },
+            Waves = GetWaves(3)
         });
         MapsToLoad.Add(new GameData.Map()
         {
@@ -78,7 +98,8 @@ public static class MapInit
                 0, 0, 0, 4, 4, 0, 4, 4, 0, 0, 0,
                 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0,
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-            }
+            },
+            Waves = GetWaves(4)
         });
         MapsToLoad.Add(new GameData.Map()
         {
@@ -96,7 +117,8 @@ public static class MapInit
                 0, 3, 4, 4, 0, 4, 3, 0, 0, 0,
                 4, 3, 3, 3, 3, 3, 3, 0, 0, 0,
                 0, 0, 0, 4, 4, 0, 0, 4, 0, 0
-            }
+            },
+            Waves = GetWaves(5)
         });
         MapsToLoad.Add(new GameData.Map()
         {
@@ -114,7 +136,8 @@ public static class MapInit
                 0, 4, 4, 4, 0, 4, 4, 3, 0, 0,
                 2, 3, 3, 3, 3, 3, 3, 3, 0, 0,
                 0, 4, 4, 0, 0, 0, 0, 0, 0, 0
-            }
+            },
+            Waves = GetWaves(6)
         });
         MapsToLoad.Add(new GameData.Map()
         {
@@ -132,7 +155,8 @@ public static class MapInit
                 0, 0, 0, 0, 4, 3, 4, 3, 0, 0,
                 0, 0, 0, 0, 0, 3, 3, 3, 0, 0,
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-            }
+            },
+            Waves = GetWaves(7)
         });
         MapsToLoad.Add(new GameData.Map()
         {
@@ -150,7 +174,8 @@ public static class MapInit
                 0, 4, 3, 4, 4, 4, 3, 4, 0, 0,
                 0, 0, 3, 3, 3, 3, 3, 0, 0, 0,
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-            }
+            },
+            Waves = GetWaves(8)
         });
         MapsToLoad.Add(new GameData.Map()
         {
@@ -168,7 +193,8 @@ public static class MapInit
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-            }
+            },
+            Waves = GetWaves(9)
         });
         MapsToLoad.Add(new GameData.Map()
         {
@@ -186,7 +212,8 @@ public static class MapInit
                 0, 0, 4, 3, 0, 0, 4, 0, 0, 0,
                 2, 3, 3, 3, 0, 0, 0, 0, 0, 0,
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-            }
+            },
+            Waves = GetWaves(10)
         });
         MapsToLoad.Add(new GameData.Map()
         {
@@ -204,7 +231,8 @@ public static class MapInit
                 0, 3, 3, 3, 0, 1, 4, 4, 0, 0,
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-            }
+            },
+            Waves = GetWaves(11)
         });
         MapsToLoad.Add(new GameData.Map()
         {
@@ -222,7 +250,8 @@ public static class MapInit
                 3, 3, 1, 0, 3, 3, 3, 3, 0, 0,
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-            }
+            },
+            Waves = GetWaves(12)
         });
         MapsToLoad.Add(new GameData.Map()
         {
@@ -240,7 +269,8 @@ public static class MapInit
                 4, 3, 3, 3, 3, 4, 0, 4, 3, 0,
                 0, 4, 4, 0, 1, 0, 4, 3, 3, 3,
                 0, 0, 0, 0, 0, 0, 0, 2, 4, 0
-            }
+            },
+            Waves = GetWaves(13)
         });
         MapsToLoad.Add(new GameData.Map()
         {
@@ -258,7 +288,8 @@ public static class MapInit
                 3, 3, 3, 3, 0, 4, 3, 0, 0, 0,
                 0, 4, 4, 0, 4, 0, 3, 0, 0, 0,
                 2, 3, 3, 3, 3, 3, 3, 0, 0, 0
-            }
+            },
+            Waves = GetWaves(14)
         });
         MapsToLoad.Add(new GameData.Map()
         {
@@ -276,7 +307,8 @@ public static class MapInit
                 0, 0, 3, 4, 4, 4, 0, 4, 3, 4,
                 0, 0, 1, 3, 3, 3, 3, 3, 3, 0,
                 0, 0, 0, 4, 4, 0, 0, 0, 0, 0
-            }
+            },
+            Waves = GetWaves(15)
         });
         MapsToLoad.Add(new GameData.Map()
         {
@@ -295,7 +327,8 @@ public static class MapInit
                 0, 0, 4, 3, 3, 0, 3, 3, 4, 0, 0,
                 0, 0, 0, 0, 3, 3, 3, 0, 0, 0, 0,
                 0, 0, 0, 0, 0, 4, 0, 0, 0, 0 ,0
-            }
+            },
+            Waves = GetWaves(16)
         });
 
 

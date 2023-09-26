@@ -25,9 +25,10 @@ public class EnemyHealthSystem : MonoBehaviour
         HealthPoint -= DamageReceived;
         HealthPoint = Mathf.Clamp(HealthPoint, 0, MaximumHealthPoint);
 
-        if (IsDead())
+        if (HealthPoint == 0)
         {
-            OnEnemyDied?.Invoke(this, EventArgs.Empty);
+            SoundManager.PlaySound(Sound.EnemyDie, transform.position, GetComponent<Enemy>().EnemySO.Name + "Die Sound");
+            Kill();
         }
         
     }
@@ -51,12 +52,12 @@ public class EnemyHealthSystem : MonoBehaviour
     }
 
     /// <summary>
-    /// A method to see if enemy is dead or is still alive.
+    /// Kill Enemy and Destory it's GameObject.
     /// </summary>
-    /// <returns>True if <c>HealtPoint</c> is 0, elsewise False.</returns>
-    public bool IsDead()
+    public void Kill()
     {
-        return HealthPoint == 0;
+        OnEnemyDied?.Invoke(this, EventArgs.Empty);
+        Destroy(gameObject);
     }
 
 }

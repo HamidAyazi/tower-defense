@@ -20,7 +20,7 @@ public class SaveManager : MonoBehaviour
             return;
         }
         Instance = this;
-        Maps = MapInit.GetMaps();
+        Maps = MapInit.GetDefaultMaps();
         Data = new GameData();
 
         DontDestroyOnLoad(gameObject);

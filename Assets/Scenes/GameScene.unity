@@ -649,7 +649,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1001275030}
+      - m_Target: {fileID: 1001275037}
         m_TargetAssemblyTypeName: GameOver, Assembly-CSharp
         m_MethodName: MenuClick
         m_Mode: 1
@@ -791,7 +791,7 @@ GameObject:
   - component: {fileID: 125302191}
   - component: {fileID: 125302190}
   m_Layer: 5
-  m_Name: DoubleBarrel
+  m_Name: DoubleBarrelBorrun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1753,7 +1753,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &307100307
 GameObject:
@@ -3833,7 +3833,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &605491771
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4802,7 +4802,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &695532873
 GameObject:
@@ -6149,8 +6149,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1001275030}
-        m_TargetAssemblyTypeName: GameOver, Assembly-CSharp
+      - m_Target: {fileID: 1001275036}
+        m_TargetAssemblyTypeName: Victory, Assembly-CSharp
         m_MethodName: MenuClick
         m_Mode: 1
         m_Arguments:
@@ -6229,7 +6229,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &858306444
 MonoBehaviour:
@@ -6620,12 +6620,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1001275028}
   - component: {fileID: 1001275027}
-  - component: {fileID: 1001275030}
   - component: {fileID: 1001275031}
   - component: {fileID: 1001275033}
   - component: {fileID: 1001275034}
   - component: {fileID: 1001275035}
   - component: {fileID: 1001275036}
+  - component: {fileID: 1001275037}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -6645,8 +6645,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c864637dee1625e4fabcb5a2ded0aefa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 584016449469908458, guid: 91c1a103cb242f8439cbf0e8d6bc9949, type: 3}
-  waveInterval: 5
+  EnemyPrefabs:
+  - {fileID: 578425093426379370, guid: 1e724c7608152bc46b9fe892a9daa0b3, type: 3}
+  - {fileID: 584016449469908458, guid: 91c1a103cb242f8439cbf0e8d6bc9949, type: 3}
+  spawnDelay: 0.2
 --- !u!4 &1001275028
 Transform:
   m_ObjectHideFlags: 0
@@ -6662,19 +6664,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1001275030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1001275026}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc9b40b811365d34ab71d60cb710afe2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GameOverPanel: {fileID: 1688336365}
 --- !u!114 &1001275031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6752,9 +6741,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67d6ccc4a6848ad408b3a0b9948a6ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  VicotryPanel: {fileID: 473845551}
   nextLevelBtn: {fileID: 1282286715}
   PassedWaves: {fileID: 1749902827}
   Level: {fileID: 1905922145}
+--- !u!114 &1001275037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001275026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc9b40b811365d34ab71d60cb710afe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameOverPanel: {fileID: 1688336365}
 --- !u!1 &1030413436
 GameObject:
   m_ObjectHideFlags: 0
@@ -6979,7 +6982,7 @@ GameObject:
   - component: {fileID: 1042481247}
   - component: {fileID: 1042481246}
   m_Layer: 5
-  m_Name: BasicShopButton
+  m_Name: TankButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7556,50 +7559,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1127451566}
   m_CullTransparentMesh: 1
---- !u!1 &1212588980
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1212588982}
-  - component: {fileID: 1212588981}
-  m_Layer: 0
-  m_Name: Waypoints
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1212588981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1212588980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ca1d3ed2c2cea6408248debb966b5e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1212588982
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1212588980}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1226831172
 GameObject:
   m_ObjectHideFlags: 0
@@ -7991,7 +7950,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1282286716}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1001275036}
+        m_TargetAssemblyTypeName: Victory, Assembly-CSharp
+        m_MethodName: LoadNextLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1282286716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8169,7 +8140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1308639614
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9916,7 +9887,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1001275030}
+      - m_Target: {fileID: 1001275037}
         m_TargetAssemblyTypeName: GameOver, Assembly-CSharp
         m_MethodName: RetryClick
         m_Mode: 1
@@ -10837,7 +10808,7 @@ RectTransform:
   - {fileID: 1595963965}
   - {fileID: 473845552}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
