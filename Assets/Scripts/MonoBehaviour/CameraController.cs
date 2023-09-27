@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField] private int targetFrameRate; // Adjust the frame rate.
     [SerializeField] private float panSpeed; // Adjust the camera pan speed.
     [SerializeField] private float smoothness; // Adjust the smoothness of camera movement.
     [SerializeField] private Vector2 panLimit ; // Set the limit for camera panning.
@@ -13,8 +12,6 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
-        QualitySettings.vSyncCount = 0;
-        Application.targetFrameRate = PlayerPrefs.GetInt("FPS");
         // Initialize the target position to the camera's starting position.
         targetPosition = transform.position;
 
