@@ -14,7 +14,7 @@ public class CameraController : MonoBehaviour
     private void Start()
     {
         QualitySettings.vSyncCount = 0;
-        Application.targetFrameRate = targetFrameRate;
+        Application.targetFrameRate = PlayerPrefs.GetInt("FPS");
         // Initialize the target position to the camera's starting position.
         targetPosition = transform.position;
 
