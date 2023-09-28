@@ -4,33 +4,19 @@ using UnityEngine.EventSystems;
 public class CameraController : MonoBehaviour
 {
     [SerializeField] private Camera MainCamera;
-
     [SerializeField] private float XMin;
-    
     [SerializeField] private float XMax;
-    
     [SerializeField] private float YMin;
-    
     [SerializeField] private float YMax;
-
     [SerializeField] private float ZoomMin = 2f;
-    
     [SerializeField] private float ZoomMax = 7f;
-
-
-    [SerializeField]  private float _interpolationStep;
-
 
     private Vector3 initPos;
     private Vector2 zoomTarget;
-
     private bool lastFramePinch = false;
-
     private float initDist = 42f; // var for calculation [used in Pinching()]
     private float initOrtho = 6;  // var for calculation [used in Pinching()]
-
     private bool _initTouch = false; // if init touch is on UI element
-
     private Vector2 panVelocity;  //delta position of the touch [camera position derivative]
 
 
@@ -48,16 +34,10 @@ public class CameraController : MonoBehaviour
     }
 #endif
 
-
-    private void Awake()
-    {}
-
-
     private void Update()
     {
         CheckIfUiHasBeenTouched();
 
-        // If there are no touches 
         if (Input.touchCount < 1)
         {
             _initTouch = true;
@@ -70,7 +50,6 @@ public class CameraController : MonoBehaviour
         }
         else
         {
-            PanningInertia();
             MinOrthoAchievedAnimation();
         }
     }
@@ -89,8 +68,11 @@ public class CameraController : MonoBehaviour
             {
                 if (EventSystem.current.IsPointerOverGameObject(i)) // implementation for the old input system!!
                 {
-                    check = true;
-                    break;
+                    if (EventSystem.current.currentSelectedGameObject != null)
+                    {
+                        check = true;
+                        break;
+                    }
                 }
             }
 
@@ -103,7 +85,7 @@ public class CameraController : MonoBehaviour
 
 
     /// <summary>
-    /// Panning that is used to move the camera [ignores UI elements]
+    /// Panning that is used to move the camera (ignores UI elements)
     /// </summary>
     private void Panning()
     {
@@ -111,11 +93,9 @@ public class CameraController : MonoBehaviour
         {
             Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
 
-            panVelocity = touchDeltaPosition;
-            
             PanningFunction(touchDeltaPosition);
         }
-        else if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Stationary)
+        else if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Stationary)
         {
             panVelocity = Vector2.zero;
         }
@@ -186,7 +166,7 @@ public class CameraController : MonoBehaviour
     /// </summary>
     /// <param name="touchDeltaPosition"> the delta position for movement </param>
     private void PanningFunction(Vector2 touchDeltaPosition)
-    {          
+    {
         Vector3 screenCenter = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 1f);
         Vector3 screenTouch = screenCenter + new Vector3(touchDeltaPosition.x, touchDeltaPosition.y, 0f);
         Vector3 worldCenterPosition = MainCamera.ScreenToWorldPoint(screenCenter);
@@ -197,46 +177,11 @@ public class CameraController : MonoBehaviour
         LimitCameraMovement();
     }
 
-
-    /// <summary>
-    /// Inertia of the camera when panning finishes 
-    /// </summary>
-    private void PanningInertia()
-    {
-        if (panVelocity.magnitude < 0.02f)
-        {
-            panVelocity = Vector2.zero;
-        }
-
-        if (panVelocity != Vector2.zero)
-        {
-            MainCamera.transform.localPosition += new Vector3(-panVelocity.x / (500 * (1 / MainCamera.orthographicSize)), -panVelocity.y / (500 * (1 / MainCamera.orthographicSize)), 0);
-            LimitCameraMovement();
-        }
-
-
-        if (panVelocity.magnitude < 0.02f)
-        {
-            panVelocity = Vector2.zero;
-        }
-
-        if (panVelocity != Vector2.zero)
-        {             
-            MainCamera.transform.localPosition += new Vector3(-panVelocity.x / (500 * (1 / MainCamera.orthographicSize)), -panVelocity.y / (500 * (1 / MainCamera.orthographicSize)), 0);
-            LimitCameraMovement();
-            if (Input.touchCount == 0)
-            {
-                panVelocity = Vector2.zero;
-            }
-        }
-    }
-
-
     /// <summary>
     /// Camera feedback when achieving minimum ortho
     /// </summary>
     private void MinOrthoAchievedAnimation()
-    {           
+    {
         if (MainCamera.orthographicSize < ZoomMin + 0.6f)
         {
             MainCamera.orthographicSize = ZoomMin + 0.6f;
@@ -244,7 +189,6 @@ public class CameraController : MonoBehaviour
             LimitCameraMovement();
         }
     }
-
 
     /// <summary>
     /// Limits Camera Movement into boundaries
