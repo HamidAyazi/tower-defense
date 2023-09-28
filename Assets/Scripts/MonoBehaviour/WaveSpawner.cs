@@ -13,6 +13,10 @@ public class WaveSpawner : MonoBehaviour
     private int waveNumber = 0;
     private bool waveToggle = false;
 
+    
+    [SerializeField] private Sprite playImage;
+    [SerializeField] private Sprite pauseImage;
+
     private void Update(){
         if(waveToggle){
             if (countdown <= 0) {
