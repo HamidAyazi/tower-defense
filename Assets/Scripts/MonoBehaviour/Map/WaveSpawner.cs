@@ -7,6 +7,9 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private List<Transform> EnemyPrefabs; // List of enemy prefabs to spawn
     [SerializeField] private float spawnDelay;
 
+    [SerializeField] private Sprite playImage;
+    [SerializeField] private Sprite pauseImage;
+
     private GameData.Map Map;
     private bool waveToggle = false;
     private float TimeToSpawnNewWave;
