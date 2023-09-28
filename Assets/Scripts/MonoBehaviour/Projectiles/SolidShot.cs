@@ -58,7 +58,7 @@ public class SolidShot : MonoBehaviour
         { 
             // Hit an Enemy!          
             EnemyHealthSystem HealthSystem = Enemy.GetComponent<EnemyHealthSystem>();
-            HealthSystem.DealDamage(Damage);
+            HealthSystem.ReceiveDamage(Damage);
             Destroy(gameObject);
         }
     }

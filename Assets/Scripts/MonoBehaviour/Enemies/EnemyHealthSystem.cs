@@ -20,7 +20,7 @@ public class EnemyHealthSystem : MonoBehaviour
     /// Reduces health of the <c>Enemy</c> by a fixed amount.
     /// </summary>
     /// <param name="DamageReceived">The amount of received damage.</param>
-    public void DealDamage(float DamageReceived)
+    public void ReceiveDamage(float DamageReceived)
     {
         HealthPoint -= DamageReceived;
         HealthPoint = Mathf.Clamp(HealthPoint, 0, MaximumHealthPoint);
@@ -30,7 +30,6 @@ public class EnemyHealthSystem : MonoBehaviour
             SoundManager.PlaySound(Sound.EnemyDie, transform.position, GetComponent<Enemy>().EnemySO.Name + "Die Sound");
             Kill();
         }
-        
     }
 
     /// <summary>

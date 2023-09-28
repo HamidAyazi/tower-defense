@@ -15,10 +15,10 @@ public class EnemyLootDrop : MonoBehaviour
     private void Start()
     {
         EnemyHealthSystem = GetComponent<EnemyHealthSystem>();
-        EnemyHealthSystem.OnEnemyDied += LootDrop;
+        EnemyHealthSystem.OnEnemyDied += DropLoot;
     }
 
-    private void LootDrop(object sender, System.EventArgs e)
+    private void DropLoot(object sender, System.EventArgs e)
     {
         if (Random.value <= CoinDropChance)
         {

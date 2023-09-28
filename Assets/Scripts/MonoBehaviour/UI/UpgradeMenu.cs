@@ -120,6 +120,7 @@ public class UpgradeMenu : MonoBehaviour
     public void CloseUpgradeWindow()
     {
         transform.GetChild(0).gameObject.SetActive(false);
+        CloseSellConfirmPanel();
     }
 
     public void OpenSellConfirmPanel() {

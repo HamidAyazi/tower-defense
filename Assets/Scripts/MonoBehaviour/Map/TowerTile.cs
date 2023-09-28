@@ -1,27 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class Tile : MonoBehaviour, IPointerClickHandler
+public class TowerTile : MonoBehaviour, IPointerClickHandler
 {
     private GameObject Tower;
     private Shop shop;
     private UpgradeMenu upgrade;
 
-    public AttackerTowerScriptableObject AttackerTowerSO;
+    [NonSerialized] public AttackerTowerScriptableObject AttackerTowerSO;
 
     private void Start(){
+        GameObject Canvas = null;
         try
         {
-            GameObject Canvas = GameObject.Find("Canvas");
-            shop = Canvas.GetComponentInChildren<Shop>();
-            upgrade = Canvas.GetComponentInChildren<UpgradeMenu>();
+            Canvas = GameObject.Find("Canvas");
         }
         catch (System.Exception e)
         {
             Debug.LogError("Can not find Canvas: " + e.Message);
+        }
+        if (Canvas != null)
+        {
+            shop = Canvas.GetComponentInChildren<Shop>();
+            upgrade = Canvas.GetComponentInChildren<UpgradeMenu>();
+        }
+        else
+        {
+            Debug.LogError("Canvas is Null. Distorying GameObject " + this.name);
+            Destroy(gameObject);
         }
     }
 
@@ -37,11 +44,13 @@ public class Tile : MonoBehaviour, IPointerClickHandler
             return;
         } else {
             upgrade.CloseUpgradeWindow();
-            upgrade.CloseSellConfirmPanel();
             shop.OpenShopWindow();
         }
     }
 
+    /// <summary>
+    /// Destory deployed tower and set tile's refrenece to null.
+    /// </summary>
     public void DestroyTower(){
     if (Tower != null)
     {
