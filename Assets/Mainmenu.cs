@@ -8,6 +8,11 @@ public class Mainmenu : MonoBehaviour
     [SerializeField] private GameObject TalentPanel;
     [SerializeField] private GameObject LevelsPanel;
 
+    private void Start(){
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = PlayerPrefs.GetInt("FPS");
+    }
+
     /// <summary>
     /// Open levels Menu.
     /// </summary>

@@ -21,8 +21,12 @@ public class Shop : MonoBehaviour
     public TMPro.TextMeshProUGUI TowerName;
     private string SelectedTower;
 
+    
+    private TutorialManager Tmanager;
+
     private void Start()
     {
+        Tmanager = GameObject.Find("GameManager").GetComponent<TutorialManager>();
         if (GameStats.Money < TankTower.BasePrice)
         {
             IsTankButtonActive = false;
@@ -113,6 +117,7 @@ public class Shop : MonoBehaviour
     public void OpenShopWindow()
     {
         transform.GetChild(0).gameObject.SetActive(true);
+        Tmanager.CheckPhase2();
     }
 
     /// <summary>
@@ -121,5 +126,6 @@ public class Shop : MonoBehaviour
     public void CloseShopWindow()
     {
         transform.GetChild(0).gameObject.SetActive(false);
+        Tmanager.CheckPhase3();
     }
 }

@@ -60,12 +60,6 @@ public class GameStats : MonoBehaviour
         Discount = Talents.Discount;
         TowerRefund = Talents.TowerRefund;
 
-
-
-
-
-
-
         Money = StartingMoney + Talents.startingMoney;
         HudMoney.text = Money.ToString();
 
