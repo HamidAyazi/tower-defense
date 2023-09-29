@@ -8,7 +8,7 @@ public class Freezer : MonoBehaviour
     // Transform of "Tower" "Projectile". Each "Tower" of this type use this "Projectile" for shooting.
     public Transform ProjectilePrefab;
     [SerializeField] private float SlowMP;
-    [SerializeField] private float Radius;
+    [SerializeField] private float FreezeRadius;
     [SerializeField] private float SlowTime;
 
     /*-------- Head Attributes --------*/
@@ -91,7 +91,7 @@ public class Freezer : MonoBehaviour
             SoundManager.PlaySound(Sound.FreezerShot, ProjectileSpawnPoint.position, "Freezer Shot");
             // shoot
             SnowBall.CreateProjectile(ProjectilePrefab, ProjectileSpawnPoint.position,
-                TargetEnemy.transform.position, SlowMP, SlowTime, Radius);
+                TargetEnemy.transform.position, SlowMP, SlowTime, FreezeRadius);
             ShootTimer += 1 / Stats.AttackSpeed;
         }
     }

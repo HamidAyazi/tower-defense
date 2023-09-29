@@ -90,7 +90,7 @@ public class SnowBall : MonoBehaviour
         {
             float scaleFactor = Mathf.Lerp(currentScale, Radius, elapsedTime / splashDuration);
             transform.localScale = new Vector3(scaleFactor, scaleFactor, 1);
-            elapsedTime += Time.deltaTime + 0.1f;
+            elapsedTime += Time.deltaTime;
             yield return null;
         }
 

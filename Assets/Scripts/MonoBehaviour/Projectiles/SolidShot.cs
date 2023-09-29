@@ -24,9 +24,7 @@ public class SolidShot : MonoBehaviour
 
         // Here goes to calculations based on level
         TimeToDie = ProjectileSO.MaxTimeToDie;
-        Debug.Log(ProjectileSO.BaseSpeed);
         Speed = ProjectileSO.BaseSpeed += GameStats.ProjectileSpeed;
-        Debug.Log(ProjectileSO.BaseSpeed);
     }
 
     // Update is called once per frame
