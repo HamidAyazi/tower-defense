@@ -82,6 +82,7 @@ public class SnowBall : MonoBehaviour
 
     private IEnumerator ExpandSplash()
     {
+        GetComponent<SpriteRenderer>().sortingLayerName = "Tower"; 
         GetComponent<SpriteRenderer>().sortingOrder = 0;
         float splashDuration = 2f;
         float elapsedTime = 0f;

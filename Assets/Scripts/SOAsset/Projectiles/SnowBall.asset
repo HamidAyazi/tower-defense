@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8264eca4413723e41bf997aad9e2654d, type: 3}
   m_Name: SnowBall
   m_EditorClassIdentifier: 
-  BaseSpeed: 0
-  MaxTimeToDie: 0
+  BaseSpeed: 2
+  MaxTimeToDie: 3
