@@ -29,6 +29,7 @@ public class HeadRotation : MonoBehaviour
     /// <returns>True if <c>Tower</c> is looking at <c>TargetEnemy</c>, elsewise False.</returns>
     public bool IsLocked()
     {
+        if (TargetEnemy == null) return false;
         // Ensure the angle is positive and within 0 to 180 degrees range
         Angle = (Angle + 360f) % 360f;
 
@@ -39,7 +40,7 @@ public class HeadRotation : MonoBehaviour
         float MinAngleDifference = Mathf.Min(AngleDifference, 360f - AngleDifference);
 
         // Check if the tower's angle difference is within the angle threshold
-        return MinAngleDifference <= 95f && MinAngleDifference >= 85f;
+        return MinAngleDifference <= 105f && MinAngleDifference >= 75f;
     }
 
     /// <summary>

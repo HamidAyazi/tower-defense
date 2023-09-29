@@ -38,13 +38,12 @@ public class TowerTile : MonoBehaviour, IPointerClickHandler
     /// <param name="eventData">Pointer click event data.</param>
     public void OnPointerClick(PointerEventData eventData){
         TileManager.Instance.SelectedTile = this;
-        if (Tower != null){
-            shop.CloseShopWindow();
-            upgrade.OpenUpgradeWindow();
-            return;
-        } else {
+        if (Tower == null){
             upgrade.CloseUpgradeWindow();
             shop.OpenShopWindow();
+        } else {
+            shop.CloseShopWindow();
+            upgrade.OpenUpgradeWindow();
         }
     }
 

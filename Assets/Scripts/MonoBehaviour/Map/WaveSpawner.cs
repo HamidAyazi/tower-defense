@@ -6,7 +6,9 @@ public class WaveSpawner : MonoBehaviour
 {
     [SerializeField] private List<Transform> EnemyPrefabs; // List of enemy prefabs to spawn
     [SerializeField] private float spawnDelay;
+    [SerializeField] private float BonusTime;
 
+    // UI Elements
     [SerializeField] private Sprite playImage;
     [SerializeField] private Sprite pauseImage;
 
@@ -36,8 +38,21 @@ public class WaveSpawner : MonoBehaviour
             currentWaveIndex++;
             if (currentWaveIndex < Map.Waves.Length)
             {
-                // Set the time to spawn the next wave
-                TimeToSpawnNewWave = Time.time + Map.Waves[currentWaveIndex].TimeToSpawn;
+                // Spawn the current wave
+                SpawnWave(currentWaveIndex);
+                currentWaveIndex++;
+
+                if (currentWaveIndex < Map.Waves.Length)
+                {
+                    // Set the time to spawn the next wave
+                    TimeToSpawnNewWave = Time.time + Map.Waves[currentWaveIndex].TimeToSpawn
+                                         + GameStats.waveInterval;
+                }
+                else
+                {
+                    // All waves have been spawned, stop spawning
+                    waveToggle = false;
+                }
             }
             else
             {
@@ -105,6 +120,10 @@ public class WaveSpawner : MonoBehaviour
         waveToggle = !waveToggle;
         if (waveToggle)
         {
+            if (currentWaveIndex != 0 && TimeToSpawnNewWave > Time.time + BonusTime)
+            {
+                GameStats.Money += GameStats.earlyWaveBonusPoint;
+            }
             TimeToSpawnNewWave = Time.time; // Start spawning immediately
         }
     }

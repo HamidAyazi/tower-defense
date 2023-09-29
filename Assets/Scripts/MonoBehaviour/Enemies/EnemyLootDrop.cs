@@ -27,7 +27,7 @@ public class EnemyLootDrop : MonoBehaviour
         if (Random.value <= CashDropChance)
         {
             SaveManager.Instance.Data.playerStats.PlayerTalentTree.Cash +=
-                Mathf.RoundToInt(Random.value * MaxCashDrop);
+                Mathf.RoundToInt(Random.value * MaxCashDrop) + GameStats.BonusCash;
         }
     }
 }

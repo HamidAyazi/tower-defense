@@ -17,5 +17,5 @@ MonoBehaviour:
   BaseRange: 5
   BaseDamage: 10
   BaseAttackSpeed: 1
-  BaseRotationSpeed: 90
+  BaseRotationSpeed: 120
   BaseLookForTargetTimer: 0.2

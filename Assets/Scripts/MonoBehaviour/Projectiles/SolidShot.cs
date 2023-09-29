@@ -1,5 +1,4 @@
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class SolidShot : MonoBehaviour
@@ -25,7 +24,7 @@ public class SolidShot : MonoBehaviour
 
         // Here goes to calculations based on level
         TimeToDie = ProjectileSO.MaxTimeToDie;
-        Speed = ProjectileSO.BaseSpeed;
+        Speed = ProjectileSO.BaseSpeed += GameStats.ProjectileSpeed;
     }
 
     // Update is called once per frame

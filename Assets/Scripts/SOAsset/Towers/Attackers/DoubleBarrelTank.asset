@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: DoubleBarrelTank
   m_EditorClassIdentifier: 
   Name: Double Barrel Tank
-  BasePrice: 10
+  BasePrice: 100
   BaseRange: 5
   BaseDamage: 10
   BaseAttackSpeed: 1
-  BaseRotationSpeed: 90
+  BaseRotationSpeed: 120
   BaseLookForTargetTimer: 0.2

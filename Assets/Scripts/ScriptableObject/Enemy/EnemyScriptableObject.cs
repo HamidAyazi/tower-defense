@@ -16,7 +16,7 @@ public class EnemyScriptableObject : ScriptableObject
     // Base damage of each "Enemy" unit. If unit reaches "Goal", the "HealthPoint" of "Goal" reduces by it's "Damage". Scales with "WaveNumber".
     public int BaseDamage;
     // Movement speed of each "Enemy" unit. The "Speed" shows how fast each unit can move.
-    public int MovementSpeed;
+    public float MovementSpeed;
     //public int BaseArmor;
 
 }

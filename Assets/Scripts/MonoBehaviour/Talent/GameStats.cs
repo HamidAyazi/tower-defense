@@ -22,19 +22,19 @@ public class GameStats : MonoBehaviour
     // talents
     public static bool speed3x; //
     public static bool infinity;
-    public static int bonusCash;
-    public static int waveInterval;
-    public static int earlyWaveBonusPoint;
-    public static float rotationSpeed;
-    public static float range;
-    public static float ProjectileSpeed;
-    public static float damage;
-    public static float attackSpeed;
+    public static int BonusCash; //
+    public static int waveInterval; //
+    public static int earlyWaveBonusPoint; //
+    public static float rotationSpeed; //
+    public static float range; //
+    public static float ProjectileSpeed; //
+    public static float damage; //
+    public static float attackSpeed; //
     public static int baseHealth; //
     public static int startingMoney; //
     public static int EnemyDropCoin; //
-    public static int maxUpgradeLevel;
-    public static int StartingLevel;
+    public static int maxUpgradeLevel; //
+    public static int StartingLevel; //
     public static float Discount; //
     public static float TowerRefund; //
     // talents
@@ -44,7 +44,7 @@ public class GameStats : MonoBehaviour
         TalentTree Talents = SaveManager.Instance.Data.playerStats.PlayerTalentTree;
         speed3x = Talents.speed3x;
         infinity = Talents.infinity;
-        bonusCash = Talents.bonusCash;
+        BonusCash = Talents.bonusCash;
         waveInterval = Talents.waveInterval;
         earlyWaveBonusPoint = Talents.earlyWaveBonusPoint;
         rotationSpeed = Talents.rotationSpeed;

@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 2
   Name: Mosalas
-  BaseHealtPoint: 5
+  BaseHealtPoint: 10
   BaseDamage: 1
-  MovementSpeed: 2
+  MovementSpeed: 5

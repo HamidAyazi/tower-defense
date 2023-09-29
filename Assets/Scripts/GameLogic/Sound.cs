@@ -8,6 +8,7 @@ public enum Sound
     TowerSpawn,
     TowerDespawn,
     TankShot,
+    FreezerShot,
     EnemyDie,
     GameOver,
     Victory,

@@ -6,12 +6,13 @@ public class Shop : MonoBehaviour
     // tower assets
     public AttackerTowerScriptableObject TankTower;
     public AttackerTowerScriptableObject DoubleBarrelTower;
-    // public AttackerTowerScriptableObject RailGunTower;
+    public AttackerTowerScriptableObject FreezerTower;
     // tower assets
 
     // tower prefabs
+    public GameObject TankPrefab;
     public GameObject DoubleBarrelPrefab;
-    public GameObject BasicTowerPrefab;
+    public GameObject FreezerPrefab;
     // public GameObject RailGunPrefab;
     // tower prefabs
 
@@ -49,13 +50,13 @@ public class Shop : MonoBehaviour
         {
             DoubleBarrelShopButton.interactable = true;
         }
-        // if (GameStats.Money < RailGunTower.BasePrice)
-        // {
-        //     RailGunShopButton.interactable = false;
-        // } else
-        // {
-        //     RailGunShopButton.interactable = true;
-        // }
+        if (GameStats.Money < FreezerTower.BasePrice)
+        {
+            RailGunShopButton.interactable = false;
+        } else
+        {
+            RailGunShopButton.interactable = true;
+        }
     }
 
     private void OnEnable()
@@ -67,7 +68,7 @@ public class Shop : MonoBehaviour
     /// <summary>
     /// Place Tank on the selected tile.
     /// </summary>
-    public void BasicTowerClick() {
+    public void TankClick() {
         if(GameStats.Money >= TankTower.BasePrice)
         {
             if(SelectedTower != TankTower.Name){
@@ -80,7 +81,7 @@ public class Shop : MonoBehaviour
                 SoundManager.PlaySound(Sound.TowerSpawn, TileManager.Instance.SelectedTile.transform.position,
                                         SelectedTower + " Spawn Sound");
                 // place tower
-                TileManager.Instance.SelectedTile.SetTower(Instantiate(BasicTowerPrefab,
+                TileManager.Instance.SelectedTile.SetTower(Instantiate(TankPrefab,
                                                            TileManager.Instance.SelectedTile.transform.position,
                                                            TileManager.Instance.SelectedTile.transform.rotation));
                 CloseShopWindow();
@@ -91,7 +92,7 @@ public class Shop : MonoBehaviour
     /// <summary>
     /// Place Double Barrel Tank on selected tile.
     /// </summary>
-    public void DoubleBarrelTowerCliCk() {
+    public void DoubleBarrelClick() {
 
         if (GameStats.Money >= DoubleBarrelTower.BasePrice)
         {
@@ -116,27 +117,27 @@ public class Shop : MonoBehaviour
     /// <summary>
     /// Place Rail Gun on selected tile.
     /// </summary>
-    // public void RailGunTowerCliCk() {
+     public void FreezerClick() {
 
-    //     if (GameStats.Money >= RailGunTower.BasePrice)
-    //     {
-    //         if (SelectedTower != RailGunTower.Name){
-    //             SelectedTower = RailGunTower.Name;
-    //             TowerName.text = SelectedTower;
-    //             return;
-    //         } else {
-    //             GameStats.Money -= RailGunTower.BasePrice;
-    //             // play tower spawn sound
-    //             SoundManager.PlaySound(Sound.TowerSpawn, TileManager.Instance.SelectedTile.transform.position,
-    //                                     SelectedTower + " Spawn Sound");
-    //             // place tower
-    //             TileManager.Instance.SelectedTile.SetTower(Instantiate(RailGunPrefab,
-    //                                                         TileManager.Instance.SelectedTile.transform.position,
-    //                                                         TileManager.Instance.SelectedTile.transform.rotation));
-    //             CloseShopWindow();
-    //         }
-    //     }
-    // }
+         if (GameStats.Money >= FreezerTower.BasePrice)
+         {
+             if (SelectedTower != FreezerTower.Name){
+                 SelectedTower = FreezerTower.Name;
+                 TowerName.text = SelectedTower;
+                 return;
+             } else {
+                 GameStats.Money -= FreezerTower.BasePrice;
+                 // play tower spawn sound
+                 SoundManager.PlaySound(Sound.TowerSpawn, TileManager.Instance.SelectedTile.transform.position,
+                                         SelectedTower + " Spawn Sound");
+                 // place tower
+                 TileManager.Instance.SelectedTile.SetTower(Instantiate(FreezerPrefab,
+                                                             TileManager.Instance.SelectedTile.transform.position,
+                                                             TileManager.Instance.SelectedTile.transform.rotation));
+                 CloseShopWindow();
+             }
+         }
+     }
 
     /// <summary>
     /// Open Shop Menu UI.
