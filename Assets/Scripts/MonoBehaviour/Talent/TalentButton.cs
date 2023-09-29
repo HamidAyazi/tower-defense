@@ -7,6 +7,7 @@ public class TalentButton : MonoBehaviour
     [SerializeField] public int id;
     [SerializeField] private Button btn;
     [SerializeField] private string nodeName;
+    [SerializeField] private string nodeDescription;
     [SerializeField] public int Level;
     [SerializeField] private int MaxLevel;
     [SerializeField] private bool isUnlocked = false;
@@ -14,6 +15,9 @@ public class TalentButton : MonoBehaviour
     [SerializeField] private Color ColorFull;
     [SerializeField] private Color ColorUnavailable;
 
+    [SerializeField] private TMPro.TextMeshProUGUI TName;
+    [SerializeField] private TMPro.TextMeshProUGUI Tlevel;
+    [SerializeField] private TMPro.TextMeshProUGUI Tdesc;
 
     public List<TalentButton> ParentNodes = new List<TalentButton>();
     public List<TalentButton> ChildNodes = new List<TalentButton>();
@@ -38,6 +42,11 @@ public class TalentButton : MonoBehaviour
     public void getTalent(){
         SoundManager.PlaySound(Sound.ButtonClick);
         Level +=1;
+
+        TName.text = nodeName;
+        Tlevel.text = Level.ToString();
+        Tdesc.text = nodeDescription;
+
         UnlockChildNodes();
         updateButton();
         updateTalent();
