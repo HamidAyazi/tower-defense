@@ -12,7 +12,6 @@ public class GameOver : MonoBehaviour
 
     private void GameOverProcess(object sender, System.EventArgs e)
     {
-        Debug.Log(GameOverPanel);
         // Stop the game
         Time.timeScale = 0;
         // Open game over panel
