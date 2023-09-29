@@ -40,12 +40,14 @@ public class UpgradeMenu : MonoBehaviour
     /// </summary>
     public void OpenUpgradeWindow()
     {
+        CloseUpgradeWindow();
         Tmanager.CheckPhase4();
         ResetValues();
         TowerStats = TileManager.Instance.SelectedTile.GetTower().GetComponent<AttackerTowerStats>();
         transform.GetChild(0).gameObject.SetActive(true);
         UpgradeConfirm = false;
         SetStatsText();
+        TowerStats.ShowRange();
     }
     
     /// <summary>
@@ -128,6 +130,10 @@ public class UpgradeMenu : MonoBehaviour
     public void CloseUpgradeWindow()
     {
         transform.GetChild(0).gameObject.SetActive(false);
+        if (TowerStats != null)
+        {
+            TowerStats.HideRange();
+        }
     }
 
     public void OpenSellConfirmPanel() {

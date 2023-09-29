@@ -63,22 +63,17 @@ public class Tank : MonoBehaviour
         foreach (Collider2D Collider2D in Collider2DArray)
         {
             Enemy enemy = Collider2D.GetComponent<Enemy>();
-            if (enemy != null)
+            if (enemy != null) // Is an Enemy!
             {
-                // Is an Enemy!
                 if (TargetEnemy == null)
                 {
                     TargetEnemy = enemy;
                     HeadRotation.SetTarget(TargetEnemy);
-                } else
+                }
+                else if (Vector3.Distance(transform.position, enemy.transform.position) < Stats.Range) // Target out of range
                 {
-                    if (Vector3.Distance(transform.position, enemy.transform.position) <
-                        Vector3.Distance(transform.position, TargetEnemy.transform.position))
-                    {
-                        // CLoser!
-                        TargetEnemy = enemy;
-                        HeadRotation.SetTarget(TargetEnemy);
-                    }
+                    TargetEnemy = enemy;
+                    HeadRotation.SetTarget(TargetEnemy);
                 }
             }
         }

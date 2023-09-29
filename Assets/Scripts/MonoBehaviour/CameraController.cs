@@ -14,10 +14,8 @@ public class CameraController : MonoBehaviour
     private Vector3 initPos;
     private Vector2 zoomTarget;
     private bool lastFramePinch = false;
-    private float initDist = 42f; // var for calculation [used in Pinching()]
     private float initOrtho = 6;  // var for calculation [used in Pinching()]
     private bool _initTouch = false; // if init touch is on UI element
-    private Vector2 panVelocity;  //delta position of the touch [camera position derivative]
 
 
     /// <summary> 
@@ -95,10 +93,6 @@ public class CameraController : MonoBehaviour
 
             PanningFunction(touchDeltaPosition);
         }
-        else if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Stationary)
-        {
-            panVelocity = Vector2.zero;
-        }
     }
 
 
@@ -109,7 +103,7 @@ public class CameraController : MonoBehaviour
     {
         if (Input.touchCount > 1)
         {
-            panVelocity = Vector2.zero;
+            //panVelocity = Vector2.zero;
 
             Touch touchZero = Input.GetTouch(0);
             Touch touchOne = Input.GetTouch(1);
@@ -118,7 +112,6 @@ public class CameraController : MonoBehaviour
             {
                 zoomTarget = MainCamera.ScreenToWorldPoint((touchZero.position + touchOne.position) / 2);
                 initPos = MainCamera.transform.position;
-                initDist = Vector2.Distance(touchZero.position, touchOne.position);
                 initOrtho = MainCamera.orthographicSize;
             }
 
