@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class AttackerTowerStats : MonoBehaviour
+public class TowerStats : MonoBehaviour
 {
     /*-------- Multipliers --------*/
     [SerializeField] private float DamageMp;

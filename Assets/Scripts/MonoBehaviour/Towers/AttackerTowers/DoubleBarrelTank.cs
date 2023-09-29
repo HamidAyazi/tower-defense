@@ -18,7 +18,7 @@ public class DoubleBarrelTank : MonoBehaviour
     private float LookForTargetTimer;
     private float LookForTargetTimerMAX = 0.02f;
     private Enemy TargetEnemy;
-    private AttackerTowerStats Stats;
+    private TowerStats Stats;
 
     // Start is called before the first frame update
     private void Start()
@@ -29,7 +29,7 @@ public class DoubleBarrelTank : MonoBehaviour
         ProjectileSpawnPoint2 = Head.Find("ProjectileSpawnPoint2");
 
         // Set Status
-        Stats = GetComponent<AttackerTowerStats>();
+        Stats = GetComponent<TowerStats>();
 
         // Set Rotation
         TowerAnimator = Head.GetComponent<Animator>();

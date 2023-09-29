@@ -1,16 +1,19 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Tank : MonoBehaviour
+public class Freezer : MonoBehaviour
 {
     /*-------- Projectile Attributes --------*/
     // Transform of "Tower" "Projectile". Each "Tower" of this type use this "Projectile" for shooting.
     public Transform ProjectilePrefab;
+    [SerializeField] private float SlowMP;
+    [SerializeField] private float Radius;
+    [SerializeField] private float SlowTime;
 
     /*-------- Head Attributes --------*/
-    private Transform Head;
     private Transform ProjectileSpawnPoint;
-    private HeadRotation HeadRotation;
-    private Animator TowerAnimator;
+
 
     /*-------- Logic Attributes --------*/
     private float ShootTimer = 0f;
@@ -23,16 +26,10 @@ public class Tank : MonoBehaviour
     private void Start()
     {
         // Get Projectile Spawn Point 
-        Head = transform.Find("Head");
-        ProjectileSpawnPoint = Head.Find("ProjectileSpawnPoint");
+        ProjectileSpawnPoint = transform.Find("ProjectileSpawnPoint");
 
         // Set Status
         Stats = GetComponent<TowerStats>();
-
-        // Set Rotation
-        TowerAnimator = Head.GetComponent<Animator>();
-        HeadRotation = Head.GetComponent<HeadRotation>();
-        HeadRotation.SetRotationSpeed(Stats.RotationSpeed);
 
         // Other Logics
         LookForTargetTimer = LookForTargetTimerMAX;
@@ -43,7 +40,7 @@ public class Tank : MonoBehaviour
     {
         HandleTargeting();
         HandleShooting();
-    } 
+    }
     private void HandleTargeting()
     {
         LookForTargetTimer -= Time.deltaTime;
@@ -80,24 +77,22 @@ public class Tank : MonoBehaviour
                 }
             }
         }
-        HeadRotation.SetTarget(TargetEnemy);
     }
     private void HandleShooting()
     {
+        if (TargetEnemy == null)
+        {
+            return;
+        }
         ShootTimer -= Time.deltaTime;
         if (ShootTimer < 0f)
         {
-            if (HeadRotation.IsLocked())
-            {
-                // trigger shooting animation
-                TowerAnimator.SetTrigger("IsShooting");
-                // play shooting sound
-                SoundManager.PlaySound(Sound.TankShot, ProjectileSpawnPoint.position, "Tank Shot");
-                // shoot
-                SolidShot.CreateProjectile(ProjectilePrefab, ProjectileSpawnPoint.position, TargetEnemy, Stats.Damage);
-            }
+            // play shooting sound
+            //SoundManager.PlaySound(Sound.TankShot, ProjectileSpawnPoint.position, "Freezer Shot");
+            // shoot
+            SnowBall.CreateProjectile(ProjectilePrefab, ProjectileSpawnPoint.position,
+                TargetEnemy.transform.position, SlowMP, SlowTime, Radius);
             ShootTimer += 1 / Stats.AttackSpeed;
-        }  
+        }
     }
-    
 }

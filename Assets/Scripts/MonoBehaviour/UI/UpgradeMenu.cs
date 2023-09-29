@@ -25,7 +25,7 @@ public class UpgradeMenu : MonoBehaviour
     [SerializeField] public TMPro.TextMeshProUGUI SellPriceText;
 
     private bool UpgradeConfirm;
-    private AttackerTowerStats TowerStats;
+    private TowerStats TowerStats;
     private float[] CurrentStatsArray;
     
     private TutorialManager Tmanager;
@@ -43,7 +43,7 @@ public class UpgradeMenu : MonoBehaviour
         CloseUpgradeWindow();
         Tmanager.CheckPhase4();
         ResetValues();
-        TowerStats = TileManager.Instance.SelectedTile.GetTower().GetComponent<AttackerTowerStats>();
+        TowerStats = TileManager.Instance.SelectedTile.GetTower().GetComponent<TowerStats>();
         transform.GetChild(0).gameObject.SetActive(true);
         UpgradeConfirm = false;
         SetStatsText();

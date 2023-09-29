@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8264eca4413723e41bf997aad9e2654d, type: 3}
   m_Name: SolidShot
   m_EditorClassIdentifier: 
-  BaseDamage: 10
-  BaseSpeed: 8
+  BaseSpeed: 1
   MaxTimeToDie: 2
