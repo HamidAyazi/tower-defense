@@ -8,9 +8,8 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] private Slider SFXSlider;
     [SerializeField] private Slider musicSlider;
     [SerializeField] private TMP_Dropdown FPSDropdown;
-    public Dropdown dropdown;
 
-    private void Start(){
+    private void Awake(){
         loadVolumes();
         loadFPS();
     }
@@ -29,7 +28,7 @@ public class SettingsMenu : MonoBehaviour
         musicSlider.value = PlayerPrefs.GetFloat("MusicVolume");
         setMusicVolume(musicSlider.value);
         SFXSlider.value = PlayerPrefs.GetFloat("SFXVolume");
-        setMusicVolume(SFXSlider.value);
+        setSFXVolume(SFXSlider.value);
     }
 
     public void SetQuality(int qualityIndex){

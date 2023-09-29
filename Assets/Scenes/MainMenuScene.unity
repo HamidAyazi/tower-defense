@@ -6710,10 +6710,16 @@ MonoBehaviour:
   - sound: 5
     clip: {fileID: 8300000, guid: 267f5c1b00a0d064691839b4395df7ae, type: 3}
   - sound: 2
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 7ed15e723f588ce448ee5384d6ea6353, type: 3}
   - sound: 6
     clip: {fileID: 8300000, guid: 6daa87534f1bc7a4c9937d4f780e9432, type: 3}
-  MusicArr: []
+  MusicArr:
+  - sound: 7
+    clip: {fileID: 8300000, guid: cc2ac635d32b4ab469f5329371017ba5, type: 3}
+  - sound: 8
+    clip: {fileID: 8300000, guid: 54675f9b8189723408a3b0408646baf8, type: 3}
+  - sound: 9
+    clip: {fileID: 8300000, guid: df0348f0e9ab85d4e8c55f59a6252de0, type: 3}
 --- !u!1 &798325777
 GameObject:
   m_ObjectHideFlags: 0

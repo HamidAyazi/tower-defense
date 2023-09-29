@@ -10,5 +10,8 @@ public enum Sound
     TankShot,
     EnemyDie,
     GameOver,
-    Victory
+    Victory,
+    BackgroundMusic1Clip,
+    BackgroundMusic2Clip,
+    BackgroundMusic3Clip
 };
