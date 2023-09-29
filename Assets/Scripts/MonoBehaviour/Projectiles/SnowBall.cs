@@ -75,14 +75,14 @@ public class SnowBall : MonoBehaviour
             TimeToDie -= Time.deltaTime;
             if (TimeToDie <= 0)
             {
-                Destroy(gameObject);
+                StartCoroutine(FadeOut());
             }
         }
     }
 
     private IEnumerator ExpandSplash()
     {
-        GetComponent<Renderer>().sortingLayerID = -1;
+        GetComponent<SpriteRenderer>().sortingOrder = 0;
         float splashDuration = 2f;
         float elapsedTime = 0f;
         while (elapsedTime < splashDuration)
@@ -95,6 +95,22 @@ public class SnowBall : MonoBehaviour
 
         // Ensure the scale reaches exactly the maxScale
         transform.localScale = new Vector3(Radius, Radius, 1);
+    }
+
+    private IEnumerator FadeOut()
+    {
+        float splashDuration = 0.5f;
+        float elapsedTime = 0f;
+        Color c = GetComponent<Renderer>().material.color;
+        while (elapsedTime < splashDuration)
+        {
+            float a = Mathf.Lerp(1, 0, elapsedTime / splashDuration);
+            GetComponent<Renderer>().material.color = new Color(c.r, c.g, c.b, a);
+            elapsedTime += Time.deltaTime + 0.01f;
+            yield return null;
+        }
+
+        Destroy(gameObject);
     }
 
     private void SlowEffect()
@@ -111,7 +127,7 @@ public class SnowBall : MonoBehaviour
     }
 
     /// <summary>
-    /// Creates a <c>SnowBall</c> and launches it to enemy.
+    /// Creates a <c>SnowBall</c> and launches it to enemy location.
     /// </summary>
     /// <param name="ProjectilePrefab">Prefab of the Projectile.</param>
     /// <param name="SpawnPosition">Spawn position of the projectile.</param>
