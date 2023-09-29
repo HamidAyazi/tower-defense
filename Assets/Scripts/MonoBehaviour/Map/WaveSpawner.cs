@@ -20,6 +20,11 @@ public class WaveSpawner : MonoBehaviour
     private void Start()
     {
         Map = SaveManager.Instance.Data.map;
+        foreach (Wave wave in Map.Waves)
+        {
+            // Add to the total enemies to spawn
+            totalEnemiesToSpawn += wave.EnemyNumber;
+        }
     }
 
     private void Update()
@@ -50,14 +55,12 @@ public class WaveSpawner : MonoBehaviour
     {
         Wave waveToSpawn = Map.Waves[waveIndex];
         GameStats.Wave = waveIndex + 1;
-        // Start spawning enemies with a delay
-        int enemiesToSpawn = waveToSpawn.EnemyNumber;
-        totalEnemiesToSpawn += enemiesToSpawn; // Add to the total enemies to spawn
 
-        StartCoroutine(SpawnEnemiesWithDelay(waveToSpawn.EnemyID, waveToSpawn.EnemyLevel, spawnDelay, enemiesToSpawn));
+        StartCoroutine(SpawnEnemiesWithDelay(waveToSpawn.EnemyID, waveToSpawn.EnemyLevel,
+                                             waveToSpawn.EnemyNumber));
     }
 
-    private IEnumerator SpawnEnemiesWithDelay(int enemyID, int enemyLevel, float spawnDelay, int count)
+    private IEnumerator SpawnEnemiesWithDelay(int enemyID, int enemyLevel, int count)
     {
         for (int i = 0; i < count; i++)
         {
@@ -74,7 +77,8 @@ public class WaveSpawner : MonoBehaviour
         {
             Transform enemy = Instantiate(enemyPrefab, Map.SpawnPointPosition, Quaternion.identity);
             enemy.GetComponent<Enemy>().Level = enemyLevel;
-            enemy.GetComponent<EnemyHealthSystem>().OnEnemyDied += HandleEnemyDeath; // Subscribe to the enemy's death event
+            // Subscribe to the enemy's death event
+            enemy.GetComponent<EnemyHealthSystem>().OnEnemyDied += HandleEnemyDeath; 
         }
         else
         {

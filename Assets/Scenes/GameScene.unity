@@ -1256,7 +1256,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &108548746
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3096,10 +3096,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TankTower: {fileID: 11400000, guid: b601b68fad041534db62d5fcb7dded2b, type: 2}
   DoubleBarrelTower: {fileID: 11400000, guid: 7a44ca33996a541429397af8d899384c, type: 2}
-  RailGunTower: {fileID: 11400000, guid: e9704b3bf32cf1e478d235ee42076f31, type: 2}
   DoubleBarrelPrefab: {fileID: 5904294667641698886, guid: de012a31d7211c44d976532043237255, type: 3}
   BasicTowerPrefab: {fileID: 5904294667641698886, guid: 57228c580c5a31e458deb8e164aa8d40, type: 3}
-  RailGunPrefab: {fileID: 5904294667641698886, guid: 7b1e6f9e79a124f48b6330654c4c5f40, type: 3}
   TankShopButton: {fileID: 1042481246}
   DoubleBarrelShopButton: {fileID: 125302190}
   RailGunShopButton: {fileID: 0}

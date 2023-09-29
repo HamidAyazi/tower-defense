@@ -14,7 +14,7 @@ public class SettingsMenu : MonoBehaviour
         loadVolumes();
         loadFPS();
     }
-    public void setVolume(float volume){
+    public void setSFXVolume(float volume){
         SoundManager.SetSFXVolume(volume);
         PlayerPrefs.SetFloat("SFXVolume", volume);
     }
