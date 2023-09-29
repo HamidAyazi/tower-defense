@@ -1,7 +1,5 @@
-using Newtonsoft.Json.Bson;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class SnowBall : MonoBehaviour
 {
@@ -84,6 +82,7 @@ public class SnowBall : MonoBehaviour
 
     private IEnumerator ExpandSplash()
     {
+        GetComponent<Renderer>().sortingLayerID = -1;
         float splashDuration = 2f;
         float elapsedTime = 0f;
         while (elapsedTime < splashDuration)
