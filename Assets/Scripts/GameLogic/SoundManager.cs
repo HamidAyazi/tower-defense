@@ -21,7 +21,7 @@ public static class SoundManager
 
     private static AudioClip GetSFX(Sound sound)
     {
-        foreach (var soundAudio in SFXArr)
+        foreach (SoundAudio soundAudio in SFXArr)
         {
             if (soundAudio.sound == sound) return soundAudio.clip;
         }

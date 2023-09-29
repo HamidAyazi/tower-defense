@@ -9,7 +9,7 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] private Slider musicSlider;
     [SerializeField] private TMP_Dropdown FPSDropdown;
 
-    private void Awake(){
+    private void Start(){
         loadVolumes();
         loadFPS();
     }

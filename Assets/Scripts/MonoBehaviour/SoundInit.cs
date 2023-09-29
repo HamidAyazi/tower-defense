@@ -13,6 +13,5 @@ public class SoundInit : MonoBehaviour
     {
         SoundManager.SFXArr = SFXArr;
         SoundManager.MusicArr = MusicArr;
-        SoundManager.PlayBackgroundMusic(0);
     }
 }
