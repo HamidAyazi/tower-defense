@@ -11,6 +11,6 @@ public class TowerScriptableObject : ScriptableObject
     // Base Price of each "Tower" unit. When a "Tower" is placed, the "Querency" will be reduce by it's "Price". Scales with "Level".
     public int BasePrice;
     // Base Range of each "Tower" unit. It shows how many "Tiles" away can a "Tower" cover. Scales with "Level".
-    public int BaseRange;
+    public float BaseRange;
 
 }

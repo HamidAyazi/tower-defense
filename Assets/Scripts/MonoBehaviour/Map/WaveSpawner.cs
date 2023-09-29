@@ -40,7 +40,8 @@ public class WaveSpawner : MonoBehaviour
                 if (currentWaveIndex < Map.Waves.Length)
                 {
                     // Set the time to spawn the next wave
-                    TimeToSpawnNewWave = Time.time + Map.Waves[currentWaveIndex].TimeToSpawn;
+                    TimeToSpawnNewWave = Time.time + Map.Waves[currentWaveIndex].TimeToSpawn
+                                         + GameStats.waveInterval;
                 }
                 else
                 {

@@ -25,11 +25,11 @@ public class AttackerTowerStats : MonoBehaviour
     /// </summary>
     private void Awake()
     {
-        CurrentLevel = 1;
-        Damage = AttackerTowerSO.BaseDamage;
-        AttackSpeed = AttackerTowerSO.BaseAttackSpeed;
-        Range = AttackerTowerSO.BaseRange;
-        RotationSpeed = AttackerTowerSO.BaseRotationSpeed;
+        CurrentLevel = 1 + GameStats.StartingLevel;
+        Damage = AttackerTowerSO.BaseDamage += GameStats.damage;
+        AttackSpeed = AttackerTowerSO.BaseAttackSpeed += GameStats.attackSpeed;
+        Range = AttackerTowerSO.BaseRange += GameStats.range;
+        RotationSpeed = AttackerTowerSO.BaseRotationSpeed += GameStats.rotationSpeed;
         MoneySpent = AttackerTowerSO.BasePrice;
     }
 
@@ -53,7 +53,7 @@ public class AttackerTowerStats : MonoBehaviour
     /// <returns>An array of <c>AttackerTower</c> status.</returns>
     public float[] GetLevelStatus(int Level)
     {
-        if (Level > MaxLevel)
+        if (Level > MaxLevel + GameStats.maxUpgradeLevel)
         {
             return null;
         }

@@ -25,7 +25,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -77,6 +77,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -89,6 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -101,6 +103,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -113,6 +116,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -125,6 +129,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -779,37 +784,37 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      towers_walls_blank_4: 1379476641
-      towers_walls_blank_19: 2144544436
-      towers_walls_blank_3: 72589947
-      towers_walls_blank_2: 1786100895
-      towers_walls_blank_23: 2068436131
-      towers_walls_blank_8: 309774380
-      towers_walls_blank_25: -695239818
-      towers_walls_blank_1: 237564851
-      towers_walls_blank_26: -1306486722
-      towers_walls_blank_24: 1278256092
-      towers_walls_blank_7: 628242402
-      towers_walls_blank_11: -2777428
-      towers_walls_blank_17: -910163291
-      towers_walls_blank_10: 1251979728
-      towers_walls_blank_22: 814035373
-      towers_walls_blank_13: 2079963714
       towers_walls_blank_0: -1966340499
-      towers_walls_blank_28: -1328466439
+      towers_walls_blank_1: 237564851
+      towers_walls_blank_10: 1251979728
+      towers_walls_blank_11: -2777428
       towers_walls_blank_12: -535225917
-      towers_walls_blank_29: 1620291668
-      towers_walls_blank_6: -135352799
+      towers_walls_blank_13: 2079963714
+      towers_walls_blank_14: -986793599
       towers_walls_blank_15: 892890940
       towers_walls_blank_16: -2024929616
-      towers_walls_blank_9: 854281207
-      towers_walls_blank_20: -468998106
-      towers_walls_blank_14: -986793599
+      towers_walls_blank_17: -910163291
       towers_walls_blank_18: -1186547240
+      towers_walls_blank_19: 2144544436
+      towers_walls_blank_2: 1786100895
+      towers_walls_blank_20: -468998106
       towers_walls_blank_21: -507399455
+      towers_walls_blank_22: 814035373
+      towers_walls_blank_23: 2068436131
+      towers_walls_blank_24: 1278256092
+      towers_walls_blank_25: -695239818
+      towers_walls_blank_26: -1306486722
       towers_walls_blank_27: 1257763846
+      towers_walls_blank_28: -1328466439
+      towers_walls_blank_29: 1620291668
+      towers_walls_blank_3: 72589947
+      towers_walls_blank_4: 1379476641
       towers_walls_blank_5: -1500006962
-  spritePackingTag: 
+      towers_walls_blank_6: -135352799
+      towers_walls_blank_7: 628242402
+      towers_walls_blank_8: 309774380
+      towers_walls_blank_9: 854281207
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
   assetBundleName: 
