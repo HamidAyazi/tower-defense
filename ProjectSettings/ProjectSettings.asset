@@ -68,8 +68,13 @@ PlayerSettings:
   androidStartInFullscreen: 1
   androidRenderOutsideSafeArea: 1
   androidUseSwappy: 1
+<<<<<<< Updated upstream
   androidBlitType: 2
   androidResizableWindow: 0
+=======
+  androidBlitType: 0
+  androidResizableWindow: 1
+>>>>>>> Stashed changes
   androidDefaultWindowWidth: 1920
   androidDefaultWindowHeight: 1080
   androidMinimumWindowWidth: 400
@@ -135,7 +140,11 @@ PlayerSettings:
   vulkanEnableLateAcquireNextImage: 0
   vulkanEnableCommandBufferRecycling: 1
   loadStoreDebugModeEnabled: 0
+<<<<<<< Updated upstream
   bundleVersion: 0.4
+=======
+  bundleVersion: 0.5
+>>>>>>> Stashed changes
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
