@@ -6,16 +6,20 @@ public class Shop : MonoBehaviour
     // tower assets
     public AttackerTowerScriptableObject TankTower;
     public AttackerTowerScriptableObject DoubleBarrelTower;
+    // public AttackerTowerScriptableObject RailGunTower;
     // tower assets
 
     // tower prefabs
     public GameObject DoubleBarrelPrefab;
     public GameObject BasicTowerPrefab;
+    // public GameObject RailGunPrefab;
     // tower prefabs
 
     // tower buttons
     public Button TankShopButton;
-    private bool IsTankButtonActive = false;
+    
+    public Button DoubleBarrelShopButton;
+    public Button RailGunShopButton;
     // tower buttons
 
     public TMPro.TextMeshProUGUI TowerName;
@@ -27,10 +31,6 @@ public class Shop : MonoBehaviour
     private void Start()
     {
         Tmanager = GameObject.Find("GameManager").GetComponent<TutorialManager>();
-        if (GameStats.Money < TankTower.BasePrice)
-        {
-            IsTankButtonActive = false;
-        }
     }
 
     private void Update()
@@ -42,25 +42,26 @@ public class Shop : MonoBehaviour
         {
             TankShopButton.interactable = true;
         }
+        if (GameStats.Money < DoubleBarrelTower.BasePrice)
+        {
+            DoubleBarrelShopButton.interactable = false;
+        } else
+        {
+            DoubleBarrelShopButton.interactable = true;
+        }
+        // if (GameStats.Money < RailGunTower.BasePrice)
+        // {
+        //     RailGunShopButton.interactable = false;
+        // } else
+        // {
+        //     RailGunShopButton.interactable = true;
+        // }
     }
 
     private void OnEnable()
     {
         SelectedTower = null;
         TowerName.text = "";
-    }
-    private void SetButtonStatus()
-    {
-        if (GameStats.Money < TankTower.BasePrice && IsTankButtonActive)
-        {
-            TankShopButton.interactable = false;
-            IsTankButtonActive = false;
-        }
-        else if (GameStats.Money >= TankTower.BasePrice && !IsTankButtonActive)
-        {
-            TankShopButton.interactable = false;
-            IsTankButtonActive = false;
-        }
     }
 
     /// <summary>
@@ -99,6 +100,7 @@ public class Shop : MonoBehaviour
                 TowerName.text = SelectedTower;
                 return;
             } else {
+                GameStats.Money -= DoubleBarrelTower.BasePrice;
                 // play tower spawn sound
                 SoundManager.PlaySound(Sound.TowerSpawn, TileManager.Instance.SelectedTile.transform.position,
                                         SelectedTower + " Spawn Sound");
@@ -110,6 +112,31 @@ public class Shop : MonoBehaviour
             }
         }
     }
+
+    /// <summary>
+    /// Place Rail Gun on selected tile.
+    /// </summary>
+    // public void RailGunTowerCliCk() {
+
+    //     if (GameStats.Money >= RailGunTower.BasePrice)
+    //     {
+    //         if (SelectedTower != RailGunTower.Name){
+    //             SelectedTower = RailGunTower.Name;
+    //             TowerName.text = SelectedTower;
+    //             return;
+    //         } else {
+    //             GameStats.Money -= RailGunTower.BasePrice;
+    //             // play tower spawn sound
+    //             SoundManager.PlaySound(Sound.TowerSpawn, TileManager.Instance.SelectedTile.transform.position,
+    //                                     SelectedTower + " Spawn Sound");
+    //             // place tower
+    //             TileManager.Instance.SelectedTile.SetTower(Instantiate(RailGunPrefab,
+    //                                                         TileManager.Instance.SelectedTile.transform.position,
+    //                                                         TileManager.Instance.SelectedTile.transform.rotation));
+    //             CloseShopWindow();
+    //         }
+    //     }
+    // }
 
     /// <summary>
     /// Open Shop Menu UI.
