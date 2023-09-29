@@ -54,6 +54,7 @@ public class TowerTile : MonoBehaviour, IPointerClickHandler
     public void DestroyTower(){
     if (Tower != null)
     {
+        SoundManager.PlaySound(Sound.TowerDespawn, transform.position, Tower.name);
         Destroy(Tower);
         Tower = null;
     }

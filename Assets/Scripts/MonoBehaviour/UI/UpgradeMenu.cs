@@ -27,12 +27,20 @@ public class UpgradeMenu : MonoBehaviour
     private bool UpgradeConfirm;
     private AttackerTowerStats TowerStats;
     private float[] CurrentStatsArray;
+    
+    private TutorialManager Tmanager;
+
+     private void Start()
+    {
+        Tmanager = GameObject.Find("GameManager").GetComponent<TutorialManager>();
+    }
 
     /// <summary>
     /// Open Upgrade Menu UI.
     /// </summary>
     public void OpenUpgradeWindow()
     {
+        Tmanager.CheckPhase4();
         ResetValues();
         TowerStats = TileManager.Instance.SelectedTile.GetTower().GetComponent<AttackerTowerStats>();
         transform.GetChild(0).gameObject.SetActive(true);

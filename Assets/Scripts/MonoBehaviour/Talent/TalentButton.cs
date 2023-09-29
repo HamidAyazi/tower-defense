@@ -7,19 +7,25 @@ public class TalentButton : MonoBehaviour
     [SerializeField] public int id;
     [SerializeField] private Button btn;
     [SerializeField] private string nodeName;
+    [SerializeField] private string nodeDescription;
     [SerializeField] public int Level;
     [SerializeField] private int MaxLevel;
     [SerializeField] private bool isUnlocked = false;
     [SerializeField] private int MinReqLevel;
     [SerializeField] private Color ColorFull;
-    [SerializeField] private Color ColorAvailable;
     [SerializeField] private Color ColorUnavailable;
 
+    [SerializeField] private TMPro.TextMeshProUGUI TName;
+    [SerializeField] private TMPro.TextMeshProUGUI Tlevel;
+    [SerializeField] private TMPro.TextMeshProUGUI Tdesc;
 
     public List<TalentButton> ParentNodes = new List<TalentButton>();
     public List<TalentButton> ChildNodes = new List<TalentButton>();
 
 
+    private void Awake(){
+        btn.targetGraphic.color = ColorUnavailable;
+    }
     public void UnlockChildNodes() {
         foreach(TalentButton talent in ChildNodes){
             if (!talent.isUnlocked) {
@@ -36,12 +42,18 @@ public class TalentButton : MonoBehaviour
     public void getTalent(){
         SoundManager.PlaySound(Sound.ButtonClick);
         Level +=1;
+
+        TName.text = nodeName;
+        Tlevel.text = Level.ToString();
+        Tdesc.text = nodeDescription;
+
         UnlockChildNodes();
         updateButton();
         updateTalent();
     }
 
     public void updateButton(){
+        btn.targetGraphic.color = Color.white;
         if(Level >= MaxLevel){
             btn.interactable = false;
             btn.targetGraphic.color = ColorFull;
@@ -49,8 +61,9 @@ public class TalentButton : MonoBehaviour
             btn.interactable = false;
             btn.targetGraphic.color = ColorUnavailable;
         } else {
+            Debug.Log(nodeName);
             btn.interactable = true;
-            btn.targetGraphic.color = ColorAvailable;
+            btn.targetGraphic.color = Color.white;
         }
     }
 
