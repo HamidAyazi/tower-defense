@@ -24,7 +24,7 @@ public class GameStats : MonoBehaviour
     public static bool infinity;
     public static int BonusCash; //
     public static int waveInterval; //
-    public static int earlyWaveBonusPoint;
+    public static int earlyWaveBonusPoint; //
     public static float rotationSpeed; //
     public static float range; //
     public static float ProjectileSpeed; //

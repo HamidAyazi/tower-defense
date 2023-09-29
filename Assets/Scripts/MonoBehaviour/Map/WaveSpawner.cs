@@ -6,7 +6,9 @@ public class WaveSpawner : MonoBehaviour
 {
     [SerializeField] private List<Transform> EnemyPrefabs; // List of enemy prefabs to spawn
     [SerializeField] private float spawnDelay;
+    [SerializeField] private float BonusTime;
 
+    // UI Elements
     [SerializeField] private Sprite playImage;
     [SerializeField] private Sprite pauseImage;
 
@@ -106,6 +108,10 @@ public class WaveSpawner : MonoBehaviour
         waveToggle = !waveToggle;
         if (waveToggle)
         {
+            if (currentWaveIndex != 0 && TimeToSpawnNewWave > Time.time + BonusTime)
+            {
+                GameStats.Money += GameStats.earlyWaveBonusPoint;
+            }
             TimeToSpawnNewWave = Time.time; // Start spawning immediately
         }
     }
