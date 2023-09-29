@@ -102,10 +102,11 @@ public class SnowBall : MonoBehaviour
     {
         float splashDuration = 0.5f;
         float elapsedTime = 0f;
+        float a;
         Color c = GetComponent<Renderer>().material.color;
         while (elapsedTime < splashDuration)
         {
-            float a = Mathf.Lerp(1, 0, elapsedTime / splashDuration);
+            a = Mathf.Lerp(1, 0, elapsedTime / splashDuration);
             GetComponent<Renderer>().material.color = new Color(c.r, c.g, c.b, a);
             elapsedTime += Time.deltaTime + 0.01f;
             yield return null;

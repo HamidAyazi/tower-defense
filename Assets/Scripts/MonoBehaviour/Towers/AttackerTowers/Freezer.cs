@@ -88,7 +88,7 @@ public class Freezer : MonoBehaviour
         if (ShootTimer < 0f)
         {
             // play shooting sound
-            //SoundManager.PlaySound(Sound.TankShot, ProjectileSpawnPoint.position, "Freezer Shot");
+            SoundManager.PlaySound(Sound.FreezerShot, ProjectileSpawnPoint.position, "Freezer Shot");
             // shoot
             SnowBall.CreateProjectile(ProjectilePrefab, ProjectileSpawnPoint.position,
                 TargetEnemy.transform.position, SlowMP, SlowTime, Radius);
