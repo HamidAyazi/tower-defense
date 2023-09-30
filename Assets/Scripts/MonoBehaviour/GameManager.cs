@@ -8,5 +8,6 @@ public class GameManager : MonoBehaviour
     {
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = PlayerPrefs.GetInt("FPS");
+        SoundManager.PlayBackgroundMusic(1);
     }
 }

@@ -49,7 +49,7 @@ public static class SoundManager
         }
         else
         {
-            int MusicIndex = (int) (Random.value * 3);
+            int MusicIndex = Random.Range(0, 3);
             GlobalMusicAudioSource.clip = MusicArr[MusicIndex].clip;
             GlobalMusicAudioSource.Play();
         }
