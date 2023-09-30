@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 1
   Name: Dayere
-  BaseHealtPoint: 20
+  BaseHealtPoint: 10
   BaseDamage: 1
   MovementSpeed: 2

@@ -6,15 +6,15 @@ public static class MapInit
 {
     private static Wave[] GetWaves(int MapID)
     {
-        Wave[] waves = new Wave[20];
+        Wave[] waves = new Wave[10];
         for (int i = 0; i < waves.Length; i++)
         {
             waves[i] = new Wave()
             {
                 EnemyID = 1,
-                EnemyNumber = i + 5,
-                EnemyLevel = 1 + (int) Random.value * 2,
-                TimeToSpawn = 5f,
+                EnemyNumber = MapID + i,
+                EnemyLevel = Random.Range(1 , MapID),
+                TimeToSpawn = 10f,
             };
         }
         return waves;
