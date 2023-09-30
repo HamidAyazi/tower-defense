@@ -44,6 +44,7 @@ public class Tank : MonoBehaviour
         HandleTargeting();
         HandleShooting();
     } 
+
     private void HandleTargeting()
     {
         LookForTargetTimer -= Time.deltaTime;
@@ -63,6 +64,7 @@ public class Tank : MonoBehaviour
             LookForTargetTimer += LookForTargetTimerMAX;
         }
     }
+
     private void LookForTarget()
     {
         Collider2D[] Collider2DArray = Physics2D.OverlapCircleAll(transform.position, Stats.Range);
@@ -85,8 +87,9 @@ public class Tank : MonoBehaviour
     private void HandleShooting()
     {
         ShootTimer -= Time.deltaTime;
-        if (ShootTimer < 0f)
+        if (ShootTimer <= 0f)
         {
+            ShootTimer += 1 / Stats.AttackSpeed; // Reset timer
             if (HeadRotation.IsLocked())
             {
                 // trigger shooting animation
@@ -96,7 +99,6 @@ public class Tank : MonoBehaviour
                 // shoot
                 SolidShot.CreateProjectile(ProjectilePrefab, ProjectileSpawnPoint.position, TargetEnemy, Stats.Damage);
             }
-            ShootTimer += 1 / Stats.AttackSpeed;
         }  
     }
     

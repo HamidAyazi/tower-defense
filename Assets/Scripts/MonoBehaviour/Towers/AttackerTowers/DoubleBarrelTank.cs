@@ -45,7 +45,8 @@ public class DoubleBarrelTank : MonoBehaviour
     {
         HandleTargeting();
         HandleShooting();
-    } 
+    }
+
     private void HandleTargeting()
     {
         LookForTargetTimer -= Time.deltaTime;
@@ -65,6 +66,7 @@ public class DoubleBarrelTank : MonoBehaviour
             LookForTargetTimer += LookForTargetTimerMAX;
         }
     }
+
     private void LookForTarget()
     {
         Collider2D[] Collider2DArray = Physics2D.OverlapCircleAll(transform.position, Stats.Range);
@@ -89,6 +91,7 @@ public class DoubleBarrelTank : MonoBehaviour
         ShootTimer -= Time.deltaTime;
         if (ShootTimer < 0f)
         {
+            ShootTimer += 1 / Stats.AttackSpeed; // Reset timer
             if (HeadRotation.IsLocked())
             {
                 // trigger shooting animation
@@ -100,7 +103,6 @@ public class DoubleBarrelTank : MonoBehaviour
                 SolidShot.CreateProjectile(ProjectilePrefab, ProjectileSpawnPoint2.position, TargetEnemy, Stats.Damage);
             }
         }
-        ShootTimer += 1 / Stats.AttackSpeed;  
     }
 
 }

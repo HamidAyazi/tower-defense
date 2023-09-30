@@ -134,5 +134,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ProjectileSO: {fileID: 11400000, guid: 5faaf8f57e9931f4e8a7a05b700fcf2f, type: 2}
-  MaxScale: 1.5
+  MaxScale: 0.6
   DefaultScale: 0.2
