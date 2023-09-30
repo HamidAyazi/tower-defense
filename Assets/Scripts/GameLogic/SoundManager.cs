@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public static class SoundManager
@@ -30,9 +29,9 @@ public static class SoundManager
     }
 
     /// <summary>
-    /// 
+    /// Plays backgorund music during the game.
     /// </summary>
-    /// <param name="SceneID"></param>
+    /// <param name="SceneID">ID of the playing scene.</param>
     public static void PlayBackgroundMusic(int SceneID)
     {
         if (MusicGameObject == null)
@@ -56,7 +55,7 @@ public static class SoundManager
     }
 
     /// <summary>
-    /// 
+    /// Stop the background music.
     /// </summary>
     public static void StopBackgroundMusic()
     {
@@ -98,9 +97,9 @@ public static class SoundManager
         Object.Destroy(PositionedSoundGameObject, audioSource.clip.length);
     }
     /// <summary>
-    /// 
+    /// Set all SFX volumes.
     /// </summary>
-    /// <param name="volume"></param>
+    /// <param name="volume">Volume of the SFX.</param>
     public static void SetSFXVolume(float volume)
     {
         SFXVolume = volume;
@@ -110,9 +109,9 @@ public static class SoundManager
         }
     }
     /// <summary>
-    /// 
+    /// Set all Music Volumes.
     /// </summary>
-    /// <param name="volume"></param>
+    /// <param name="volume">Volume of the Music.</param>
     public static void SetMusicVolume(float volume)
     {
         MusicVolume = volume;

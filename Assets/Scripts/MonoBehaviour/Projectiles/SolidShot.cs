@@ -20,7 +20,7 @@ public class SolidShot : MonoBehaviour
         EnemyHealthSystem EHS = TargetEnemy.GetComponent<EnemyHealthSystem>();
 
         // Here goes to Event Subs
-        EHS.OnEnemyDied += RemoveTarget_OnTargerDied;
+        EHS.OnEnemyDied += RemoveTarget_OnEnemyDied;
 
         // Here goes to calculations based on level
         TimeToDie = ProjectileSO.MaxTimeToDie;
@@ -62,7 +62,7 @@ public class SolidShot : MonoBehaviour
         }
     }
 
-    private void RemoveTarget_OnTargerDied(object sender, EventArgs e)
+    private void RemoveTarget_OnEnemyDied(object sender, EventArgs e)
     {
         TargetEnemy = null;
     }

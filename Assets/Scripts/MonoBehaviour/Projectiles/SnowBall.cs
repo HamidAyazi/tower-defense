@@ -98,6 +98,19 @@ public class SnowBall : MonoBehaviour
         transform.localScale = new Vector3(Radius, Radius, 1);
     }
 
+    private void SlowEffect()
+    {
+        Collider2D[] Collider2DArray = Physics2D.OverlapCircleAll(transform.position, Radius);
+        foreach (Collider2D Collider2D in Collider2DArray)
+        {
+            Enemy FoundEnemy = Collider2D.GetComponent<Enemy>();
+            if (FoundEnemy != null) // if object is an Enemy
+            {
+                FoundEnemy.GetComponent<EnemyMovement>().ChangeSpeed(FoundEnemy.EnemySO.MovementSpeed * SlowMP, SlowTime);
+            }
+        }
+    }
+
     private IEnumerator FadeOut()
     {
         float splashDuration = 0.5f;
@@ -111,23 +124,9 @@ public class SnowBall : MonoBehaviour
             elapsedTime += Time.deltaTime + 0.01f;
             yield return null;
         }
-
         Destroy(gameObject);
     }
-
-    private void SlowEffect()
-    {
-        Collider2D[] Collider2DArray = Physics2D.OverlapCircleAll(transform.position, Radius);
-        foreach (Collider2D Collider2D in Collider2DArray)
-        {
-            Enemy FoundEnemy = Collider2D.GetComponent<Enemy>();
-            if (FoundEnemy != null) // if object is an Enemy
-            {
-                FoundEnemy.GetComponent<EnemyMovement>().ChangeSpeed(FoundEnemy.EnemySO.MovementSpeed * SlowMP, SlowTime);
-            } 
-        }
-    }
-
+   
     /// <summary>
     /// Creates a <c>SnowBall</c> and launches it to enemy location.
     /// </summary>

@@ -41,18 +41,8 @@ public class WaveSpawner : MonoBehaviour
                 // Spawn the current wave
                 SpawnWave(currentWaveIndex);
                 currentWaveIndex++;
-
-                if (currentWaveIndex < Map.Waves.Length)
-                {
-                    // Set the time to spawn the next wave
-                    TimeToSpawnNewWave = Time.time + Map.Waves[currentWaveIndex].TimeToSpawn
-                                         + GameStats.waveInterval;
-                }
-                else
-                {
-                    // All waves have been spawned, stop spawning
-                    waveToggle = false;
-                }
+                // Set the time to spawn the next wave
+                TimeToSpawnNewWave = Time.time + Map.Waves[currentWaveIndex].TimeToSpawn + GameStats.waveInterval;
             }
             else
             {
@@ -66,9 +56,8 @@ public class WaveSpawner : MonoBehaviour
     {
         Wave waveToSpawn = Map.Waves[waveIndex];
         GameStats.Wave = waveIndex + 1;
-
-        StartCoroutine(SpawnEnemiesWithDelay(waveToSpawn.EnemyID, waveToSpawn.EnemyLevel,
-                                             waveToSpawn.EnemyNumber));
+        // Start spawning enemies with a delay
+        StartCoroutine(SpawnEnemiesWithDelay(waveToSpawn.EnemyID, waveToSpawn.EnemyLevel, waveToSpawn.EnemyNumber));
     }
 
     private IEnumerator SpawnEnemiesWithDelay(int enemyID, int enemyLevel, int count)

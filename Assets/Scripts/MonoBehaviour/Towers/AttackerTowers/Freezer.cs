@@ -11,10 +11,6 @@ public class Freezer : MonoBehaviour
     [SerializeField] private float FreezeRadius;
     [SerializeField] private float SlowTime;
 
-    /*-------- Head Attributes --------*/
-    private Transform ProjectileSpawnPoint;
-
-
     /*-------- Logic Attributes --------*/
     private float ShootTimer = 0f;
     private float LookForTargetTimer;
@@ -25,9 +21,6 @@ public class Freezer : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        // Get Projectile Spawn Point 
-        ProjectileSpawnPoint = transform.Find("ProjectileSpawnPoint");
-
         // Set Status
         Stats = GetComponent<TowerStats>();
 
@@ -88,9 +81,9 @@ public class Freezer : MonoBehaviour
         if (ShootTimer < 0f)
         {
             // play shooting sound
-            SoundManager.PlaySound(Sound.FreezerShot, ProjectileSpawnPoint.position, "Freezer Shot");
+            SoundManager.PlaySound(Sound.FreezerShot, transform.position, "Freezer Shot");
             // shoot
-            SnowBall.CreateProjectile(ProjectilePrefab, ProjectileSpawnPoint.position,
+            SnowBall.CreateProjectile(ProjectilePrefab, transform.position,
                 TargetEnemy.transform.position, SlowMP, SlowTime, FreezeRadius);
             ShootTimer += 1 / Stats.AttackSpeed;
         }
