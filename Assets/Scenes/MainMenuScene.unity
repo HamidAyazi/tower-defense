@@ -6864,6 +6864,7 @@ GameObject:
   - component: {fileID: 669776038}
   - component: {fileID: 669776040}
   - component: {fileID: 669776039}
+  - component: {fileID: 669776041}
   m_Layer: 5
   m_Name: Talent Tree
   m_TagString: Untagged
@@ -6931,6 +6932,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 669776037}
   m_CullTransparentMesh: 1
+--- !u!114 &669776041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669776037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f29010b89e310ff4abe1eb345c8d4399, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActivePanelID: 2
 --- !u!1 &688025301
 GameObject:
   m_ObjectHideFlags: 0
@@ -9912,6 +9926,7 @@ GameObject:
   - component: {fileID: 1045627654}
   - component: {fileID: 1045627656}
   - component: {fileID: 1045627655}
+  - component: {fileID: 1045627657}
   m_Layer: 5
   m_Name: Level List
   m_TagString: Untagged
@@ -9978,6 +9993,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1045627653}
   m_CullTransparentMesh: 1
+--- !u!114 &1045627657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1045627653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f29010b89e310ff4abe1eb345c8d4399, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActivePanelID: 3
 --- !u!1 &1051176021
 GameObject:
   m_ObjectHideFlags: 0
@@ -15918,6 +15946,7 @@ GameObject:
   - component: {fileID: 1796396967}
   - component: {fileID: 1796396969}
   - component: {fileID: 1796396968}
+  - component: {fileID: 1796396970}
   m_Layer: 5
   m_Name: Setting
   m_TagString: Untagged
@@ -16003,6 +16032,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1796396965}
   m_CullTransparentMesh: 1
+--- !u!114 &1796396970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796396965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f29010b89e310ff4abe1eb345c8d4399, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActivePanelID: 1
 --- !u!1 &1825906511
 GameObject:
   m_ObjectHideFlags: 0
