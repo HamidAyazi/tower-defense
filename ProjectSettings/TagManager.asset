@@ -47,6 +47,9 @@ TagManager:
   - name: Tile
     uniqueID: 3649957749
     locked: 0
+  - name: Spawn/Base
+    uniqueID: 3317362225
+    locked: 0
   - name: Tower
     uniqueID: 1793171671
     locked: 0

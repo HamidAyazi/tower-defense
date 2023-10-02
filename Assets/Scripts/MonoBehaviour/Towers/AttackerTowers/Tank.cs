@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Tank : MonoBehaviour
@@ -20,7 +17,7 @@ public class Tank : MonoBehaviour
     private float LookForTargetTimer;
     private float LookForTargetTimerMAX = 0.02f;
     private Enemy TargetEnemy;
-    private AttackerTowerStats Stats;
+    private TowerStats Stats;
 
     // Start is called before the first frame update
     private void Start()
@@ -30,7 +27,7 @@ public class Tank : MonoBehaviour
         ProjectileSpawnPoint = Head.Find("ProjectileSpawnPoint");
 
         // Set Status
-        Stats = GetComponent<AttackerTowerStats>();
+        Stats = GetComponent<TowerStats>();
 
         // Set Rotation
         TowerAnimator = Head.GetComponent<Animator>();
@@ -46,50 +43,55 @@ public class Tank : MonoBehaviour
     {
         HandleTargeting();
         HandleShooting();
-
     } 
+
     private void HandleTargeting()
     {
         LookForTargetTimer -= Time.deltaTime;
         if (LookForTargetTimer < 0f)
         {
+            if (TargetEnemy != null)
+            {
+                if (Vector3.Distance(transform.position, TargetEnemy.transform.position) > Stats.Range)
+                {
+                    TargetEnemy = null;
+                }
+            }
+            else
+            {
+                LookForTarget();
+            }
             LookForTargetTimer += LookForTargetTimerMAX;
-            LookForTargets();
         }
     }
-    private void LookForTargets()
+
+    private void LookForTarget()
     {
         Collider2D[] Collider2DArray = Physics2D.OverlapCircleAll(transform.position, Stats.Range);
-        foreach (Collider2D Collider2D in Collider2DArray)
+        float Distance = Stats.Range;
+        foreach (Collider2D Collider2D in Collider2DArray) // in all in range objects
         {
-            Enemy enemy = Collider2D.GetComponent<Enemy>();
-            if (enemy != null)
+            Enemy FoundEnemy = Collider2D.GetComponent<Enemy>();
+            if (FoundEnemy != null) // if object is an Enemy
             {
-                // Is an Enemy!
-                if (TargetEnemy == null)
+                float NewDistance = Vector3.Distance(transform.position, FoundEnemy.transform.position);
+                if (NewDistance < Distance) // is closer
                 {
-                    TargetEnemy = enemy;
-                    HeadRotation.SetTarget(TargetEnemy);
-                } else
-                {
-                    if (Vector3.Distance(transform.position, enemy.transform.position) <
-                        Vector3.Distance(transform.position, TargetEnemy.transform.position))
-                    {
-                        // CLoser!
-                        TargetEnemy = enemy;
-                        HeadRotation.SetTarget(TargetEnemy);
-                    }
+                    Distance = NewDistance;
+                    TargetEnemy = FoundEnemy;
                 }
             }
         }
+        HeadRotation.SetTarget(TargetEnemy);
     }
+
     private void HandleShooting()
     {
         ShootTimer -= Time.deltaTime;
-        if (ShootTimer < 0f)
+        if (ShootTimer <= 0f)
         {
-            ShootTimer += 1 / Stats.AttackSpeed;
-            if (TargetEnemy != null && HeadRotation.IsLocked())
+            ShootTimer += 1 / Stats.AttackSpeed; // Reset timer
+            if (HeadRotation.IsLocked())
             {
                 // trigger shooting animation
                 TowerAnimator.SetTrigger("IsShooting");

@@ -4,7 +4,7 @@ using UnityEngine;
 public class TileManager : MonoBehaviour
 {
     public static TileManager Instance { get; private set; }
-    [NonSerialized] public Tile SelectedTile;
+    [NonSerialized] public TowerTile SelectedTile;
 
     private void Awake()
     {
@@ -16,5 +16,9 @@ public class TileManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void SellTower(){
+        SelectedTile.DestroyTower();
     }
 }

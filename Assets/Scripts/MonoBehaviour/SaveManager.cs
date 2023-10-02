@@ -20,54 +20,52 @@ public class SaveManager : MonoBehaviour
             return;
         }
         Instance = this;
+        Maps = MapInit.GetDefaultMaps();
+        Data = new GameData();
 
         DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
     {
-        Data = new GameData();
         LoadPlayerStats();
         LoadAllMaps();
+        //LoadLastPlayedMap();
     }
-
-    private void SavePlayerStats()
+    private void OnApplicationQuit()
     {
-        FileHandler.SaveData(Data.playerStats, PlayerStatsFileName);
+        SavePlayerStats();
+        SaveAllMaps();
+        //SaveLastPlayedMap();
     }
-
     private void LoadPlayerStats()
     {
-        Data.playerStats = FileHandler.LoadData<GameData.PlayerStats>(PlayerStatsFileName);
-        if (Data.playerStats == null)
+        GameData.PlayerStats LoadedStats = FileHandler.LoadData<GameData.PlayerStats>(PlayerStatsFileName);
+        if (LoadedStats == null)
         {
-            Data.playerStats = new GameData.PlayerStats();
+            Debug.LogError("Can not find any saved player stats. Loading default player.");
+            return;
         }
-    }
-
-    private void SaveLastPlayedMap()
-    {
-        FileHandler.SaveData(Data.lastPlayedLevel, LastPlayedLevelFileName);
-    }
-
-    private void SaveAllMaps()
-    {
-        // Save map list to the file
-        FileHandler.SaveData<List<GameData.Map>>(Maps, MapsFileName);
-
+        Data.playerStats = LoadedStats;
     }
 
     private void LoadAllMaps()
     {
-        Maps = FileHandler.LoadData<List<GameData.Map>>(MapsFileName);
+        List <GameData.Map> MapsToLoad = FileHandler.LoadData<List<GameData.Map>>(MapsFileName);
+        if (MapsToLoad == null)
+        {
+            Debug.LogError("Can not find Maps file. Loading default maps.");
+            return;
+        }
+        foreach (GameData.Map map in MapsToLoad)
+        {
+            if (Maps.Find(Map => Map.MapID == map.MapID) == null)
+            {
+                Maps.Add(map);
+            }
+        }
     }
 
-    private void OnApplicationQuit()
-    {
-        SavePlayerStats();
-        //SaveLastPlayedMap();
-        SaveAllMaps();
-    }
 
     /// <summary>
     /// Load <c>LastPlayedMap</c> from device.
@@ -75,6 +73,19 @@ public class SaveManager : MonoBehaviour
     public void LoadLastPlayedMap()
     {
         Data.lastPlayedLevel = FileHandler.LoadData<GameData.LastPlayedLevel>(LastPlayedLevelFileName);
+    }
+    private void SavePlayerStats()
+    {
+        FileHandler.SaveData(Data.playerStats, PlayerStatsFileName);
+    }
+    private void SaveAllMaps()
+    {
+        // Save map list to the file
+        FileHandler.SaveData<List<GameData.Map>>(Maps, MapsFileName);
+    }
+    private void SaveLastPlayedMap()
+    {        
+        FileHandler.SaveData(Data.lastPlayedLevel, LastPlayedLevelFileName);
     }
 
     /// <summary>

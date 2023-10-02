@@ -20,16 +20,16 @@ public class EnemyHealthSystem : MonoBehaviour
     /// Reduces health of the <c>Enemy</c> by a fixed amount.
     /// </summary>
     /// <param name="DamageReceived">The amount of received damage.</param>
-    public void DealDamage(float DamageReceived)
+    public void ReceiveDamage(float DamageReceived)
     {
         HealthPoint -= DamageReceived;
         HealthPoint = Mathf.Clamp(HealthPoint, 0, MaximumHealthPoint);
 
-        if (IsDead())
+        if (HealthPoint == 0)
         {
-            OnEnemyDied?.Invoke(this, EventArgs.Empty);
+            SoundManager.PlaySound(Sound.EnemyDie, transform.position, GetComponent<Enemy>().EnemySO.Name + "Die Sound");
+            Kill();
         }
-        
     }
 
     /// <summary>
@@ -51,12 +51,12 @@ public class EnemyHealthSystem : MonoBehaviour
     }
 
     /// <summary>
-    /// A method to see if enemy is dead or is still alive.
+    /// Kill Enemy and Destory it's GameObject.
     /// </summary>
-    /// <returns>True if <c>HealtPoint</c> is 0, elsewise False.</returns>
-    public bool IsDead()
+    public void Kill()
     {
-        return HealthPoint == 0;
+        OnEnemyDied?.Invoke(this, EventArgs.Empty);
+        Destroy(gameObject);
     }
 
 }

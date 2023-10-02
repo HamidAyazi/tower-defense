@@ -1,5 +1,4 @@
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class SolidShot : MonoBehaviour
@@ -21,11 +20,11 @@ public class SolidShot : MonoBehaviour
         EnemyHealthSystem EHS = TargetEnemy.GetComponent<EnemyHealthSystem>();
 
         // Here goes to Event Subs
-        EHS.OnEnemyDied += RemoveTarget_OnTargerDied;
+        EHS.OnEnemyDied += RemoveTarget_OnEnemyDied;
 
         // Here goes to calculations based on level
         TimeToDie = ProjectileSO.MaxTimeToDie;
-        Speed = ProjectileSO.BaseSpeed;
+        Speed = ProjectileSO.BaseSpeed += GameStats.ProjectileSpeed;
     }
 
     // Update is called once per frame
@@ -58,12 +57,12 @@ public class SolidShot : MonoBehaviour
         { 
             // Hit an Enemy!          
             EnemyHealthSystem HealthSystem = Enemy.GetComponent<EnemyHealthSystem>();
-            HealthSystem.DealDamage(Damage);
+            HealthSystem.ReceiveDamage(Damage);
             Destroy(gameObject);
         }
     }
 
-    private void RemoveTarget_OnTargerDied(object sender, EventArgs e)
+    private void RemoveTarget_OnEnemyDied(object sender, EventArgs e)
     {
         TargetEnemy = null;
     }
