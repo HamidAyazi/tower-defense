@@ -6945,6 +6945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActivePanelID: 2
+  Menu: {fileID: 1613949960}
 --- !u!1 &688025301
 GameObject:
   m_ObjectHideFlags: 0
@@ -10006,6 +10007,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActivePanelID: 3
+  Menu: {fileID: 1613949960}
 --- !u!1 &1051176021
 GameObject:
   m_ObjectHideFlags: 0
@@ -12234,7 +12236,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -60}
+  m_AnchoredPosition: {x: 0, y: -59.99994}
   m_SizeDelta: {x: 0, y: -120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1256383479
@@ -14831,6 +14833,7 @@ GameObject:
   - component: {fileID: 1613949962}
   - component: {fileID: 1613949964}
   - component: {fileID: 1613949963}
+  - component: {fileID: 1613949965}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
@@ -14916,6 +14919,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1613949960}
   m_CullTransparentMesh: 1
+--- !u!114 &1613949965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613949960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f29010b89e310ff4abe1eb345c8d4399, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActivePanelID: 0
+  Menu: {fileID: 1613949960}
 --- !u!1 &1623385267
 GameObject:
   m_ObjectHideFlags: 0
@@ -16045,6 +16062,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActivePanelID: 1
+  Menu: {fileID: 1613949960}
 --- !u!1 &1825906511
 GameObject:
   m_ObjectHideFlags: 0

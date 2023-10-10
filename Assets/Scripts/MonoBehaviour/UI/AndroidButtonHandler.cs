@@ -3,6 +3,7 @@ using UnityEngine;
 public class AndroidButtonHandler : MonoBehaviour
 {
     [SerializeField] private int ActivePanelID;
+    [SerializeField] private GameObject Menu;
 
     private bool ExitConfirm = false;
     private float ExitTimer = 2f;
@@ -33,15 +34,15 @@ public class AndroidButtonHandler : MonoBehaviour
             }
             if (ActivePanelID == 1)
             {
-                GetComponentInParent<Mainmenu>().CloseSetting();
+                Menu.GetComponent<Mainmenu>().CloseSetting();
             }
             if (ActivePanelID == 2)
             {
-                GetComponentInParent<Mainmenu>().CloseTalents();
+                Menu.GetComponent<Mainmenu>().CloseTalents();
             }
             if (ActivePanelID == 3)
             {
-                GetComponentInParent<Mainmenu>().CloseLevels();
+                Menu.GetComponent<Mainmenu>().CloseLevels();
             }
         }
     }
