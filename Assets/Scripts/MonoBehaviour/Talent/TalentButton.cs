@@ -61,7 +61,7 @@ public class TalentButton : MonoBehaviour
             btn.interactable = false;
             btn.targetGraphic.color = ColorUnavailable;
         } else {
-            Debug.Log(nodeName);
+            //Debug.Log(nodeName);
             btn.interactable = true;
             btn.targetGraphic.color = Color.white;
         }
